@@ -6,20 +6,28 @@
                 <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
                 <li class="breadcrumb-item active">Produk</li>
             </ol>
-            <div class="card mb-4">
-                <div class="card-body">
-                    <p class="mb-0">
-                        This page is an example of using static navigation. By removing the
-                        <code>.sb-nav-fixed</code>
-                        class from the
-                        <code>body</code>
-                        , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example.
-                    </p>
-                </div>
-            </div>
-            <div style="height: 100vh"></div>
-            <div class="card mb-4">
-                <div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div>
+            <div>
+                <hr>
+                <table border="1">
+                    <a href="">Tambah Produk</a>
+                    <br>
+                    <br>
+                    <tr>
+                        <td>Id</td>
+                        <td>Nama Produk</td>
+                        <td>Aksi</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>HRM & Payroll</td>
+                        <td><a href="">Edit</a> | <a href="">Hapus</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>ERP System</td>
+                        <td><a href="">Edit</a> | <a href="">Hapus</a></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </main>
