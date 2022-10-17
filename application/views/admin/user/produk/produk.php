@@ -9,24 +9,29 @@
             <div>
                 <hr>
                 <table border="1">
-                    <a href="">Tambah Produk</a>
+                    <a href="<?= base_url('produk/tambah_produk') ?>">Tambah Produk</a>
                     <br>
                     <br>
                     <tr>
-                        <td>Id</td>
+                        <td>ID</td>
                         <td>Nama Produk</td>
                         <td>Aksi</td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>HRM & Payroll</td>
-                        <td><a href="">Edit</a> | <a href="">Hapus</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ERP System</td>
-                        <td><a href="">Edit</a> | <a href="">Hapus</a></td>
-                    </tr>
+                    <?php
+                    $count = 0;
+                    foreach ($queryAllPrdk as $row) {
+                        $count = $count + 1;
+                    ?>
+                        <tr>
+                            <td><?= $count ?></td>
+                            <td><?= $row->nama ?></td>
+                            <td><a href="<?= base_url('produk/edit_produk') ?>/<?= $row->id ?>">Edit</a> | <a href="<?= base_url('produk/fungsi_hapus') ?>/<?= $row->id ?>">Hapus</a></td>
+                        </tr>
+                    <?php
+
+                    }
+
+                    ?>
                 </table>
             </div>
         </div>
