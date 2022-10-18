@@ -1,31 +1,35 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
-class model_Portofolio extends CI_Model {
-    function getDataportofolio() {
+defined('BASEPATH') or exit('No direct script access allowed');
+class model_Portofolio extends CI_Model
+{
+    function getDataportofolio()
+    {
         $query = $this->db->get('portofolio');
         return $query->result();
     }
 
-    function insertDataportofolio($data) {
+    function insertDataportofolio($data)
+    {
         $this->db->insert('portofolio', $data);
     }
 
-    function getDataPortofolioDetail($id) {
+    function getDataPortofolioDetail($id)
+    {
         $this->db->where('id', $id);
         $query = $this->db->get('portofolio');
         return $query->row();
     }
 
-    function updateDataPortofolio($id, $data) {
+    function updateDataPortofolio($id, $data)
+    {
         $this->db->where('id', $id);
         $this->db->update('portofolio', $data);
     }
 
-    function hapusDataPortofolio($id) {
+    function hapusDataPortofolio($id)
+    {
         $this->db->where('id', $id);
         $this->db->delete('portofolio');
     }
 }
-
-?>

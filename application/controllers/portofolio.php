@@ -1,6 +1,6 @@
 <?php
 
-class portofolio extends CI_Controller 
+class portofolio extends CI_Controller
 {
     public function __construct()
     {
@@ -8,7 +8,7 @@ class portofolio extends CI_Controller
         $this->load->model('model_portofolio');
     }
 
-        public function index()
+    public function index()
     {
         $queryAllportofolio = $this->model_portofolio->getDataportofolio();
         $DATA = array('queryAllPrdk' => $queryAllportofolio);
@@ -64,5 +64,3 @@ class portofolio extends CI_Controller
         redirect(base_url('portofolio'));
     }
 }
-
-

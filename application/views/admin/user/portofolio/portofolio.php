@@ -25,7 +25,7 @@
                         <tr>
                             <td><?= $count ?></td>
                             <td><?= $row->nama ?></td>
-                            <td><a href="<?= base_url('portofolio/edit_portofolio/').$row->id?>">Edit</a> | <a href="<?= base_url('portofolio/fungsi_hapus/').$row->id?>">Hapus</a></td>
+                            <td><a href="<?= base_url('portofolio/edit_portofolio/') . $row->id ?>">Edit</a> | <a href="<?= base_url('portofolio/fungsi_hapus/') . $row->id ?>">Hapus</a></td>
                         </tr>
                     <?php
 
@@ -36,4 +36,3 @@
             </div>
         </div>
     </main>
-           

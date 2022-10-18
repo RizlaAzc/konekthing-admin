@@ -27,5 +27,3 @@ class model_produk extends CI_Model {
         $this->db->delete('produk');
     }
 }
-
-?>

@@ -1,6 +1,7 @@
 <?php
 
-class beranda extends CI_Controller {
+class beranda extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
