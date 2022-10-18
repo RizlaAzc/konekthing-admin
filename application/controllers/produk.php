@@ -12,14 +12,16 @@ class produk extends CI_Controller
     {
         $queryAllProduk = $this->model_produk->getDataProduk();
         $DATA = array('queryAllPrdk' => $queryAllProduk);
-        $this->load->view('header');
+        $title['title'] = 'Produk - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/user/produk/produk', $DATA);
         $this->load->view('footer');
     }
 
     public function tambah_produk()
     {
-        $this->load->view('header');
+        $title['title'] = 'Tambah Produk - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/user/produk/tambah-produk');
         $this->load->view('footer');
     }
@@ -28,7 +30,8 @@ class produk extends CI_Controller
     {
         $queryProdukDetail = $this->model_produk->getDataProdukDetail($id);
         $DATA = array('queryPrdkDetail' => $queryProdukDetail);
-        $this->load->view('header');
+        $title['title'] = 'Edit Produk - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/user/produk/edit-produk', $DATA);
         $this->load->view('footer');
     }

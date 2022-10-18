@@ -9,7 +9,8 @@ class settings extends CI_Controller
 
     public function index()
     {
-        $this->load->view('header');
+        $title['title'] = 'Settings - Konekthing Admin';
+        $this->load->view('header',$title);
         $this->load->view('admin/settings');
         $this->load->view('footer');
     }

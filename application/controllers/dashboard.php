@@ -9,7 +9,8 @@ class dashboard extends CI_Controller
 
     public function index()
     {
-        $this->load->view('header');
+        $title['title'] = 'Dashboard - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/dashboard');
         $this->load->view('footer');
     }

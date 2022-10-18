@@ -12,14 +12,16 @@ class portofolio extends CI_Controller
     {
         $queryAllportofolio = $this->model_portofolio->getDataportofolio();
         $DATA = array('queryAllPrdk' => $queryAllportofolio);
-        $this->load->view('header');
+        $title['title'] = 'Portofolio - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/user/portofolio/portofolio', $DATA);
         $this->load->view('footer');
     }
 
     public function tambah_portofolio()
     {
-        $this->load->view('header');
+        $title['title'] = 'Tambah Portofolio - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/user/portofolio/tambah_portofolio');
         $this->load->view('footer');
     }
@@ -28,7 +30,8 @@ class portofolio extends CI_Controller
     {
         $queryportofolioDetail = $this->model_portofolio->getDataPortofolioDetail($id);
         $DATA = array('queryPrdkDetail' => $queryportofolioDetail);
-        $this->load->view('header');
+        $title['title'] = 'Edit Portofolio - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/user/portofolio/edit_portofolio', $DATA);
         $this->load->view('footer');
     }

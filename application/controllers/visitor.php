@@ -9,7 +9,8 @@ class visitor extends CI_Controller
 
     public function index()
     {
-        $this->load->view('header');
+        $title['title'] = 'Visitor - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/visitor');
         $this->load->view('footer');
     }

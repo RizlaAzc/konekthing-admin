@@ -9,12 +9,12 @@
             <div>
                 <hr>
                 <table border="1">
-                    <a href="<?= base_url('portofolio/tambah_portofolio') ?>">Tambah portofolio</a>
+                    <a href="<?= base_url('portofolio/tambah_portofolio') ?>">Tambah Portofolio</a>
                     <br>
                     <br>
                     <tr>
                         <td>ID</td>
-                        <td>Nama portofolio</td>
+                        <td>Nama Portofolio</td>
                         <td>Aksi</td>
                     </tr>
                     <?php

@@ -9,7 +9,8 @@ class beranda extends CI_Controller
 
     public function index()
     {
-        $this->load->view('header');
+        $title['title'] = 'Beranda - Konekthing Admin';
+        $this->load->view('header', $title);
         $this->load->view('admin/user/beranda/beranda');
         $this->load->view('footer');
     }
