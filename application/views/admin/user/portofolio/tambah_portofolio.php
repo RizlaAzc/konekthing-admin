@@ -1,11 +1,11 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Tambah Portofolio </h1>
+            <h1 class="mt-4">Tambah portofolio</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="<?= base_url('portofolio') ?>">Portofolio</a></li>
-                <li class="breadcrumb-item active">Tambah Portofolio</li>
+                <li class="breadcrumb-item"><a href="<?= base_url('portofolio') ?>">portofolio</a></li>
+                <li class="breadcrumb-item active">Tambah portofolio</li>
             </ol>
             <div>
                 <hr>
@@ -13,7 +13,7 @@
                     <table border="1">
                         <br>
                         <tr>
-                            <td>Nama Portofolio</td>
+                            <td>Nama portofolio</td>
                             <td>:</td>
                             <td><input type="text" name="nama"></td>
                         </tr>

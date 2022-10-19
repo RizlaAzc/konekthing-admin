@@ -4,7 +4,7 @@
             <h1 class="mt-4">Edit Portofolio</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="<?= base_url(' portofolio') ?>"> Portofolio</a></li>
+                <li class="breadcrumb-item"><a href="<?= base_url('portofolio') ?>"> Portofolio</a></li>
                 <li class="breadcrumb-item active">Edit Portofolio</li>
             </ol>
             <div>

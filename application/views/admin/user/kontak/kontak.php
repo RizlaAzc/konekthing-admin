@@ -7,7 +7,10 @@
                 <li class="breadcrumb-item active">Kontak</li>
             </ol>
             <div>
+                
                 <hr>
             </div>
         </div>
+
+
     </main>
