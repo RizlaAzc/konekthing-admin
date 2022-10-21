@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Okt 2022 pada 05.24
+-- Waktu pembuatan: 21 Okt 2022 pada 05.34
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 7.4.24
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `konekthing`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `blog`
+--
+
+CREATE TABLE `blog` (
+  `id` int(50) NOT NULL,
+  `gambar` varchar(200) NOT NULL,
+  `judul` varchar(50) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `url` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `blog`
+--
+
+INSERT INTO `blog` (`id`, `gambar`, `judul`, `deskripsi`, `url`) VALUES
+(11, '_MG_0653.JPG', 'aa', 'dajsda', 'sdad'),
+(12, '017e6a08-f1ed-49c7-ae05-e65fa787ef9e.png', 'a', 'b', 'c'),
+(13, 'Vector Rizla Azcha F X Rpl.png', 'a', 'b', 'e'),
+(14, '_MG_0659.JPG', 'daskdj', 'asjda', 'asda'),
+(15, '_MG_0730.JPG', 'a', 'd', 's');
 
 -- --------------------------------------------------------
 
@@ -88,6 +113,12 @@ INSERT INTO `produk` (`id`, `nama`) VALUES
 --
 
 --
+-- Indeks untuk tabel `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `kontak`
 --
 ALTER TABLE `kontak`
@@ -108,6 +139,12 @@ ALTER TABLE `produk`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `kontak`
