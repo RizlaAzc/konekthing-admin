@@ -10,8 +10,8 @@ class portofolio extends CI_Controller
 
     public function index()
     {
-        $queryAllportofolio = $this->model_portofolio->getDataportofolio();
-        $DATA = array('queryAllPrdk' => $queryAllportofolio);
+        $p = $this->model_portofolio->getDataportofolio();
+        $DATA = array('queryAllPrdk' => $p);
         $title['title'] = 'Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/portofolio/portofolio', $DATA);
@@ -39,11 +39,29 @@ class portofolio extends CI_Controller
     public function fungsi_tambah()
     {
         $id = $this->input->post('id');
-        $nama = $this->input->post('nama');
+        $judul = $this->input->post('judul');
+        $deskripsi = $this->input->post('deskripsi');
+        $gambar = $this->input->post('gambar');
         $ArrInsert = array(
+
+        $this->load->view)('upload', $config);
+        if ( ! $this->upload->do_upload('userfile'))
+        {
+            echo "gagal tambah";
+        }
+        else
+           
+        $config['upload_path']            ='/gambar';
+        $config['allowed_types']          ='gif|jpg|png|PNG';
+        $config['max_size']               ='10000';
+        $config['max_width']              ='10000';
+        $config['max_height']             ='10000';
+
             'id' => $id,
-            'nama' => $nama
-        );
+            'judul' => $judul,
+            'deskripsi' => $deskripsi,
+            'gambar' => $gambar
+    );
 
         $this->model_portofolio->insertDataportofolio($ArrInsert);
         redirect(base_url('portofolio'));
@@ -52,9 +70,14 @@ class portofolio extends CI_Controller
     public function fungsi_edit()
     {
         $id = $this->input->post('id');
-        $nama = $this->input->post('nama');
+        $judul = $this->input->post('judul');
+        $deskripsi = $this->input->post('deskripsi');
+        $gambar = $this->input->post('gambar');
         $ArrUpdate = array(
-            'nama' => $nama
+            'id' => $id,
+            'judul' => $judul,
+            'deskripsi' => $deskripsi,
+            'gambar' => $gambar
         );
 
         $this->model_portofolio->updateDataportofolio($id, $ArrUpdate);
