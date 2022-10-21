@@ -43,20 +43,6 @@ class portofolio extends CI_Controller
         $deskripsi = $this->input->post('deskripsi');
         $gambar = $this->input->post('gambar');
         $ArrInsert = array(
-
-        $this->load->view)('upload', $config);
-        if ( ! $this->upload->do_upload('userfile'))
-        {
-            echo "gagal tambah";
-        }
-        else
-           
-        $config['upload_path']            ='/gambar';
-        $config['allowed_types']          ='gif|jpg|png|PNG';
-        $config['max_size']               ='10000';
-        $config['max_width']              ='10000';
-        $config['max_height']             ='10000';
-
             'id' => $id,
             'judul' => $judul,
             'deskripsi' => $deskripsi,
