@@ -9,39 +9,40 @@
             </ol>
             <div>
                 <hr>
-                <form action="<?= base_url('blog/fungsi_edit') ?>" method="post">
-                    <table border="1">
-                        <br>
-                        <tr>
-                            <td>ID</td>
-                            <td>:</td>
-                            <td><input type="text" name="id" value="<?= $queryBlgDetail->id ?>" readonly></td>
-                        </tr>
-                        <tr>
-                            <td>Gambar</td>
-                            <td>:</td>
-                            <td><input type="file" name="gambar" value="<?= $queryBlgDetail->gambar ?>"></td>
-                        </tr>
-                        <tr>
-                            <td>Judul</td>
-                            <td>:</td>
-                            <td><input type="text" name="judul" value="<?= $queryBlgDetail->judul ?>"></td>
-                        </tr>
-                        <tr>
-                            <td>Deskripsi</td>
-                            <td>:</td>
-                            <td><input type="text" name="deskripsi" value="<?= $queryBlgDetail->deskripsi ?>"></td>
-                        </tr>
-                        <tr>
-                            <td>Url</td>
-                            <td>:</td>
-                            <td><input type="text" name="url" value="<?= $queryBlgDetail->url ?>"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3"><button type="submit">Edit</button></td>
-                        </tr>
-                    </table>
-                </form>
+                <?= form_open_multipart('blog/fungsi_edit'); ?>
+                <table border="1">
+                    <tr>
+
+                        <form class="row g-3">
+                        <div class="col-6">
+                                <label for="inputAddress" class="form-label">ID</label>
+                                <input type="text" class="form-control" id="inputAddress" name="id" value="<?= $queryBlgDetail->id ?>" readonly>
+                            </div>
+                            <div class="col-6">
+                                <label for="inputAddress" class="form-label">Judul</label>
+                                <input type="text" class="form-control" id="inputAddress" name="judul" value="<?= $queryBlgDetail->judul ?>">
+                            </div>
+                            <div class="col-6">
+                                <label for="inputAddress2" class="form-label">Deskripsi</label>
+                                <input type="text" class="form-control" id="inputAddress2" name="deskripsi" value="<?= $queryBlgDetail->deskripsi ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Url</label>
+                                <input type="text" class="form-control" id="inputCity" name="url" value="<?= $queryBlgDetail->url ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Gambar</label>
+                                <input type="file" class="form-control" id="inputCity" name="gambar" value="<?= $queryBlgDetail->gambar ?>">
+                            </div>
+                            <br>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            </div>
+                        </form>
+
+                    </tr>
+                </table>
+                <?= form_close(); ?>
             </div>
         </div>
     </main>

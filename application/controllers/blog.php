@@ -45,8 +45,8 @@ class blog extends CI_Controller
         $url = $this->input->post('url');
 
         if  ($gambar=''){}else{
-            $config['upload_path'] = 'gambar';
-            $config['allowed_types'] = 'jpg|png|gif';
+            $config['upload_path'] = 'gambar/blog';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg';
 
             $this->load->library('upload');
             $this->upload->initialize($config);

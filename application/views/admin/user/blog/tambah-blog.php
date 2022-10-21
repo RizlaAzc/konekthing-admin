@@ -11,29 +11,31 @@
                 <hr>
                 <?= form_open_multipart('blog/fungsi_tambah'); ?>
                 <table border="1">
-                    <br>
                     <tr>
-                        <td>Gambar</td>
-                        <td>:</td>
-                        <td><input type="file" name="gambar"></td>
-                    </tr>
-                    <tr>
-                        <td>Judul</td>
-                        <td>:</td>
-                        <td><input type="text" name="judul"></td>
-                    </tr>
-                    <tr>
-                        <td>Deskripsi</td>
-                        <td>:</td>
-                        <td><input type="text" name="deskripsi"></td>
-                    </tr>
-                    <tr>
-                        <td>Url</td>
-                        <td>:</td>
-                        <td><input type="text" name="url"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><button type="submit">Tambah</button></td>
+
+                        <form class="row g-3">
+                            <div class="col-6">
+                                <label for="inputAddress" class="form-label">Judul</label>
+                                <input type="text" class="form-control" id="inputAddress" name="judul">
+                            </div>
+                            <div class="col-6">
+                                <label for="inputAddress2" class="form-label">Deskripsi</label>
+                                <input type="text" class="form-control" id="inputAddress2" name="deskripsi">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Url</label>
+                                <input type="text" class="form-control" id="inputCity" name="url">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Gambar</label>
+                                <input type="file" class="form-control" id="inputCity" name="gambar">
+                            </div>
+                            <br>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Tambah</button>
+                            </div>
+                        </form>
+
                     </tr>
                 </table>
                 <?= form_close(); ?>
