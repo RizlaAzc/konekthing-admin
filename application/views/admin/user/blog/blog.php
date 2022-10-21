@@ -20,39 +20,30 @@
                                 <th>Judul</th>
                                 <th>Deskripsi</th>
                                 <th>Url</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Gambar</th>
-                                <th>Judul</th>
-                                <th>Deskripsi</th>
-                                <th>Url</th>
-                            </tr>
-                        </tfoot>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>image.jpg</td>
-                                <td>IOT</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem temporibus id, saepe veniam dolor voluptatibus?</td>
-                                <td>https://konekthing.com</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>image.jpg</td>
-                                <td>IOT</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem temporibus id, saepe veniam dolor voluptatibus?</td>
-                                <td>https://konekthing.com</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>image.jpg</td>
-                                <td>IOT</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem temporibus id, saepe veniam dolor voluptatibus?</td>
-                                <td>https://konekthing.com</td>
-                            </tr>
+                            <?php
+
+                            $count = 0;
+                            foreach ($queryAllBlg as $row) {
+                                $count = $count + 1;
+
+                            ?>
+                                <tr>
+                                    <td><?= $count ?></td>
+                                    <td><?= $row->gambar ?></td>
+                                    <td><?= $row->judul ?></td>
+                                    <td><?= $row->deskripsi ?></td>
+                                    <td><?= $row->url ?></td>
+                                    <td><a href="<?= base_url('blog/edit_blog/'). $row->id ?>"><i class="fa-solid fa-file-arrow-down"></i></a> | <a href="<?= base_url('blog/fungsi_hapus') ?>/<?= $row->id ?>"><i class="fa-solid fa-trash-can"></i></a></td>
+                                </tr>
+                            <?php
+
+                            }
+
+                            ?>
                         </tbody>
                     </table>
                 </div>
