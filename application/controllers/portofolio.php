@@ -42,6 +42,21 @@ class portofolio extends CI_Controller
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
         $gambar = $this->input->post('gambar');
+
+         if  ($gambar=''){}else{
+            $config['upload_path'] = 'gambar/portofolio';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+            if(!$this->upload->do_upload('gambar')){
+                echo "Upload Gagal";
+            }else{
+                $gambar = $this->upload->data('file_name');
+            }
+        }
+
+
         $ArrInsert = array(
             'id' => $id,
             'judul' => $judul,

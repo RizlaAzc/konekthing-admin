@@ -9,7 +9,7 @@
             </ol>
             <div>
                 <hr>
-                <form action="<?= base_url('portofolio/fungsi_tambah') ?>" method="post">
+                 <?= form_open_multipart('portofolio/fungsi_tambah'); ?>
                     <table border="1">
                         <br>
                         <tr>
@@ -17,7 +17,7 @@
           <form class="row g-3">
           <div class="col-6">
             <label for="inputAddress" class="form-label">judul</label>
-            <input type="text" class="form-control" id="inputAddress" name="judul">
+            <input type="text" class="form-control" id="inputAddress" name="judul" required>
           </div>
           <div class="col-6">
             <label for="inputAddress2" class="form-label">gambar</label>
@@ -25,7 +25,7 @@
           </div>
           <div class="col-md-6">
             <label for="inputCity" class="form-label">deskripsi</label>
-            <input type="text" class="form-control" id="inputCity" name="deskripsi">
+            <input type="text" class="form-control" id="inputCity" name="deskripsi" required>
           </div>
           <br>
           <div class="col-12">
@@ -44,6 +44,7 @@
                             
                         </tr>
                     </table>
+                     <?= form_close(); ?>
                 </form>
             </div>
         </div>

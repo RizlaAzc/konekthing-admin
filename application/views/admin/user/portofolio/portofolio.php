@@ -17,11 +17,12 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
-                                        <th>id</th>
-                                        <th>judul</th>
-                                        <th>deskripsi</th>
-                                        <th>gambar</th>
-                                        <th>aksi</th>
+                                        <tr style="background-color:#B0C4DE;">
+                                        <th>ID</th>
+                                        <th>JUDUL</th>
+                                        <th>DESKRIPSI</th>
+                                        <th>GAMBAR</th>
+                                        <th>AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,7 +36,7 @@
                             <td><?php echo $row->judul; ?></td>
                             <td><?php echo $row->deskripsi; ?></td>
                             <td><?php echo $row->gambar; ?></td>
-                            <td><a href="<?= base_url('portofolio/edit_portofolio/').$row->id?>"><i class="fa-solid fa-file-arrow-down"></i></a> | <a href="<?= base_url('portofolio/fungsi_hapus/').$row->id?>"><i class="fa-solid fa-trash-can"></i></a></td>
+                            <td><a href="<?= base_url('portofolio/edit_portofolio/').$row->id?>"><i class="fa-solid fa-file-arrow-down"></i></a> | | <a href="<?= base_url('portofolio/fungsi_hapus/').$row->id?>"><i class="fa-solid fa-trash-can"></i></a></td>
                         </tr>
                         
                     <?php

@@ -19,19 +19,19 @@
           <form class="row g-3">
           <div class="col-md-6">
             <label for="inputEmail4" class="form-label">id</label>
-            <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryPrdkDetail->id ?>">
+            <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryPrdkDetail->id ?>" required>
           </div>
           <div class="col-6">
             <label for="inputAddress" class="form-label">judul</label>
-            <input type="text" class="form-control" id="inputAddress" name="judul" value="<?php echo $queryPrdkDetail->judul ?>">
+            <input type="text" class="form-control" id="inputAddress" name="judul" value="<?php echo $queryPrdkDetail->judul ?>" required>
           </div>
           <div class="col-6">
             <label for="inputAddress2" class="form-label">gambar</label>
-            <input type="file" class="form-control" id="inputAddress2" name="gambar" value="<?php echo $queryPrdkDetail->gambar ?>">
+            <input type="file" class="form-control" id="inputAddress2" name="gambar" value="<?php echo $queryPrdkDetail->gambar ?>" required>
           </div>
           <div class="col-md-6">
             <label for="inputCity" class="form-label">deskripsi</label>
-            <input type="text" class="form-control" id="inputCity" name="deskripsi" value="<?php echo $queryPrdkDetail->deskripsi ?>">
+            <input type="text" class="form-control" id="inputCity" name="deskripsi" value="<?php echo $queryPrdkDetail->deskripsi ?>"required>
           </div>
           <br>
           <div class="col-12">

@@ -18,23 +18,23 @@
       <form class="row g-3">
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">id</label>
-        <input type="text" class="form-control" id="inputEmail4" name="id">
+        <input type="text" class="form-control" id="inputEmail4" name="id" required>
       </div>
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">email</label>
-        <input type="email" class="form-control" id="inputPassword4" placeholder="@" name="email">
+        <input type="email" class="form-control" id="inputPassword4" placeholder="@" name="email" required>
       </div>
       <div class="col-6">
         <label for="inputAddress" class="form-label">telpon</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="+62" name="telepon">
+        <input type="text" class="form-control" id="inputAddress" placeholder="+62" name="telepon" required>
       </div>
       <div class="col-6">
         <label for="inputAddress2" class="form-label">lokasi</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" name="lokasi">
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" name="lokasi" required>
       </div>
       <div class="col-md-6">
         <label for="inputCity" class="form-label">deskripsi</label>
-        <input type="text" class="form-control" id="inputCity" name="deskripsi">
+        <input type="text" class="form-control" id="inputCity" name="deskripsi" required>
       </div>
       <br>
       <div class="col-12">
