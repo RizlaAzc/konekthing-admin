@@ -36,22 +36,35 @@ class portofolio extends CI_Controller
         $this->load->view('footer');
     }
 
+    public function detail_portofolio($id)
+    {
+        $queryportofolioDetail = $this->model_portofolio->getDataPortofolioDetail($id);
+        $DATA = array('queryPrdkDetail' => $queryportofolioDetail);
+        $title['title'] = 'Detail Portofolio - Konekthing Admin';
+        $this->load->view('header', $title);
+        $this->load->view('admin/user/portofolio/detail_portofolio', $DATA);
+        $this->load->view('footer');
+    }
+
     public function fungsi_tambah()
     {
         $id = $this->input->post('id');
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
-        $gambar = $this->input->post('gambar');
+        $gambar = $_FILES['gambar'];
 
-         if  ($gambar=''){}else{
+        if ($gambar = '') {
+        } else {
             $config['upload_path'] = 'gambar/portofolio';
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
+            $config['max_width'] = '436px';
+            $config['max_height'] = '292px';
 
             $this->load->library('upload');
             $this->upload->initialize($config);
-            if(!$this->upload->do_upload('gambar')){
+            if (!$this->upload->do_upload('gambar')) {
                 echo "Upload Gagal";
-            }else{
+            } else {
                 $gambar = $this->upload->data('file_name');
             }
         }
@@ -62,7 +75,7 @@ class portofolio extends CI_Controller
             'judul' => $judul,
             'deskripsi' => $deskripsi,
             'gambar' => $gambar
-    );
+        );
 
         $this->model_portofolio->insertDataportofolio($ArrInsert);
         redirect(base_url('portofolio'));

@@ -32,17 +32,27 @@ class blog extends CI_Controller
         $DATA = array('queryBlgDetail' => $queryBlogDetail);
         $title['title'] = 'Edit Blog - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/blog/edit_blog', $DATA);
+        $this->load->view('admin/user/blog/edit-blog', $DATA);
+        $this->load->view('footer');
+    }
+
+    public function detail_blog($id)
+    {
+        $queryBlogDetail = $this->model_blog->getDataBlogDetail($id);
+        $DATA = array('queryBlgDetail' => $queryBlogDetail);
+        $title['title'] = 'Detail Blog - Konekthing Admin';
+        $this->load->view('header', $title);
+        $this->load->view('admin/user/blog/detail-blog', $DATA);
         $this->load->view('footer');
     }
 
     public function fungsi_tambah()
     {
         $id = $this->input->post('id');
-        $gambar = $_FILES['gambar'];
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
         $url = $this->input->post('url');
+        $gambar = $_FILES['gambar'];
 
         if  ($gambar=''){}else{
             $config['upload_path'] = 'gambar/blog';
@@ -59,10 +69,10 @@ class blog extends CI_Controller
 
         $ArrInsert = array(
             'id' => $id,
-            'gambar' => $gambar,
             'judul' => $judul,
             'deskripsi' => $deskripsi,
-            'url' => $url
+            'url' => $url,
+            'gambar' => $gambar
         );
 
         $this->model_blog->insertDataBlog($ArrInsert);

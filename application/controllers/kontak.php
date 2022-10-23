@@ -36,6 +36,16 @@ class kontak extends CI_Controller
         $this->load->view('footer');
     }
 
+    public function detail_kontak($id)
+    {
+        $querykontakDetail = $this->model_kontak->getDatakontakDetail($id);
+        $DATA = array('queryPrdkDetail' => $querykontakDetail);
+        $title['title'] = 'Detail Kontak - Konekthing Admin';
+        $this->load->view('header', $title);
+        $this->load->view('admin/user/kontak/detail_kontak', $DATA);
+        $this->load->view('footer');
+    }
+
     public function fungsi_tambah()
     {
         
