@@ -3,9 +3,10 @@
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; <b>Konekthing 2022</b></div>
                         <div>
-                            <button type="button" class="btn btn-primary"><a class="text-light" href="#">Privacy Policy</a></button>
+                            <form action="#"></form>
+                            <button type="button" class="btn btn-primary">Privacy Policy</button>
                             &middot;
-                            <button type="button" class="btn btn-primary"><a class="text-light" href="#">Terms &amp; Conditions</a>
+                            <button type="button" class="btn btn-primary">Terms &amp; Conditions</button>
                         </div>
                     </div>
                 </div>
