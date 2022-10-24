@@ -54,15 +54,16 @@ class blog extends CI_Controller
         $url = $this->input->post('url');
         $gambar = $_FILES['gambar'];
 
-        if  ($gambar=''){}else{
+        if ($gambar = '') {
+        } else {
             $config['upload_path'] = 'gambar/blog';
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
 
             $this->load->library('upload');
             $this->upload->initialize($config);
-            if(!$this->upload->do_upload('gambar')){
+            if (!$this->upload->do_upload('gambar')) {
                 echo "Upload Gagal";
-            }else{
+            } else {
                 $gambar = $this->upload->data('file_name');
             }
         }
@@ -83,10 +84,24 @@ class blog extends CI_Controller
     public function fungsi_edit()
     {
         $id = $this->input->post('id');
-        $gambar = $this->input->post('gambar');
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
         $url = $this->input->post('url');
+        $gambar = $_FILES['gambar'];
+
+        if ($gambar = '') {
+        } else {
+            $config['upload_path'] = 'gambar/blog';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+            if (!$this->upload->do_upload('gambar')) {
+                echo "Upload Gagal";
+            } else {
+                $gambar = $this->upload->data('file_name');
+            }
+        }
 
         $ArrUpdate = array(
             'gambar' => $gambar,

@@ -9,36 +9,36 @@
       </ol>
       <div>
         <hr>
-        <form action="<?= base_url('portofolio/fungsi_edit') ?>" method="post">
-          <table border="1">
-            <br>
-            <tr>
-              <form class="row g-3">
-                <div class="col-md-6">
-                  <label for="inputEmail4" class="form-label">ID</label>
-                  <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryPrdkDetail->id ?>" readonly>
-                </div>
-                <div class="col-6">
-                  <label for="inputAddress" class="form-label">Judul</label>
-                  <input type="text" class="form-control" id="inputAddress" name="judul" value="<?php echo $queryPrdkDetail->judul ?>" required>
-                </div>
-                <div class="col-md-6">
-                  <label for="inputCity" class="form-label">Deskripsi</label>
-                  <input type="text" class="form-control" id="inputCity" name="deskripsi" value="<?php echo $queryPrdkDetail->deskripsi ?>" required>
-                </div>
-                <div class="col-md-6">
-                  <label for="inputCity" class="form-label">Gambar</label>
-                  <input type="file" class="form-control" id="inputCity" name="gambar" value="<?php echo $queryPrdkDetail->gambar ?>" required>
-                </div>
-                <br>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Edit Portofolio</button>
-                  <button type="reset" class="btn btn-danger">Reset</button>
-                </div>
-              </form>
-            </tr>
-          </table>
-        </form>
+        <?= form_open_multipart('portofolio/fungsi_edit'); ?>
+        <table border="1">
+          <br>
+          <tr>
+            <form class="row g-3">
+              <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">ID</label>
+                <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryPrdkDetail->id ?>" readonly>
+              </div>
+              <div class="col-6">
+                <label for="inputAddress" class="form-label">Judul</label>
+                <input type="text" class="form-control" id="inputAddress" name="judul" value="<?php echo $queryPrdkDetail->judul ?>" required>
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">Deskripsi</label>
+                <input type="text" class="form-control" id="inputCity" name="deskripsi" value="<?php echo $queryPrdkDetail->deskripsi ?>" required>
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">Gambar</label>
+                <input type="file" class="form-control" id="inputCity" name="gambar" value="<?php echo $queryPrdkDetail->gambar ?>" required>
+              </div>
+              <br>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Edit Portofolio</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
+              </div>
+            </form>
+          </tr>
+        </table>
+        <?= form_close(); ?>
       </div>
     </div>
   </main>
