@@ -78,7 +78,7 @@ class portofolio extends CI_Controller
         );
 
         $this->model_portofolio->insertDataportofolio($ArrInsert);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
         redirect(base_url('portofolio'));
     }
 

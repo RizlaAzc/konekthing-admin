@@ -9,7 +9,9 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Blog DataTables<a href="<?= base_url('blog/tambah_blog') ?>" class="btn btn-primary text-light" style="float: right;">Tambah Blog</a>
+                    Blog DataTables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                        Tambah Blog
+                    </button>
                 </div>
                 <div class="card-body">
                     <?= $this->session->flashdata('pesan'); ?>
@@ -47,3 +49,39 @@
             </div>
         </div>
     </main>
+
+    <!-- Form Tambah -->
+    <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Blog</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?= form_open_multipart('blog/fungsi_tambah'); ?>
+                    <div class="form-group">
+                        <label for="inputAddress" class="form-label">Judul</label>
+                        <input type="text" class="form-control" id="inputAddress" name="judul" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">Deskripsi</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="deskripsi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity" class="form-label">Url</label>
+                        <input type="text" class="form-control" id="inputCity" name="url" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity" class="form-label">Gambar</label>
+                        <input type="file" class="form-control" id="inputCity" name="gambar" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <?= form_close(); ?>
+                </div>
+            </div>
+        </div>
+    </div>

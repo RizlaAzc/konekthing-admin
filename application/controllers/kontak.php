@@ -63,7 +63,7 @@ class kontak extends CI_Controller
         );
 
         $this->model_kontak->insertDatakontak($ArrInsert);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
         redirect(base_url('kontak'));
     }
 
