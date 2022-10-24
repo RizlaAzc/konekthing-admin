@@ -29,6 +29,7 @@
               <br>
               <div class="col-12">
                 <button type="submit" class="btn btn-primary">Tambah Portofolio</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
               </div>
             </form>
           </tr>

@@ -14,11 +14,11 @@
           <form class="row g-3">
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label">Nomor Telepon</label>
-              <input type="email" class="form-control" id="inputPassword4" placeholder="+62" name="telepon" required>
+              <input type="text" class="form-control" id="inputPassword4" placeholder="+62" name="telepon" required>
             </div>
             <div class="col-6">
               <label for="inputAddress" class="form-label">Email</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="@gmail.com" name="email" required>
+              <input type="email" class="form-control" id="inputAddress" placeholder="@gmail.com" name="email" required>
             </div>
             <div class="col-6">
               <label for="inputAddress2" class="form-label">Lokasi</label>
@@ -31,6 +31,7 @@
             <br>
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Tambah Kontak</button>
+              <button type="reset" class="btn btn-danger">Reset</button>
             </div>
           </form>
       </form>

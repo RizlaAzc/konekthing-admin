@@ -10,7 +10,7 @@ class kontak extends CI_Controller
 
     public function index()
     {
-        $c= $this->model_kontak->getDatakontak();
+        $c = $this->model_kontak->getDatakontak();
         $DATA = array('queryAllPrdk' => $c);
         $title['title'] = 'Kontak - Konekthing Admin';
         $this->load->view('header', $title);
@@ -18,7 +18,7 @@ class kontak extends CI_Controller
         $this->load->view('footer');
     }
 
-     public function tambah_kontak()
+    public function tambah_kontak()
     {
         $title['title'] = 'Tambah kontak - Konekthing Admin';
         $this->load->view('header', $title);
@@ -48,50 +48,49 @@ class kontak extends CI_Controller
 
     public function fungsi_tambah()
     {
-        
+
         $id = $this->input->post('id');
-        $email = $this->input->post('email');
         $telepon = $this->input->post('telepon');
+        $email = $this->input->post('email');
         $lokasi = $this->input->post('lokasi');
         $deskripsi = $this->input->post('deskripsi');
         $ArrInsert = array(
             'id' => $id,
-            'email' => $email,
             'telepon' => $telepon,
+            'email' => $email,
             'lokasi' => $lokasi,
             'deskripsi' => $deskripsi
         );
 
-         $this->model_kontak->insertDatakontak($ArrInsert);
+        $this->model_kontak->insertDatakontak($ArrInsert);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
         redirect(base_url('kontak'));
     }
 
     public function fungsi_edit()
     {
         $id = $this->input->post('id');
-        $email = $this->input->post('email');
         $telepon = $this->input->post('telepon');
+        $email = $this->input->post('email');
         $lokasi = $this->input->post('lokasi');
         $deskripsi = $this->input->post('deskripsi');
         $ArrUpdate = array(
             'id' => $id,
-            'email' => $email,
             'telepon' => $telepon,
+            'email' => $email,
             'lokasi' => $lokasi,
             'deskripsi' => $deskripsi
         );
 
         $this->model_kontak->updateDatakontak($id, $ArrUpdate);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
         redirect(base_url('kontak'));
     }
 
     public function fungsi_hapus($id)
     {
         $this->model_kontak->hapusDatakontak($id);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect(base_url('kontak'));
     }
 }
-
-
-
-

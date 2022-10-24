@@ -12,6 +12,7 @@
                     Portofolio DataTables <a href="<?= base_url('portofolio/tambah_portofolio') ?>" class="btn btn-primary text-light" style="float: right;">Tambah Portofolio</a>
                 </div>
                 <div class="card-body">
+                    <?= $this->session->flashdata('pesan'); ?>
                     <table id="datatablesSimple">
                         <thead>
                             <tr style="background-color:#B0C4DE;">

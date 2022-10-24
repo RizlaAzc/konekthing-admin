@@ -76,6 +76,7 @@ class blog extends CI_Controller
         );
 
         $this->model_blog->insertDataBlog($ArrInsert);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
         redirect(base_url('blog'));
     }
 
@@ -95,12 +96,14 @@ class blog extends CI_Controller
         );
 
         $this->model_blog->updateDataBlog($id, $ArrUpdate);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
         redirect(base_url('blog'));
     }
 
     public function fungsi_hapus($id)
     {
         $this->model_blog->hapusDataBlog($id);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect(base_url('blog'));
     }
 }

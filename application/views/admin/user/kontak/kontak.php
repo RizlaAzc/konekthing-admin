@@ -12,6 +12,7 @@
                     Kontak DataTables<a href="<?= base_url('kontak/tambah_kontak') ?>" class="btn btn-primary text-light" style="float: right;">Tambah Kontak</a>
                 </div>
                 <div class="card-body">
+                    <?= $this->session->flashdata('pesan'); ?>
                     <table id="datatablesSimple">
                         <thead>
                             <tr style="background-color:#B0C4DE;">

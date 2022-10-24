@@ -29,9 +29,14 @@
                                 <label for="inputCity" class="form-label">Url</label>
                                 <input type="text" class="form-control" id="inputCity" name="url" value="<?= $queryBlgDetail->url ?>" required>
                             </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Url</label>
+                                <input type="file" class="form-control" id="inputCity" name="gambar" value="<?= $queryBlgDetail->gambar ?>" required>
+                            </div>
                             <br>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Edit Blog</button>
+                                <button type="reset" class="btn btn-danger">Reset</button>
                             </div>
                         </form>
                     </tr>

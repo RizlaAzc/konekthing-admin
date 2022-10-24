@@ -12,6 +12,7 @@
                     Blog DataTables<a href="<?= base_url('blog/tambah_blog') ?>" class="btn btn-primary text-light" style="float: right;">Tambah Blog</a>
                 </div>
                 <div class="card-body">
+                    <?= $this->session->flashdata('pesan'); ?>
                     <table id="datatablesSimple">
                         <thead>
                             <tr style="background-color:#B0C4DE;">
