@@ -56,7 +56,7 @@ class portofolio extends CI_Controller
         if ($gambar = '') {
         } else {
             $config['upload_path'] = 'gambar/portofolio';
-            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
             
             $this->load->library('upload');
             $this->upload->initialize($config);
@@ -90,7 +90,7 @@ class portofolio extends CI_Controller
         if ($gambar = '') {
         } else {
             $config['upload_path'] = 'gambar/portofolio';
-            $config['allowed_types'] = 'jpg|png|gif|jpeg';
+            $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
            
             $this->load->library('upload');
             $this->upload->initialize($config);

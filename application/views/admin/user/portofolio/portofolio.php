@@ -35,7 +35,7 @@
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
                                     <td style="vertical-align: middle;"><?php echo $row->judul; ?></td>
                                     <td style="vertical-align: middle;"><?php echo $row->deskripsi; ?></td>
-                                    <td class="text-center"><img src="<?php echo base_url('gambar/portofolio/') ?><?php echo $row->gambar; ?>" width="75"></td>
+                                    <td class="text-center" style="vertical-align: middle;"><img src="<?php echo base_url('gambar/portofolio/') ?><?php echo $row->gambar; ?>" width="75"></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('portofolio/edit_portofolio/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('portofolio/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('portofolio/detail_portofolio/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php

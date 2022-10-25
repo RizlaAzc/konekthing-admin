@@ -29,6 +29,7 @@
                                 <div class="col-md-6">
                                     <label for="inputCity" class="form-label">Gambar</label>
                                     <input type="text" class="form-control" id="inputCity" name="gambar" value="<?php echo $queryPrdkDetail->gambar ?>" readonly>
+                                    <img class="mt-2" src="<?= base_url('gambar/portofolio/') ?><?= $queryPrdkDetail->gambar; ?>" width="100">
                                 </div>
                                 <br>
                                 <div class="col-12">

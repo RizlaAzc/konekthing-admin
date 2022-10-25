@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Okt 2022 pada 06.14
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 7.4.24
+-- Generation Time: Oct 25, 2022 at 09:27 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,45 +25,47 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `portofolio`
+-- Table structure for table `portofolio`
 --
 
 CREATE TABLE `portofolio` (
   `id` int(250) NOT NULL,
-  `judul` varchar(25) NOT NULL,
+  `judul` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
-  `gambar` varchar(25) NOT NULL
+  `gambar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `portofolio`
+-- Dumping data for table `portofolio`
 --
 
 INSERT INTO `portofolio` (`id`, `judul`, `deskripsi`, `gambar`) VALUES
-(44, 'sesose', 'kieng harold', 'osis 2.jpeg'),
-(45, 'mark', 'canada', 'osis 2.jpeg'),
-(47, 'aaaaa', 'iyaa', 'osis 2.jpeg'),
-(48, 'kftyu', 'fdsa', 'osis 2.jpeg');
+(1, 'Signal Viewer', 'PT. IMMOBI SOLUSI PRIMA', 'signal-viewer.png'),
+(2, 'Obrol', 'PT. INDOSAT Tbk', 'obrol.png'),
+(3, 'Roompy', 'ROOMPY.COM', 'roompy.png'),
+(4, 'Sistem Informasi Posbindu PTM', 'KEMENKES RI', 'sistem-informasi-posbindu-ptm.png'),
+(5, 'Rumah Tiket', 'PT. TIKET 88 ONLINE', 'rumah-tiket.png'),
+(6, 'Kuliner Plus', 'SMARTNESIA', 'kuliner-plus.png');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `portofolio`
+-- Indexes for table `portofolio`
 --
 ALTER TABLE `portofolio`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `portofolio`
+-- AUTO_INCREMENT for table `portofolio`
 --
 ALTER TABLE `portofolio`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

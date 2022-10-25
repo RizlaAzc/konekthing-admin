@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2022 at 06:14 AM
+-- Generation Time: Oct 25, 2022 at 09:26 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.14
 
@@ -29,24 +29,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `blog` (
-  `id` int(50) NOT NULL,
-  `gambar` varchar(200) NOT NULL,
-  `judul` varchar(50) NOT NULL,
+  `id` int(250) NOT NULL,
+  `judul` varchar(100) NOT NULL,
   `deskripsi` text NOT NULL,
-  `url` text NOT NULL
+  `url` text NOT NULL,
+  `gambar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `blog`
 --
 
-INSERT INTO `blog` (`id`, `gambar`, `judul`, `deskripsi`, `url`) VALUES
-(11, '_MG_0653.JPG', 'aa', 'dajsda', 'sdad'),
-(12, '017e6a08-f1ed-49c7-ae05-e65fa787ef9e.png', 'a', 'b', 'c'),
-(13, 'Vector Rizla Azcha F X Rpl.png', 'a', 'b', 'e'),
-(14, '_MG_0659.JPG', 'daskdj', 'asjda', 'asda'),
-(15, '_MG_0730.JPG', 'a', 'd', 's'),
-(16, 'konekthing-logo.png', 'da', 'e', 'ad');
+INSERT INTO `blog` (`id`, `judul`, `deskripsi`, `url`, `gambar`) VALUES
+(1, 'Efisiensi Sumber Energi Kehidupan Berbasis IoT', 'Isu kelangkaan energi hingga saat ini masih menjadi kendala besar sehingga efisiensi energi mutlak dilakukan.', 'https://www.konekthing.com/blog/2021/02/11/efisiensi-sumber-energi-kehidupan-berbasis-internet-of-things', 'blog(1)3.jpg'),
+(2, 'Cara Praktis dan Mudah Mengelola Inventaris Kantor Menggunakan Sistem Informasi Inventory', 'Kondisi seperti ini membuat pebisnis mengatur cashflow bisnis dengan lebih ketat lagi. Lesunya perekonomian dirasakan oleh seluruh.', 'https://www.konekthing.com/blog/2021/02/18/cara-praktis-dan-mudah-mengelola-inventaris-kantor-menggunakan-sistem-informasi-inventory', 'blog(2)2.png'),
+(3, 'Solusi IoT Untuk Dorong UMKM Bangkit di Tengah Pandemi', 'Pembatasan kontak antar manusia atau social distancing merupakan salah satu langkah yang dapat dilakukan untuk menahan laju.', 'https://www.konekthing.com/blog/2021/02/10/solusi-internet-of-things-untuk-dorong-umkm-bangkit-di-tengah-pandemi', 'blog(3).jpg'),
+(4, 'Aplikasi Learning Management System (LMS) Untuk Proses Belajar Online Selama Pandemi Covid-19', 'Kegiatan Belajar Mengajar atau KBM menjadi salah satu aktivitas yang paling terdampak oleh pandemi Covid-19.', 'https://www.konekthing.com/blog/2021/02/26/aplikasi-learning-management-system-untuk-proses-belajar-online-selama-pandemi-covid19', 'blog(4).jpeg');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +64,7 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

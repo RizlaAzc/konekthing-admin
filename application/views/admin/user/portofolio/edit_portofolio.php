@@ -28,9 +28,10 @@
               </div>
               <div class="col-md-6">
                 <label for="inputCity" class="form-label">Gambar</label>
-                <input type="file" class="form-control" id="inputCity" name="gambar" value="<?php echo $queryPrdkDetail->gambar ?>" required>
+                <input type="file" class="form-control" id="inputCity" name="gambar" required>
+                <img class="mt-2" src="<?= base_url('gambar/portofolio/') ?><?= $queryPrdkDetail->gambar; ?>" width="100">
+                <p><?= $queryPrdkDetail->gambar; ?></p>
               </div>
-              <br>
               <div class="col-12">
                 <button type="submit" class="btn btn-primary">Edit Portofolio</button>
                 <button type="reset" class="btn btn-danger">Reset</button>
