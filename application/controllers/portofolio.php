@@ -57,9 +57,7 @@ class portofolio extends CI_Controller
         } else {
             $config['upload_path'] = 'gambar/portofolio';
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
-            $config['max_width'] = '436px';
-            $config['max_height'] = '292px';
-
+            
             $this->load->library('upload');
             $this->upload->initialize($config);
             if (!$this->upload->do_upload('gambar')) {
@@ -93,9 +91,7 @@ class portofolio extends CI_Controller
         } else {
             $config['upload_path'] = 'gambar/portofolio';
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
-            $config['max_width'] = '436px';
-            $config['max_height'] = '292px';
-
+           
             $this->load->library('upload');
             $this->upload->initialize($config);
             if (!$this->upload->do_upload('gambar')) {

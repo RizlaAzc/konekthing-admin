@@ -9,9 +9,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Kontak DataTables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
-                        Tambah Kontak
-                    </button>
+                    Kontak DataTables
                 </div>
                 <div class="card-body">
                     <?= $this->session->flashdata('pesan'); ?>
@@ -38,7 +36,7 @@
                                     <td style="vertical-align: middle;"><?php echo $row->email; ?></td>
                                     <td style="vertical-align: middle;"><?php echo $row->lokasi; ?></td>
                                     <td style="vertical-align: middle;"><?php echo $row->deskripsi; ?></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('kontak/edit_kontak/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('kontak/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('kontak/detail_kontak/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('kontak/edit_kontak/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('kontak/detail_kontak/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php
                             }
