@@ -29,7 +29,7 @@
               <div class="col-md-6">
                 <label for="inputCity" class="form-label">Gambar</label>
                 <input type="file" class="form-control" id="inputCity" name="gambar" required>
-                <img class="mt-2" src="<?= base_url('gambar/portofolio/') ?><?= $queryPrdkDetail->gambar; ?>" width="100">
+                <img class="mt-2" src="<?= base_url('assets/gambar/portofolio/') ?><?= $queryPrdkDetail->gambar; ?>" width="100">
                 <p><?= $queryPrdkDetail->gambar; ?></p>
               </div>
               <div class="col-12">

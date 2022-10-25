@@ -56,7 +56,7 @@ class blog extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = 'gambar/blog';
+            $config['upload_path'] = 'assets/gambar/blog';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
 
             $this->load->library('upload');
@@ -91,7 +91,7 @@ class blog extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = 'gambar/blog';
+            $config['upload_path'] = 'assets/gambar/blog';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
 
             $this->load->library('upload');

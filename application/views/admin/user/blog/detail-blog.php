@@ -33,7 +33,7 @@
                                 <div class="col-md-6">
                                     <label for="inputCity" class="form-label">Gambar</label>
                                     <input type="text" class="form-control" id="inputCity" name="gambar" value="<?php echo $queryBlgDetail->gambar ?>" readonly>
-                                    <img class="mt-2" src="<?= base_url('gambar/blog/') ?><?= $queryBlgDetail->gambar; ?>" width="100">
+                                    <img class="mt-2" src="<?= base_url('assets/gambar/blog/') ?><?= $queryBlgDetail->gambar; ?>" width="100">
                                 </div>
                                 <br>
                                 <div class="col-12">

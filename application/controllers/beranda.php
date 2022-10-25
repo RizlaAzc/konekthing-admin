@@ -56,7 +56,7 @@ class beranda extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = 'gambar/beranda';
+            $config['upload_path'] = 'assets/gambar/beranda';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
 
             $this->load->library('upload');
@@ -91,7 +91,7 @@ class beranda extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = 'gambar/beranda';
+            $config['upload_path'] = 'assets/gambar/beranda';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
 
             $this->load->library('upload');
