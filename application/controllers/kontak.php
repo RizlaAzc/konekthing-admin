@@ -10,6 +10,7 @@ class kontak extends CI_Controller
 
     public function index()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $c = $this->model_kontak->getDatakontak();
         $DATA = array('queryAllPrdk' => $c);
         $title['title'] = 'Kontak - Konekthing Admin';
@@ -20,6 +21,7 @@ class kontak extends CI_Controller
 
     public function tambah_kontak()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $title['title'] = 'Tambah kontak - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/kontak/tambah_kontak');
@@ -28,6 +30,7 @@ class kontak extends CI_Controller
 
     public function edit_kontak($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $querykontakDetail = $this->model_kontak->getDatakontakDetail($id);
         $DATA = array('queryPrdkDetail' => $querykontakDetail);
         $title['title'] = 'Edit kontak - Konekthing Admin';
@@ -38,6 +41,7 @@ class kontak extends CI_Controller
 
     public function detail_kontak($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $querykontakDetail = $this->model_kontak->getDatakontakDetail($id);
         $DATA = array('queryPrdkDetail' => $querykontakDetail);
         $title['title'] = 'Detail Kontak - Konekthing Admin';
@@ -48,7 +52,7 @@ class kontak extends CI_Controller
 
     public function fungsi_tambah()
     {
-
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $telepon = $this->input->post('telepon');
         $email = $this->input->post('email');
@@ -69,6 +73,7 @@ class kontak extends CI_Controller
 
     public function fungsi_edit()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $telepon = $this->input->post('telepon');
         $email = $this->input->post('email');
@@ -89,6 +94,7 @@ class kontak extends CI_Controller
 
     public function fungsi_hapus($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_kontak->hapusDatakontak($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect(base_url('kontak'));

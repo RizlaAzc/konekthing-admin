@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -29,14 +29,15 @@
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $login['nama'];?><img src="<?= base_url('assets/img/profile/') . $login['image']; ?>" class="img-profile rounded-circle" style="width: 50px; margin-left: 10px;"></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Profile</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="fa-sharp fa-solid fa-user-tie"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="fa-solid fa-chart-line"></i> Activity Log</a></li>
                     <li>
-                        <hr class="dropdown-divider" />
+                    <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                   <li><a class="dropdown-item" href="<?= base_url('forms/logout'); ?>"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+
                 </ul>
             </li>
         </ul>
@@ -78,9 +79,13 @@
                                 <a <?= $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('produk') ?>">Produk</a>
                                 <a <?= $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('blog') ?>">Blog</a>
                                 <a <?= $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kontak') ?>">Kontak</a>
-                            </nav>
-                        </div>
+                              </nav>
+                            </div>
                         <div class="sb-sidenav-menu-heading">Other</div>
+                        <a <?= $this->uri->segment(1) == 'register' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('forms/register') ?>">
+                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-key"></i></div>
+                            register
+                        </a>
                         <a <?= $this->uri->segment(1) == 'settings' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('settings') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-gear"></i></div>
                             Settings
@@ -89,3 +94,24 @@
                 </div>
             </nav>
         </div>
+
+
+
+
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ready to leave?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>select "logout" below if you ready to end your current session.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">logout</button>
+      </div>
+    </div>
+  </div>
+</div>

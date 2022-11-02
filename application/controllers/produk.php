@@ -10,6 +10,7 @@ class produk extends CI_Controller
 
     public function index()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryAllProduk = $this->model_produk->getDataProduk();
         $DATA = array('queryAllPrdk' => $queryAllProduk);
         $title['title'] = 'Produk - Konekthing Admin';
@@ -20,6 +21,7 @@ class produk extends CI_Controller
 
     public function tambah_produk()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $title['title'] = 'Tambah Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/tambah-produk');
@@ -28,6 +30,7 @@ class produk extends CI_Controller
 
     public function edit_produk($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryProdukDetail = $this->model_produk->getDataProdukDetail($id);
         $DATA = array('queryPrdkDetail' => $queryProdukDetail);
         $title['title'] = 'Edit Produk - Konekthing Admin';
@@ -38,6 +41,7 @@ class produk extends CI_Controller
 
     public function fungsi_tambah()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $nama = $this->input->post('nama');
         $ArrInsert = array(
@@ -51,6 +55,7 @@ class produk extends CI_Controller
 
     public function fungsi_edit()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $nama = $this->input->post('nama');
         $ArrUpdate = array(
@@ -63,6 +68,7 @@ class produk extends CI_Controller
 
     public function fungsi_hapus($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_produk->hapusDataProduk($id);
         redirect(base_url('produk'));
     }

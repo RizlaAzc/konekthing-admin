@@ -10,6 +10,7 @@ class blog extends CI_Controller
 
     public function index()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryAllBlog = $this->model_blog->getDataBlog();
         $DATA = array('queryAllBlg' => $queryAllBlog);
         $title['title'] = 'Blog - Konekthing Admin';
@@ -20,6 +21,7 @@ class blog extends CI_Controller
 
     public function tambah_blog()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $title['title'] = 'Tambah Blog - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/blog/tambah-blog');
@@ -28,6 +30,7 @@ class blog extends CI_Controller
 
     public function edit_blog($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryBlogDetail = $this->model_blog->getDataBlogDetail($id);
         $DATA = array('queryBlgDetail' => $queryBlogDetail);
         $title['title'] = 'Edit Blog - Konekthing Admin';
@@ -38,6 +41,7 @@ class blog extends CI_Controller
 
     public function detail_blog($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryBlogDetail = $this->model_blog->getDataBlogDetail($id);
         $DATA = array('queryBlgDetail' => $queryBlogDetail);
         $title['title'] = 'Detail Blog - Konekthing Admin';
@@ -48,6 +52,7 @@ class blog extends CI_Controller
 
     public function fungsi_tambah()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
@@ -83,6 +88,7 @@ class blog extends CI_Controller
 
     public function fungsi_edit()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
@@ -117,6 +123,7 @@ class blog extends CI_Controller
 
     public function fungsi_hapus($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_blog->hapusDataBlog($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect(base_url('blog'));

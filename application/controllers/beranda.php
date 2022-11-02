@@ -10,6 +10,7 @@ class beranda extends CI_Controller
 
     public function index()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryAllBeranda = $this->model_beranda->getDataBeranda();
         $DATA = array('queryAllBrnd' => $queryAllBeranda);
         $title['title'] = 'Beranda - Konekthing Admin';
@@ -20,6 +21,7 @@ class beranda extends CI_Controller
 
     public function tambah_beranda()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $title['title'] = 'Tambah Beranda - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/beranda/tambah-beranda');
@@ -28,6 +30,7 @@ class beranda extends CI_Controller
 
     public function edit_beranda($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryBerandaDetail = $this->model_beranda->getDataBerandaDetail($id);
         $DATA = array('queryBrndDetail' => $queryBerandaDetail);
         $title['title'] = 'Edit Beranda - Konekthing Admin';
@@ -38,6 +41,7 @@ class beranda extends CI_Controller
 
     public function detail_beranda($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryBerandaDetail = $this->model_beranda->getDataBerandaDetail($id);
         $DATA = array('queryBrndDetail' => $queryBerandaDetail);
         $title['title'] = 'Detail Beranda - Konekthing Admin';
@@ -48,6 +52,7 @@ class beranda extends CI_Controller
 
     public function fungsi_tambah()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
@@ -83,6 +88,7 @@ class beranda extends CI_Controller
 
     public function fungsi_edit()
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
@@ -117,6 +123,7 @@ class beranda extends CI_Controller
 
     public function fungsi_hapus($id)
     {
+        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_beranda->hapusDataBeranda($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect(base_url('beranda'));
