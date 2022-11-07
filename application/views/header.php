@@ -32,7 +32,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $login['nama'];?><img src="<?= base_url('assets/img/profile/') . $login['image']; ?>" class="img-profile rounded-circle" style="width: 50px; margin-left: 10px;"></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="fa-sharp fa-solid fa-user-tie"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="fa-solid fa-chart-line"></i> Activity Log</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url('visitor') ?>"><i class="fa-solid fa-chart-line"></i> Activity Log</a></li>
                     <li>
                     <hr class="dropdown-divider" />
                     </li>

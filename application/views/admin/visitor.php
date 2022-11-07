@@ -8,9 +8,7 @@
                     </ol>
                     <div class="card mb-4">
                         <div class="card-body">
-                            Chart.js is a third party plugin that is used to generate the charts in this template. The charts below have been customized - for further customization options, please visit the official
-                            <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>
-                            .
+                           visitor
                         </div>
                     </div>
                     <div class="card mb-4">
@@ -22,7 +20,7 @@
                         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-7">
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-bar me-1"></i>
@@ -32,16 +30,42 @@
                                 <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-pie me-1"></i>
-                                    Pie Chart Example
-                                </div>
-                                <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
-                                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                            </div>
+                       <div class="col-lg-5">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            DataTable Visitor
+                        </div>
+                        <div class="card-body">
+                            <table id="datatablesSimple">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" width="300">pengunjung</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php
+                                    $count = 0;
+                                    foreach ($queryvisitor as $row) {
+                                        $count = $count + 1;
+                                    ?>
+                                     <tr>
+                                        <td style="vertical-align: middle;"><?php echo $row->pengunjung; ?></td>
+                                    </tr>
+
+                                    <?php
+                                    }
+                                    ?>
+
+                                </tbody>
+                          </table>
                         </div>
                     </div>
                 </div>
             </main>
+
+
+
+                           
+
+

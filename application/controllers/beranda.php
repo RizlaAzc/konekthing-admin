@@ -6,7 +6,12 @@ class beranda extends CI_Controller
     {
         parent::__construct();
         $this->load->model('model_beranda');
-    }
+
+        // agar user tidak sembarangan masuk ke halaman tanpa login
+         // if(!$this->session->userdata('email')) {
+         //    reditect('forms'); }
+
+ }
 
     public function index()
     {
