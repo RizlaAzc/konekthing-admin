@@ -30,6 +30,10 @@
                                 <input type="text" class="form-control" id="inputCity" name="url" value="<?= $queryBrndDetail->url ?>" required>
                             </div>
                             <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Button</label>
+                                <input type="text" class="form-control" id="inputCity" name="button" value="<?= $queryBrndDetail->button ?>" required>
+                            </div>
+                            <div class="col-md-6">
                                 <label for="inputCity" class="form-label">Gambar</label>
                                 <input type="file" class="form-control" id="inputCity" name="gambar" required>
                                 <img class="mt-2" src="<?= base_url('assets/gambar/beranda/') ?><?= $queryBrndDetail->gambar; ?>" width="100">

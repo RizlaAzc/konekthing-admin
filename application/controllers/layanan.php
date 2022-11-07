@@ -1,90 +1,71 @@
 <?php
 
-class blog extends CI_Controller
+class layanan extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('model_blog');
-        $this->load->model('model_blogfitur');
+        $this->load->model('model_layanan');
+        $this->load->model('model_layananfitur');
     }
 
     public function index()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryAllBlog = $this->model_blog->getDataBlog();
-        $DATA = array('queryAllBlg' => $queryAllBlog);
-        $title['title'] = 'Blog - Konekthing Admin';
+        $queryAllLayanan = $this->model_layanan->getDataLayanan();
+        $DATA = array('queryAllLayanan' => $queryAllLayanan);
+        $title['title'] = 'Layanan - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/blog/blog', $DATA);
+        $this->load->view('admin/user/layanan/layanan', $DATA);
         $this->load->view('footer');
     }
 
-    public function tambah_blog()
+    public function tambah_layanan()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $title['title'] = 'Tambah Blog - Konekthing Admin';
+        $title['title'] = 'Tambah Layanan - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/blog/tambah-blog');
+        $this->load->view('admin/user/layanan/tambah-layanan');
         $this->load->view('footer');
     }
 
-    public function edit_blog($id)
+    public function edit_layanan($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryBlogDetail = $this->model_blog->getDataBlogDetail($id);
-        $DATA = array('queryBlgDetail' => $queryBlogDetail);
-        $title['title'] = 'Edit Blog - Konekthing Admin';
+        $queryLayananDetail = $this->model_layanan->getDataLayananDetail($id);
+        $DATA = array('queryLynDetail' => $queryLayananDetail);
+        $title['title'] = 'Edit Layanan - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/blog/edit-blog', $DATA);
+        $this->load->view('admin/user/layanan/edit-layanan', $DATA);
         $this->load->view('footer');
     }
 
-    public function detail_blog($id)
+    public function detail_layanan($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryBlogDetail = $this->model_blog->getDataBlogDetail($id);
-        $DATA = array('queryBlgDetail' => $queryBlogDetail);
-        $title['title'] = 'Detail Blog - Konekthing Admin';
+        $queryLayananDetail = $this->model_layanan->getDataLayananDetail($id);
+        $DATA = array('queryLynDetail' => $queryLayananDetail);
+        $title['title'] = 'Detail Layanan - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/blog/detail-blog', $DATA);
+        $this->load->view('admin/user/layanan/detail-layanan', $DATA);
         $this->load->view('footer');
     }
 
     public function fungsi_tambah()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $id = $this->input->post('id');
+        $nama = $this->input->post('nama');
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
-        $url = $this->input->post('url');
-        $gambar = $_FILES['gambar'];
-
-        if ($gambar = '') {
-        } else {
-            $config['upload_path'] = 'assets/gambar/blog';
-            $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
-
-            $this->load->library('upload');
-            $this->upload->initialize($config);
-            if (!$this->upload->do_upload('gambar')) {
-                echo "Upload Gagal";
-            } else {
-                $gambar = $this->upload->data('file_name');
-            }
-        }
-
         $ArrInsert = array(
-            'id' => $id,
+            'nama' => $nama,
             'judul' => $judul,
-            'deskripsi' => $deskripsi,
-            'url' => $url,
-            'gambar' => $gambar
+            'deskripsi' => $deskripsi
         );
 
-        $this->model_blog->insertDataBlog($ArrInsert);
+        $this->model_layanan->insertDataLayanan($ArrInsert);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('blog'));
+        redirect(base_url('layanan'));
     }
 
     public function fungsi_edit()
@@ -98,7 +79,7 @@ class blog extends CI_Controller
 
         if ($gambar = '') {
         } else {
-            $config['upload_path'] = 'assets/gambar/blog';
+            $config['upload_path'] = 'assets/gambar/layanan';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
 
             $this->load->library('upload');
@@ -117,34 +98,34 @@ class blog extends CI_Controller
             'url' => $url
         );
 
-        $this->model_blog->updateDataBlog($id, $ArrUpdate);
+        $this->model_layanan->updateDataLayanan($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
-        redirect(base_url('blog'));
+        redirect(base_url('layanan'));
     }
 
     public function fungsi_hapus($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $this->model_blog->hapusDataBlog($id);
+        $this->model_layanan->hapusDataLayanan($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('blog'));
+        redirect(base_url('layanan'));
     }
 
     /*
-    Produk_Fitur Section
+    Layanan_Fitur Section
     */
 
     public function fitur($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryBlogDetail = $this->model_blog->getDataBlogDetail($id);
-        $queryAllFitur = $this->model_blogfitur->getDataFitur($id);
-        $DATA['id_blog'] = $id;
-        $DATA['queryBlogDetail'] = $queryBlogDetail;
+        $queryLayananDetail = $this->model_layanan->getDataLayananDetail($id);
+        $queryAllFitur = $this->model_layananfitur->getDataFitur($id);
+        $DATA['id_layanan'] = $id;
+        $DATA['queryLayananDetail'] = $queryLayananDetail;
         $DATA['queryAllFitur'] = $queryAllFitur;
-        $title['title'] = 'Fitur Blog - Konekthing Admin';
+        $title['title'] = 'Fitur Layanan - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/blog/fitur/fitur', $DATA);
+        $this->load->view('admin/user/layanan/fitur/fitur', $DATA);
         $this->load->view('footer');
     }
 
@@ -162,7 +143,7 @@ class blog extends CI_Controller
     public function detail_fitur($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
+        $queryFiturDetail = $this->model_layananfitur->getDataFiturDetail($id);
         $DATA = array('queryFiturDetail' => $queryFiturDetail);
         $title['title'] = 'Detail Fitur - Konekthing Admin';
         $this->load->view('header', $title);
@@ -173,34 +154,19 @@ class blog extends CI_Controller
     public function fungsi_tambahfitur()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $id_blog = $this->input->post('id_blog');
+        $id_layanan = $this->input->post('id_layanan');
         $nama_fitur = $this->input->post('nama_fitur');
         $deskripsi_fitur = $this->input->post('deskripsi_fitur');
-        $gambar_fitur = $_FILES['gambar_fitur'];
 
-        if ($gambar_fitur = '') {
-        } else {
-            $config['upload_path'] = 'assets/gambar/blog/fitur';
-            $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
-
-            $this->load->library('upload');
-            $this->upload->initialize($config);
-            if (!$this->upload->do_upload('gambar_fitur')) {
-                echo "Upload Gagal";
-            } else {
-                $gambar_fitur = $this->upload->data('file_name');
-            }
-        }
         $ArrInsert = array(
-            'id_blog' => $id_blog,
+            'id_layanan' => $id_layanan,
             'nama_fitur' => $nama_fitur,
-            'deskripsi_fitur' => $deskripsi_fitur,
-            'gambar_fitur' => $gambar_fitur
+            'deskripsi_fitur' => $deskripsi_fitur
         );
 
-        $this->model_blogfitur->insertDataFitur($ArrInsert);
+        $this->model_layananfitur->insertDataFitur($ArrInsert);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('blog/fitur/' . $id_blog));
+        redirect(base_url('layanan/fitur/' . $id_layanan));
     }
 
     public function fungsi_editfitur()

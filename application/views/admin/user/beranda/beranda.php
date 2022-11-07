@@ -20,9 +20,10 @@
                             <tr style="background-color:#B0C4DE;">
                                 <th class="text-center" width="1">ID</th>
                                 <th class="text-center" width="200">Judul</th>
-                                <th class="text-center" width="350">Deskripsi</th>
+                                <th class="text-center" width="250">Deskripsi</th>
                                 <th class="text-center" width="250">Url</th>
                                 <th class="text-center" width="100">Gambar</th>
+                                <th class="text-center" width="100">Button</th>
                                 <th class="text-center" width="100">Aksi</th>
                             </tr>
                         </thead>
@@ -38,6 +39,7 @@
                                     <td style="vertical-align: middle;"><?= $row->deskripsi ?></td>
                                     <td style="vertical-align: middle;"><?= $row->url ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/beranda/') ?><?= $row->gambar; ?>" width="75"></td>
+                                    <td style="vertical-align: middle;"><?= $row->button ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('beranda/edit_beranda/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('beranda/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('beranda/detail_beranda/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php

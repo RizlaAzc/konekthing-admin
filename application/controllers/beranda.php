@@ -7,11 +7,11 @@ class beranda extends CI_Controller
         parent::__construct();
         $this->load->model('model_beranda');
 
-        // agar user tidak sembarangan masuk ke halaman tanpa login
-         // if(!$this->session->userdata('email')) {
-         //    reditect('forms'); }
-
- }
+        // // agar user tidak sembarangan masuk ke halaman tanpa login
+        // if (!$this->session->userdata('email')) {
+        //     redirect('forms');
+        // }
+    }
 
     public function index()
     {
@@ -63,6 +63,7 @@ class beranda extends CI_Controller
         $deskripsi = $this->input->post('deskripsi');
         $url = $this->input->post('url');
         $gambar = $_FILES['gambar'];
+        $button = $this->input->post('button');
 
         if ($gambar = '') {
         } else {
@@ -83,7 +84,8 @@ class beranda extends CI_Controller
             'judul' => $judul,
             'deskripsi' => $deskripsi,
             'url' => $url,
-            'gambar' => $gambar
+            'gambar' => $gambar,
+            'button' => $button
         );
 
         $this->model_beranda->insertDataBeranda($ArrInsert);
@@ -99,6 +101,7 @@ class beranda extends CI_Controller
         $deskripsi = $this->input->post('deskripsi');
         $url = $this->input->post('url');
         $gambar = $_FILES['gambar'];
+        $button = $this->input->post('button');
 
         if ($gambar = '') {
         } else {
@@ -118,7 +121,8 @@ class beranda extends CI_Controller
             'gambar' => $gambar,
             'judul' => $judul,
             'deskripsi' => $deskripsi,
-            'url' => $url
+            'url' => $url,
+            'button' => $button
         );
 
         $this->model_beranda->updateDataBeranda($id, $ArrUpdate);
