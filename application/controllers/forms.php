@@ -18,7 +18,7 @@ class forms extends CI_Controller
 
 		// if ($this->form_validation->run() == false) {
 
-		$title['title'] = 'forms login - Konekthing Admin';
+		$title['title'] = 'Konekthing Admin';
 		$this->load->view('header-forms', $title);
 		$this->load->view('admin/forms/login');
 		$this->load->view('footer-forms');
@@ -92,7 +92,7 @@ class forms extends CI_Controller
 		$this->form_validation->set_rules('password2', 'password', 'required|trim|matches[password1]');
 
 		if ($this->form_validation->run() == false) {
-			$title['title'] = 'forms register - Konekthing Admin';
+			$title['title'] = 'Konekthing Admin';
 			$this->load->view('header-forms', $title);
 			$this->load->view('admin/forms/register');
 			$this->load->view('footer-forms');
