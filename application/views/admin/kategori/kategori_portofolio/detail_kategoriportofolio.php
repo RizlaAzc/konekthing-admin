@@ -4,12 +4,12 @@
             <h1 class="mt-4">Detail kategori Portofolio</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="<?= base_url('kategoriportofolio') ?>">kategori Portofolio</a></li>
+                <li class="breadcrumb-item"><a href="<?= base_url('kategori_portofolio') ?>">kategori Portofolio</a></li>
                 <li class="breadcrumb-item active">Detail kategori Portofolio</li>
             </ol>
             <div>
                 <hr>
-                <form action="<?= base_url('kategoriportofolio') ?>" method="post">
+                <form action="<?= base_url('kategori_portofolio') ?>" method="post">
                     <table border="1">
                         <br>
                         <tr>
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="col-6">
                                     <label for="inputAddress" class="form-label">kategori portofolio</label>
-                                    <input type="text" class="form-control" id="inputAddress" name="judul" value="<?php echo $queryPrdkDetail->judul ?>" readonly>
+                                    <input type="text" class="form-control" id="inputAddress" name="kategori_portofolio" value="<?php echo $queryPrdkDetail->kategori_portofolio ?>" readonly>
                                 </div>
                              
                                 <br>

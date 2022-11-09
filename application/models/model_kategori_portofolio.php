@@ -1,7 +1,7 @@
 <?php
 
 defined('BASEPATH') or exit('No direct script access allowed');
-class model_kategori_Portofolio extends CI_Model
+class model_kategori_portofolio extends CI_Model
 {
     function getDatakategori_portofolio()
     {
