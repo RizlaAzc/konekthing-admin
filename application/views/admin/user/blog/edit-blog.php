@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Edit Blog</button>
-                                <button type="reset" class="btn btn-danger">Reset</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
                             </div>
                         </form>
                     </tr>

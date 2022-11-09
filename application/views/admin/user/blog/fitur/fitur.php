@@ -23,7 +23,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Blog Fitur Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                    Fitur Blog Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Fitur
                     </button>
                 </div>
@@ -47,12 +47,10 @@
                             ?>
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
-                                    <td style="vertical-align: middle;"><?= $row->nama_fitur ?></td>
-                                    <td style="vertical-align: middle;" align="justify"><?= $row->deskripsi_fitur ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->nama_fitur ?></td>
+                                    <td style="vertical-align: middle;" align="justify"><?= substr($row->deskripsi_fitur, 0, 109) ?><a>...</a></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/blog/fitur/') ?><?= $row->gambar_fitur; ?>" width="75"></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('blog/edit_fitur/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('blog/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('blog/detail_fitur/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
-                                        <a href="<?= base_url('blog/subfitur/') . $row->id . '/' . $id_blog ?>" class="btn btn-primary mt-2">Sub Fitur</a>
-                                    </td>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('blog/edit_fitur/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('blog/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('blog/detail_fitur/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php
                             }

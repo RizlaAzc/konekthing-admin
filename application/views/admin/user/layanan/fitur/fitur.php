@@ -21,7 +21,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Layanan Fitur Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                    Fitur Layanan Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Fitur
                     </button>
                 </div>
@@ -31,8 +31,8 @@
                         <thead>
                             <tr style="background-color:#B0C4DE;">
                                 <th class="text-center" width="1">ID</th>
-                                <th class="text-center" width="300">Nama Fitur</th>
-                                <th class="text-center" width="400">Deskripsi Fitur</th>
+                                <th class="text-center" width="200">Nama Fitur</th>
+                                <th class="text-center" width="500">Deskripsi Fitur</th>
                                 <th class="text-center" width="100">Gambar</th>
                                 <th class="text-center" width="100">Aksi</th>
                             </tr>
@@ -45,12 +45,10 @@
                             ?>
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
-                                    <td style="vertical-align: middle;"><?= $row->nama_fitur ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->nama_fitur ?></td>
                                     <td style="vertical-align: middle;" align="justify"><?= $row->deskripsi_fitur ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/layanan/fitur/') ?><?= $row->gambar_fitur; ?>" width="75"></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('layanan/edit_fitur/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/detail_fitur/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
-                                        <a href="<?= base_url('layanan/subfitur/') . $row->id . '/' . $id_layanan ?>" class="btn btn-primary mt-2">Sub Fitur</a>
-                                    </td>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('layanan/edit_fitur/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/detail_fitur/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php
                             }
