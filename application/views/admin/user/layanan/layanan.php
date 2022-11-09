@@ -3,7 +3,7 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Layanan</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+                <li class="breadcrumb-item active">User</li>
                 <li class="breadcrumb-item active">Layanan</li>
             </ol>
             <div class="card mb-4">
@@ -19,10 +19,10 @@
                         <thead>
                             <tr style="background-color:#B0C4DE;">
                                 <th class="text-center" width="1">ID</th>
-                                <th class="text-center" width="200">Nama</th>
+                                <th class="text-center" width="190">Nama</th>
                                 <th class="text-center" width="200">Judul</th>
-                                <th class="text-center" width="200">Deskripsi</th>
-                                <th class="text-center" width="200">Sub Deskripsi</th>
+                                <th class="text-center" width="190">Deskripsi</th>
+                                <th class="text-center" width="180">Sub Deskripsi</th>
                                 <th class="text-center" width="140">Aksi</th>
                             </tr>
                         </thead>
@@ -34,10 +34,10 @@
                             ?>
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
-                                    <td style="vertical-align: middle;"><?= $row->nama ?></td>
-                                    <td style="vertical-align: middle;"><?= $row->judul ?></td>
-                                    <td style="vertical-align: middle;"><?= $row->deskripsi ?></td>
-                                    <td style="vertical-align: middle;"><?= $row->sub_deskripsi ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->nama ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->judul ?></td>
+                                    <td style="vertical-align: middle;"><?= substr($row->deskripsi, 0, 68) ?><a>...</a></td>
+                                    <td style="vertical-align: middle;"><?= substr($row->sub_deskripsi, 0, 82) ?><a>...</a></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('layanan/edit_layanan/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/detail_layanan/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a><a href="<?= base_url('layanan/fitur/') . $row->id ?>" class="btn btn-primary mt-2">Fitur Layanan</a></td>
                                 </tr>
                             <?php

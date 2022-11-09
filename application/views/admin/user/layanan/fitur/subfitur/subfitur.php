@@ -3,6 +3,7 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">SubFitur Layanan</h1>
             <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">User</li>
                 <li class="breadcrumb-item"><a href="<?= base_url('layanan') ?>">Layanan</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('layanan/fitur/') . $id_layanan ?>">Fitur Layanan</a></li>
                 <li class="breadcrumb-item active">SubFitur Layanan</li>

@@ -3,6 +3,7 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Beranda</h1>
             <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">User</li>
                 <li class="breadcrumb-item active">Beranda</li>
             </ol>
             <div class="card mb-4">

@@ -3,7 +3,7 @@
     <div class="container-fluid px-4">
       <h1 class="mt-4">Edit Kontak</h1>
       <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+        <li class="breadcrumb-item active">User</li>
         <li class="breadcrumb-item"><a href="<?= base_url('kontak') ?>">Kontak</a></li>
         <li class="breadcrumb-item active">Edit Kontak</li>
       </ol>
@@ -37,7 +37,7 @@
                 <br>
                 <div class="col-12">
                   <button type="submit" class="btn btn-primary">Edit Kontak</button>
-                  <button type="reset" class="btn btn-danger">Reset</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form>
             </tr>

@@ -13,31 +13,31 @@ class kategori_portofolio extends CI_Controller
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $p = $this->model_kategori_portofolio->getDatakategori_portofolio();
         $DATA = array('queryAllPrdk' => $p);
-        $title['title'] = 'kategori_Portofolio - Konekthing Admin';
+        $title['title'] = 'Kategori Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/kategori/kategori_portofolio/kategori_portofolio', $DATA);
+        $this->load->view('admin/master/kategori_portofolio/portofolio', $DATA);
         $this->load->view('footer');
     }
 
-    public function edit_kategori_portofolio($id)
+    public function edit_portofolio($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $portofolioDetail = $this->model_kategori_portofolio->getDatakategori_PortofolioDetail($id);
         $DATA = array('queryPrdkDetail' => $portofolioDetail);
-        $title['title'] = 'Edit_kategori_Portofolio - Konekthing Admin';
+        $title['title'] = 'Edit Kategori Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/kategori/kategori_portofolio/edit_kategoriportofolio', $DATA);
+        $this->load->view('admin/master/kategori_portofolio/edit_portofolio', $DATA);
         $this->load->view('footer');
     }
 
-    public function detail_kategori_portofolio($id)
+    public function detail_portofolio($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $portofolioDetail = $this->model_kategori_portofolio->getDatakategori_PortofolioDetail($id);
         $DATA = array('queryPrdkDetail' => $portofolioDetail);
-        $title['title'] = 'Detail_kategori_Portofolio - Konekthing Admin';
+        $title['title'] = 'Detail Kategori Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/kategori/kategori_portofolio/detail_kategoriportofolio', $DATA);
+        $this->load->view('admin/master/kategori_portofolio/detail_portofolio', $DATA);
         $this->load->view('footer');
     }
 

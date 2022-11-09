@@ -57,15 +57,15 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-eye"></i></div>
                             Visitor
                         </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a <?= $this->uri->segment(1) == 'kategori_portofolio' || $this->uri->segment(1) == 'kategori_produk' ? 'class="nav-link active"' : '' ?> class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Kategori
+                            Master
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div <?= $this->uri->segment(1) == 'kategori_portofolio' || $this->uri->segment(1) == 'kategori_produk' ? 'class="collapse-show"' : '' ?> class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="<?= base_url('kategori_portofolio') ?>">Portofolio</a>
-                                <a class="nav-link" href="<?= base_url('admin/layouts_lightsidenav') ?>">Produk</a>
+                                <a <?= $this->uri->segment(1) == 'kategori_portofolio' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kategori_portofolio') ?>">Kategori Portofolio</a>
+                                <a <?= $this->uri->segment(1) == 'kategori_produk' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kategori_produk') ?>">Kategori Produk</a>
                             </nav>
                         </div>
                         <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' ? 'class="nav-link active"' : '' ?> class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsepages" aria-expanded="false" aria-controls="collapsepages">

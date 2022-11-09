@@ -3,13 +3,13 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Portofolio</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+                <li class="breadcrumb-item active">User</li>
                 <li class="breadcrumb-item active">Portofolio</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Portofolio DataTables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                    Portofolio Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Portofolio
                     </button>
                 </div>
@@ -20,7 +20,7 @@
                             <tr style="background-color:#B0C4DE;">
                                 <th class="text-center" width="1">ID</th>
                                 <th class="text-center" width="300">Judul</th>
-                                <th class="text-center" width="500">Deskripsi</th>
+                                <th class="text-center" width="400">Deskripsi</th>
                                 <th class="text-center" width="100">Gambar</th>
                                 <th class="text-center" width="100">Aksi</th>
                             </tr>

@@ -3,6 +3,7 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Edit Beranda</h1>
             <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">User</li>
                 <li class="breadcrumb-item"><a href="<?= base_url('beranda') ?>">Beranda</a></li>
                 <li class="breadcrumb-item active">Edit Beranda</li>
             </ol>
@@ -39,7 +40,7 @@
                                 <p><?= $queryBrndDetail->gambar; ?></p>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Edit Blog</button>
+                                <button type="submit" class="btn btn-primary">Edit Beranda</button>
                                 <button type="reset" class="btn btn-secondary">Reset</button>
                             </div>
                         </form>

@@ -1,11 +1,11 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Detail kategori Portofolio</h1>
+            <h1 class="mt-4">Detail Kategori Portofolio</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="<?= base_url('kategori_portofolio') ?>">kategori Portofolio</a></li>
-                <li class="breadcrumb-item active">Detail kategori Portofolio</li>
+                <li class="breadcrumb-item active">Master</li>
+                <li class="breadcrumb-item"><a href="<?= base_url('kategori_portofolio') ?>">Kategori Portofolio</a></li>
+                <li class="breadcrumb-item active">Detail Kategori Portofolio</li>
             </ol>
             <div>
                 <hr>
@@ -22,7 +22,7 @@
                                     <label for="inputAddress" class="form-label">kategori portofolio</label>
                                     <input type="text" class="form-control" id="inputAddress" name="kategori_portofolio" value="<?php echo $queryPrdkDetail->kategori_portofolio ?>" readonly>
                                 </div>
-                             
+
                                 <br>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Tutup Detail</button>

@@ -3,7 +3,7 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Edit Layanan</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+                <li class="breadcrumb-item active">User</li>
                 <li class="breadcrumb-item"><a href="<?= base_url('layanan') ?>">Layanan</a></li>
                 <li class="breadcrumb-item active">Edit Layanan</li>
             </ol>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Edit Layanan</button>
-                                <button type="reset" class="btn btn-danger">Reset</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
                             </div>
                         </form>
                     </tr>
