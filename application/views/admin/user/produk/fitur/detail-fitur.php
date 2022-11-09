@@ -3,14 +3,13 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Detail Fitur</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk') ?>">Produk</a></li>
-                <li class="breadcrumb-item"><a href="<?= base_url('produk/fitur') ?>">Fitur Produk</a></li>
+                <li class="breadcrumb-item"><a href="<?= base_url('produk/fitur/') . $id_produk ?>">Fitur Produk</a></li>
                 <li class="breadcrumb-item active">Detail Fitur</li>
             </ol>
             <div>
                 <hr>
-                <form action="<?= base_url('produk/fitur') ?>" method="post">
+                <form action="<?= base_url('produk/fitur/') . '/' . $id_produk ?>" method="post">
                     <table border="1">
                         <br>
                         <tr>

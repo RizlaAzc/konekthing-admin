@@ -15,16 +15,7 @@ class kategori_portofolio extends CI_Controller
         $DATA = array('queryAllPrdk' => $p);
         $title['title'] = 'kategori_Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/kategori_portofolio/kategori_portofolio', $DATA);
-        $this->load->view('footer');
-    }
-
-    public function tambah_kategori_portofolio()
-    {
-        $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $title['title'] = 'Tambah kategori_Portofolio - Konekthing Admin';
-        $this->load->view('header', $title);
-        $this->load->view('admin/user/kategori_portofolio/tambah_kategori_portofolio');
+        $this->load->view('admin/kategori/kategori_portofolio/kategori_portofolio', $DATA);
         $this->load->view('footer');
     }
 
@@ -35,7 +26,7 @@ class kategori_portofolio extends CI_Controller
         $DATA = array('queryPrdkDetail' => $querykategori_portofolioDetail);
         $title['title'] = 'Edit kategori_Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/kategori_portofolio/edit_kategori_portofolio', $DATA);
+        $this->load->view('admin/kategori/kategori_portofolio/edit_kategori_portofolio', $DATA);
         $this->load->view('footer');
     }
 
@@ -46,7 +37,7 @@ class kategori_portofolio extends CI_Controller
         $DATA = array('queryPrdkDetail' => $querykategori_portofolioDetail);
         $title['title'] = 'Detail kategori_Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/kategori_portofolio/detail_kategori_portofolio', $DATA);
+        $this->load->view('admin/kategori/kategori_portofolio/detail_kategori_portofolio', $DATA);
         $this->load->view('footer');
     }
 
@@ -73,11 +64,11 @@ class kategori_portofolio extends CI_Controller
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $judul = $this->input->post('judul');
-    
+
 
         $ArrUpdate = array(
             'judul' => $judul,
-          
+
         );
 
         $this->model_kategorikategori_portofolio->updateDatakategori_portofolio($id, $ArrUpdate);

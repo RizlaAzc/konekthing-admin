@@ -3,13 +3,12 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Beranda</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
                 <li class="breadcrumb-item active">Beranda</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Beranda DataTables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                    Beranda Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Beranda
                     </button>
                 </div>
@@ -19,9 +18,9 @@
                         <thead>
                             <tr style="background-color:#B0C4DE;">
                                 <th class="text-center" width="1">ID</th>
-                                <th class="text-center" width="200">Judul</th>
-                                <th class="text-center" width="250">Deskripsi</th>
-                                <th class="text-center" width="250">Url</th>
+                                <th class="text-center" width="180">Judul</th>
+                                <th class="text-center" width="220">Deskripsi</th>
+                                <th class="text-center" width="200">Url</th>
                                 <th class="text-center" width="100">Gambar</th>
                                 <th class="text-center" width="100">Button</th>
                                 <th class="text-center" width="100">Aksi</th>
@@ -35,11 +34,11 @@
                             ?>
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
-                                    <td style="vertical-align: middle;"><?= $row->judul ?></td>
-                                    <td style="vertical-align: middle;"><?= $row->deskripsi ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->judul ?></td>
+                                    <td style="vertical-align: middle;"><?= substr($row->deskripsi, 0, 70) ?><a>...</a></td>
                                     <td style="vertical-align: middle;"><?= $row->url ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/beranda/') ?><?= $row->gambar; ?>" width="75"></td>
-                                    <td style="vertical-align: middle;"><?= $row->button ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->button ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('beranda/edit_beranda/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('beranda/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('beranda/detail_beranda/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php

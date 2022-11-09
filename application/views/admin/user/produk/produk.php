@@ -3,7 +3,6 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Produk</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
                 <li class="breadcrumb-item active">Produk</li>
             </ol>
             <div class="card mb-4">
@@ -36,9 +35,9 @@
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><?= $row->nama ?></td>
-                                    <td style="vertical-align: middle;"><?= substr($row->judul, 0, 16) ?><a>...</a></td>
-                                    <td style="vertical-align: middle;"><?= substr($row->deskripsi, 0, 28) ?><a>...</a></td>
-                                    <td style="vertical-align: middle;"><?= substr($row->url, 0, 28) ?><a>...</a></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->judul ?></td>
+                                    <td style="vertical-align: middle;"><?= substr($row->deskripsi, 0, 66) ?><a>...</a></td>
+                                    <td style="vertical-align: middle;"><?= $row->url ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/produk/') ?><?= $row->gambar; ?>" width="75"></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('produk/edit_produk/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/detail_produk/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a><a href="<?= base_url('produk/fitur/') . $row->id ?>" class="btn btn-primary mt-2">Fitur Produk</a></td>
                                 </tr>
@@ -80,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputCity" class="form-label">Gambar</label>
-                        <input type="file" class="form-control" id="inputCity" name="gambar">
+                        <input type="file" class="form-control" id="inputCity" name="gambar" required>
                     </div>
                 </div>
                 <div class="modal-footer">

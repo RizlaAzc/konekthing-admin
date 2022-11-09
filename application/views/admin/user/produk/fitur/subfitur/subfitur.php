@@ -3,7 +3,6 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">SubFitur Produk</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk') ?>">Produk</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk/fitur/') . $id_produk ?>">Fitur Produk</a></li>
                 <li class="breadcrumb-item active">SubFitur Produk</li>
@@ -48,7 +47,7 @@
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
                                     <td style="vertical-align: middle;"><?= $row->nama_subfitur ?></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('produk/edit_subfitur/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/fungsi_hapussubfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/detail_subfitur/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('produk/edit_subfitur/') . $row->id . '/' . $id_produk . '/' . $id_fitur ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/fungsi_hapussubfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/detail_subfitur/') . $row->id . '/' . $id_produk . '/' . $id_fitur ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php
                             }

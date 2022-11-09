@@ -19,7 +19,7 @@ class model_produksubfitur extends CI_Model
     {
         $this->db->where('id', $id);
         $query = $this->db->get('produk_subfitur');
-        return $query->result();
+        return $query->row();
     }
 
     function updateDataSubFitur($id, $data)

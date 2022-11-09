@@ -151,22 +151,24 @@ class produk extends CI_Controller
         $this->load->view('footer');
     }
 
-    public function edit_fitur($id)
+    public function edit_fitur($id, $id_produk)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
         $DATA['queryFiturDetail'] = $queryFiturDetail;
+        $DATA['id_produk'] = $id_produk;
         $title['title'] = 'Edit Fitur - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/fitur/edit-fitur', $DATA);
         $this->load->view('footer');
     }
 
-    public function detail_fitur($id)
+    public function detail_fitur($id, $id_produk)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
         $DATA = array('queryFiturDetail' => $queryFiturDetail);
+        $DATA['id_produk'] = $id_produk;
         $title['title'] = 'Detail Fitur - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/fitur/detail-fitur', $DATA);
@@ -260,6 +262,7 @@ class produk extends CI_Controller
         $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
         $queryAllSubFitur = $this->model_produksubfitur->getDataSubFitur($id);
         $DATA['id_produk'] = $id_produk;
+        $DATA['id_fitur'] = $id_produk;
         $DATA['queryFiturDetail'] = $queryFiturDetail;
         $DATA['queryAllSubFitur'] = $queryAllSubFitur;
         $title['title'] = 'SubFitur Produk - Konekthing Admin';
@@ -268,22 +271,26 @@ class produk extends CI_Controller
         $this->load->view('footer');
     }
 
-    public function edit_subfitur($id)
+    public function edit_subfitur($id, $id_produk, $id_fitur)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $querySubFiturDetail = $this->model_produksubfitur->getDataSubFiturDetail($id);
         $DATA['querySubFiturDetail'] = $querySubFiturDetail;
+        $DATA['id_produk'] = $id_produk;
+        $DATA['id_fitur'] = $id_fitur;
         $title['title'] = 'Edit SubFitur - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/fitur/subfitur/edit-subfitur', $DATA);
         $this->load->view('footer');
     }
 
-    public function detail_subfitur($id)
+    public function detail_subfitur($id, $id_produk)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $querySubFiturDetail = $this->model_produksubfitur->getDataSubFiturDetail($id);
         $DATA = array('querySubFiturDetail' => $querySubFiturDetail);
+        $DATA['id_produk'] = $id_produk;
+        $DATA['id_fitur'] = $id_produk;
         $title['title'] = 'Detail SubFitur - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/fitur/subfitur/detail-subfitur', $DATA);

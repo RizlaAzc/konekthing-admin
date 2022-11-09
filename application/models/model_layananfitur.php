@@ -3,8 +3,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class model_layananfitur extends CI_Model
 {
-    function getDataFitur()
+    function getDataFitur($id)
     {
+        $this->db->where('id_layanan', $id);
         $query = $this->db->get('layanan_fitur');
         return $query->result();
     }

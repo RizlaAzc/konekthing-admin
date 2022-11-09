@@ -31,8 +31,9 @@
                         <thead>
                             <tr style="background-color:#B0C4DE;">
                                 <th class="text-center" width="1">ID</th>
-                                <th class="text-center" width="400">Nama Fitur</th>
+                                <th class="text-center" width="300">Nama Fitur</th>
                                 <th class="text-center" width="400">Deskripsi Fitur</th>
+                                <th class="text-center" width="100">Gambar</th>
                                 <th class="text-center" width="100">Aksi</th>
                             </tr>
                         </thead>
@@ -46,6 +47,7 @@
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
                                     <td style="vertical-align: middle;"><?= $row->nama_fitur ?></td>
                                     <td style="vertical-align: middle;" align="justify"><?= $row->deskripsi_fitur ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/layanan/fitur/') ?><?= $row->gambar_fitur; ?>" width="75"></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('layanan/edit_fitur/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/detail_fitur/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
                                         <a href="<?= base_url('layanan/subfitur/') . $row->id . '/' . $id_layanan ?>" class="btn btn-primary mt-2">Sub Fitur</a>
                                     </td>
@@ -78,6 +80,10 @@
                     <div class="form-group">
                         <label for="inputAddress2" class="form-label">Deskripsi Fitur</label>
                         <input type="text" class="form-control" id="inputAddress2" name="deskripsi_fitur" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">Gambar Fitur</label>
+                        <input type="file" class="form-control" id="inputAddress2" name="gambar_fitur" required>
                     </div>
                 </div>
                 <div class="modal-footer">

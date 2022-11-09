@@ -3,8 +3,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class model_blogfitur extends CI_Model
 {
-    function getDataFitur()
+    function getDataFitur($id)
     {
+        $this->db->where('id_blog', $id);
         $query = $this->db->get('blog_fitur');
         return $query->result();
     }

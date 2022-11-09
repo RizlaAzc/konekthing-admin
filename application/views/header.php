@@ -17,7 +17,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="<?= base_url('dashboard') ?>">Konekthing Admin</a>
+        <a class="navbar-brand ps-3" href="<?= base_url('dashboard') ?>"><img style="width: 35px; margin-bottom: 10px;" src="<?= base_url('assets/gambar/logo.png') ?>"><i style="font-size: 18px; margin-left: 5px;">Konekthing Admin</i></a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -59,34 +59,34 @@
                         </a>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            kategori
+                            Kategori
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="<?= base_url('admin/layouts_staticnavigation') ?>">portofolio</a>
-                                <a class="nav-link" href="<?= base_url('admin/layouts_lightsidenav') ?>">produk</a>
+                                <a class="nav-link" href="<?= base_url('kategori_portofolio') ?>">Portofolio</a>
+                                <a class="nav-link" href="<?= base_url('admin/layouts_lightsidenav') ?>">Produk</a>
                             </nav>
                         </div>
-                        <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' ? 'class="nav-link active"' : '' ?> class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsepages" aria-expanded="false" aria-controls="collapsepages">
+                        <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' ? 'class="nav-link active"' : '' ?> class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsepages" aria-expanded="false" aria-controls="collapsepages">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             User
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' ? 'class="collapse-show"' : '' ?> class="collapse" id="collapsepages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' ? 'class="collapse-show"' : '' ?> class="collapse" id="collapsepages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('beranda') ?>">Beranda</a>
                                 <a <?= $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('portofolio') ?>">Portofolio</a>
                                 <a <?= $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('produk') ?>">Produk</a>
-                                <a <?= $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('blog') ?>">Blog</a>
                                 <a <?= $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('layanan') ?>">Layanan</a>
+                                <a <?= $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('blog') ?>">Blog</a>
                                 <a <?= $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kontak') ?>">Kontak</a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Other</div>
                         <a <?= $this->uri->segment(1) == 'register' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('forms/register') ?>">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-key"></i></div>
-                            register
+                            Register
                         </a>
                         <a <?= $this->uri->segment(1) == 'settings' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('settings') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-gear"></i></div>

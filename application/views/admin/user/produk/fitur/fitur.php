@@ -3,7 +3,6 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Fitur Produk</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk') ?>">Produk</a></li>
                 <li class="breadcrumb-item active">Fitur Produk</li>
             </ol>
@@ -53,9 +52,9 @@
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><?= $row->nama_fitur ?></td>
-                                    <td style="vertical-align: middle;" align="justify"><?= $row->deskripsi_fitur ?></td>
+                                    <td style="vertical-align: middle;" align="justify"><?= substr($row->deskripsi_fitur, 0, 199) ?><a>...</a></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/produk/fitur/') ?><?= $row->gambar_fitur; ?>" width="75"></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('produk/edit_fitur/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/detail_fitur/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('produk/edit_fitur/') . $row->id . '/' . $id_produk ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/detail_fitur/') . $row->id . '/' . $id_produk ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
                                         <a href="<?= base_url('produk/subfitur/') . $row->id . '/' . $id_produk ?>" class="btn btn-primary mt-2">Sub Fitur</a>
                                     </td>
                                 </tr>
@@ -90,7 +89,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputCity" class="form-label">Gambar</label>
-                        <input type="file" class="form-control" id="inputCity" name="gambar_fitur">
+                        <input type="file" class="form-control" id="inputCity" name="gambar_fitur" required>
                     </div>
                 </div>
                 <div class="modal-footer">

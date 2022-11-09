@@ -21,7 +21,8 @@
                                 <th class="text-center" width="1">ID</th>
                                 <th class="text-center" width="200">Nama</th>
                                 <th class="text-center" width="200">Judul</th>
-                                <th class="text-center" width="400">Deskripsi</th>
+                                <th class="text-center" width="200">Deskripsi</th>
+                                <th class="text-center" width="200">Sub Deskripsi</th>
                                 <th class="text-center" width="140">Aksi</th>
                             </tr>
                         </thead>
@@ -36,6 +37,7 @@
                                     <td style="vertical-align: middle;"><?= $row->nama ?></td>
                                     <td style="vertical-align: middle;"><?= $row->judul ?></td>
                                     <td style="vertical-align: middle;"><?= $row->deskripsi ?></td>
+                                    <td style="vertical-align: middle;"><?= $row->sub_deskripsi ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('layanan/edit_layanan/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('layanan/detail_layanan/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a><a href="<?= base_url('layanan/fitur/') . $row->id ?>" class="btn btn-primary mt-2">Fitur Layanan</a></td>
                                 </tr>
                             <?php
@@ -64,11 +66,15 @@
                     </div>
                     <div class="form-group">
                         <label for="inputAddress" class="form-label">Judul</label>
-                        <input type="text" class="form-control" id="inputAddress" name="judul" required>
+                        <input type="text" class="form-control" id="inputAddress" name="judul">
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2" class="form-label">Deskripsi</label>
-                        <input type="text" class="form-control" id="inputAddress2" name="deskripsi" required>
+                        <input type="text" class="form-control" id="inputAddress2" name="deskripsi">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">Sub Deskripsi</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="sub_deskripsi">
                     </div>
                 </div>
                 <div class="modal-footer">
