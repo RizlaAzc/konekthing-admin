@@ -32,7 +32,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $login['nama']; ?><img src="<?= base_url('assets/img/profile/') . $login['image']; ?>" class="img-profile rounded-circle" style="width: 50px; margin-left: 10px;"></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="fa-sharp fa-solid fa-user-tie"></i> Profile</a></li>
+                    <li><a class="dropdown-item" href="<?= base_url('profile/my_profile') ?>"><i class="fa-sharp fa-solid fa-user-tie"></i> Profile</a></li>
                     <li><a class="dropdown-item" href="<?= base_url('visitor') ?>"><i class="fa-solid fa-chart-line"></i> Activity Log</a></li>
                     <li>
                         <hr class="dropdown-divider" />
@@ -81,6 +81,7 @@
                                 <a <?= $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('layanan') ?>">Layanan</a>
                                 <a <?= $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('blog') ?>">Blog</a>
                                 <a <?= $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kontak') ?>">Kontak</a>
+                                 <a <?= $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('our_team') ?>">our team</a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Other</div>

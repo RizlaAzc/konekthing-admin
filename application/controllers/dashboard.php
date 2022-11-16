@@ -5,6 +5,13 @@ class dashboard extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+         is_logged_in();
+
+        // if (!$this->session->userdata('email')) {
+        //     redirect('forms');
+        // }
+       
     }
 
     public function index()
