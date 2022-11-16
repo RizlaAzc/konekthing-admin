@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="inputCity" class="form-label">Gambar</label>
-                                <input type="file" class="form-control" id="inputCity" name="gambar" required>
+                                <input type="file" class="form-control" id="inputCity" name="gambar">
                                 <img class="mt-2" src="<?= base_url('assets/gambar/beranda/') ?><?= $queryBrndDetail->gambar; ?>" width="100">
                                 <p><?= $queryBrndDetail->gambar; ?></p>
                             </div>

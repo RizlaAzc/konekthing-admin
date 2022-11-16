@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2022 at 11:54 AM
+-- Generation Time: Nov 16, 2022 at 02:01 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.14
 
@@ -89,7 +89,7 @@ CREATE TABLE `blog_fitur` (
 --
 
 INSERT INTO `blog_fitur` (`id_blog`, `id`, `nama_fitur`, `deskripsi_fitur`, `gambar_fitur`) VALUES
-(1, 1, 'Efisiensi Sumber Energi Kehidupan Berbasis IOT', 'Isu kelangkaan energi hingga saat ini masih menjadi kendala besar sehingga efisiensi energi mutlak dilakukan. Era digitalisasi yang tengah bergulir juga membutuhkan energi yang tak sedikit.\r\n\r\nCisco, produsen perangkat keras untuk jaringan internet dan intranet terbesar di dunia, memprediksi, sebanyak 50 miliar perangkat akan saling terkoneksi melalui internet di seluruh dunia hingga 2020. Badan Energi Dunia (IEA) juga memproyeksikan arus industrialisasi akan menyerap energi sekitar 50 persen lebih besar hingga 2050.\r\n\r\nMarketing Konekthing Benda Pintar, Andhi Setya Hermawan mengatakan, teknologi untuk mengefisiensi energi terus berevolusi. Konekthing selaku perusahaan nasional di bidang automasi ikut serta mengelola energi agar lebih efisien melalui ragam solusi yang saling terkoneksi sejalan dengan fenomena Internet of Things (IoT).\r\n\r\nIoT, menurut Andhi, merupakan bagian dari automasi. Konekthing mencoba menggabungkan manajemen energi, automasi, dan perangkat lunak (software) dalam melayani empat pengguna. Mulai dari gedung perkantoran, residensial, industri dan infrastruktur, serta pusat data dan jaringan.\r\n\r\nKeempat pasar di atas menyerap 70 persen konsumsi energi di dunia. Selama satu dekade terakhir, evolusi teknologi dan penggunaan energi begitu cepat mendorong warga dunia memikirkan langkah-langkah digitalisasi, dekarbonisasi, hingga desentralisasi energi.\r\n\r\nBangunan gedung mampu menghabiskan lebih dari sepertiga sumber daya energi sepanjang masa konstruksi, 40 persen total energi global, dan menghasilkan 40 persen dari total emisi gas rumah kaca. Fakta ini membuktikan, sektor bangunan perlu segera merealisasikan langkah untuk efisiensi energi.\r\n\r\nIndeks efisiensi energi Indonesia untuk bangunan-bangunan komersil, seperti rumah sakit, pusat perbelanjaan, perkantoran, dan perhotelan juga masih jauh di bawah negara Asia lainnya. Menurut Andhi, efisiensi energi di Indonesia perlu dilakukan bersamaan antara bangunan lama dan baru.\r\n\r\nIa menekankan, efisiensi energi pada bangunan lama memberikan kontribusi lebih tinggi terhadap keseluruhan upaya efisiensi energi pada bangunan komersial. Ia mencontohkan, salah satu kompleks perkantoran di Jakarta Pusat memiliki daya listrik terpasang yang lebih besar dari daya listrik se-Kota Magelang.\r\n\r\nIni merupakan contoh yang menyebabkan rasio elektrifikasi dan penyebaran jaringan kelistrikan di Indonesia masih belum 100 persen. \"Jika 80 persen bangunan lama berkomitmen melakukan program efisiensi energi maka target efisiensi nasional untuk bangunan komersial sebesar 15 persen yang ditetapkan pemerintah akan tercapai pada 2025,\" kata Andhi.\r\n\r\nIoT, kata Andhi, memegang peranan penting mewujudkan efisiensi energi tersebut. Pengelolaan energi dengan sistem cerdas memberi banyak manfaat, misalnya, untuk memonitor dan mengevaluasi data dasar indeks efisiensi energi.\r\n\r\nSolusi efisiensi\r\nPT. Konekthing Benda Pintar memiliki sejumlah produk berbasis Internet of Things (IoT) yang menunjang efisiensi energi pada bangunan. Contohnya, adalah Smart Panel, yaitu inovasi yang menggabungkan kemampuan mengukur, mengontrol, dan mengomunikasikan pemakaian energi dalam sebuah bangunan.\r\n\r\nUntuk rumah, ada Smart Home System yang mampu mengefisiensi penggunaan listrik. Sistem ini bisa dipasang untuk mengontrol lampu atau alat listrik di rumah dengan hanya menggantikan sakelar mekanis yang sudah ada. Solusi ini menggunakan teknologi wireless terintegrasi.\r\n\r\nSebagai unggulan, Konekthing memperkenalkan IRIS Platform. Ini adalah perangkat lunak terpadu yang menjadi jantung dan otak solusi Konekthing secara keseluruhan. Solusi ini digunakan untuk mengatur fungsi AC, lampu, kipas ventilasi, pompa, eskalator, hingga elevator secara otomatis. Alat-alat ini hanya ketika diperlukan.\r\n\r\nMarketing Konekthing, Andhi Setya Hermawan mencontohkan, hotel-hotel di Indonesia telah menggunakan solusi ini untuk mengatur fungsi lampu di lorong. Lampu-lampu di lorong hotel hanya akan menyala jika pencahayaan kurang sebab ada sistem sensor yang mengaturnya.\r\n\r\nIoT juga akan mengintegrasikan perangkat keras dan lunak di dalam gedung berikut perencanaan, penginstalasian, dan pelayanan. Semua fasilitas dalam bangunan bisa terus berjalan dengan termonitor dengan baik. Pada akhirnya, solusi ini dapat memberi penghematan signifikan terhadap biaya operasional untuk engineering, peralatan, instalasi, dan waktu pengerjaan bangunan.', 'blog(1).jpg'),
+(1, 1, 'Efisiensi Sumber Energi Kehidupan Berbasis IOT', 'Isu kelangkaan energi hingga saat ini masih menjadi kendala besar sehingga efisiensi energi mutlak dilakukan. Era digitalisasi yang tengah bergulir juga membutuhkan energi yang tak sedikit.Cisco, produsen perangkat keras untuk jaringan internet dan intranet terbesar di dunia, memprediksi, sebanyak 50 miliar perangkat akan saling terkoneksi melalui internet di seluruh dunia hingga 2020. Badan Energi Dunia (IEA) juga memproyeksikan arus industrialisasi akan menyerap energi sekitar 50 persen lebih besar hingga 2050.Marketing Konekthing Benda Pintar, Andhi Setya Hermawan mengatakan, teknologi untuk mengefisiensi energi terus berevolusi. Konekthing selaku perusahaan nasional di bidang automasi ikut serta mengelola energi agar lebih efisien melalui ragam solusi yang saling terkoneksi sejalan dengan fenomena Internet of Things (IoT).IoT, menurut Andhi, merupakan bagian dari automasi. Konekthing mencoba menggabungkan manajemen energi, automasi, dan perangkat lunak (software) dalam melayani empat pengguna. Mulai dari gedung perkantoran, residensial, industri dan infrastruktur, serta pusat data dan jaringan.Keempat pasar di atas menyerap 70 persen konsumsi energi di dunia. Selama satu dekade terakhir, evolusi teknologi dan penggunaan energi begitu cepat mendorong warga dunia memikirkan langkah-langkah digitalisasi, dekarbonisasi, hingga desentralisasi energi.Bangunan gedung mampu menghabiskan lebih dari sepertiga sumber daya energi sepanjang masa konstruksi, 40 persen total energi global, dan menghasilkan 40 persen dari total emisi gas rumah kaca. Fakta ini membuktikan, sektor bangunan perlu segera merealisasikan langkah untuk efisiensi energi.Indeks efisiensi energi Indonesia untuk bangunan-bangunan komersil, seperti rumah sakit, pusat perbelanjaan, perkantoran, dan perhotelan juga masih jauh di bawah negara Asia lainnya. Menurut Andhi, efisiensi energi di Indonesia perlu dilakukan bersamaan antara bangunan lama dan baru.Ia menekankan, efisiensi energi pada bangunan lama memberikan kontribusi lebih tinggi terhadap keseluruhan upaya efisiensi energi pada bangunan komersial. Ia mencontohkan, salah satu kompleks perkantoran di Jakarta Pusat memiliki daya listrik terpasang yang lebih besar dari daya listrik se-Kota Magelang.Ini merupakan contoh yang menyebabkan rasio elektrifikasi dan penyebaran jaringan kelistrikan di Indonesia masih belum 100 persen. ', 'blog(1).jpg'),
 (5, 2, 'Cara Praktis dan Mudah Mengelola Inventaris Kantor', 'Kondisi seperti ini membuat pebisnis mengatur cashflow bisnis dengan lebih ketat lagi. Lesunya perekonomian dirasakan oleh seluruh bidang bisnis, termasuk usaha retail. Dampak nyata yang terjadi yaitu adanya pengendapan inventory dalam jangka waktu yang belum pasti. Tentunya setiap bisnis retail mempunyai barang persediaan yang harus dikelola dengan baik dan benar. Maka dari itu, sangat dibutuhkan sistem inventory untuk mengatasi hal tersebut.  Setiap bisnis tentu juga perlu memperhatikan seluruh transaksi keuangan yang terjadi, apakah sudah dikelola dengan baik seperti pencatatan secara berkala dan lain sebagainya. Dengan begitu semua akan jauh lebih ringan dalam menjalankan bisnis. Sistem inventory ini memegang peranan penting dalam sebuah bisnis retail.  Karena jika sudah rapih, maka pengelolaan piutang melalui invoice akan berjalan seiring, efektif dan saling menguntungkan. Ketersediaan barang akan tetap terjaga ketika permintaan penjualan semakin meningkat.  Seperti dilansir dalam media berita online menerangkan CV Laksana sebagai produsen komponen bus dengan mengimplementasikan solusi Enterprise Resource Planning dikenal dengan sistem ERP merupakan salah satu sistem inventory yang sangat meningkatkan efisiensi terutama dalam pengelolaan inventory.  Dengan implementasi ini, perusahaan dapat meningkatkan efisiensi hingga 20 persen di tahun 2017, dan 25 persen tahun lalu. Selain berdampak positif terhadap pengelolaan inventory, pendapatan perusahaan tahun lalu juga mengalami peningkatan sampai dengan 15 persen. Dalam artikel ini akan dibahas mengenai pengertian, manfaat, metode persediaan dan cara mengelolanya dengan mudah.  Apa Itu Sistem Inventory?  Istilah inventory sendiri dalam bahasa Indonesia ialah persediaan. Dalam bisnis persediaan ini merupakan sebuah produk yang memiliki tujuan untuk dijual kembali dan menghasilkan keuntungan dalam suatu periode. Adapun beberapa pengertian seputar persediaan dan sistem inventory, seperti berikut:  Menurut Wikipedia.org, pengertian sistem adalah suatu kesatuan yang terdiri atas komponen atau elemen yang dihubungkan bersama untuk memudahkan aliran informasi, materi, atau energi untuk mencapai suatu tujuan.  Menurut Sofyan Assauri dalam buku Marihot Manullang dan Dearlina Sinaga (2005:50), persediaan adalah sebagai suatu aktiva lancar yang meliputi barang-barang milik perusahaan dengan maksud untuk dijual dalam suatu periode usaha normal atau persediaan barang-barang yang masih dalam pekerjaan proses produksi ataupun persediaan bahan baku yang menunggu penggunaannya dalam suatu proses produksi.  Dapat disimpulkan secara umum bahwa sistem inventory merupakan sebuah kesatuan proses pengaturan yang melibatkan komponen aktiva lancar seperti barang yang dimiliki oleh perusahaan dengan maksud dijual dalam suatu periode tertentu.  Lalu, Apa Manfaat Dari Sistem Inventory?  Mungkin sebagian dari Anda belum memahami keseluruhan manfaat dari sistem inventory ini. Namun secara umum, sistem inventory ini sangat membantu Anda dalam mengetahui jumlah persediaan secara detail, menggunakannya dengan maksimal dan tentu pemakaian biaya yang optimal. Berikut beberapa manfaat dari sistem inventory:  1. Ketersediaan Barang Semakin Terjaga  Tentu Anda sebagai pebisnis ingin memberikan yang terbaik pada pelanggan. Jika perusahaan Anda tidak memiliki barang yang cukup, itu tandanya Anda tidak memiliki sistem inventory yang baik. Dengan begitu, sistem inventory akan membantu Anda menjaga ketersediaan barang di gudang baik sebagai bahan baku produksi maupun barang yang langsung di jual.  2. Dapat Meningkatkan Penjualan  Jika Anda dapat menjaga stok dengan aman maka Anda akan percaya diri untuk melakukan kegiatan penjualan. Sehingga para konsumen Anda akan lebih mempercayai komitmen perusahaan Anda karena di anggap barang yang dibutuhkan selalu ada. Efek yang ditimbulkan adalah para pelanggan atau konsumen Anda akan terus melakukan repeat order kepada perusahaan Anda.  3. Layanan Konsumen dan Mitra Tetap Aman  Melalui sistem inventory, perusahaan akan lebih dinilai tinggi kredibilitasnya dan profesional oleh konsumen dan juga mitra Anda. Kecepatan dan ketepatan menjadi kunci utama dari sistem ini. Sistem akan jauh memudahkan Anda dalam menjalankan distribusi barang dan memenuhi permintaan barang baik dari segi konsumen ataupun mitra. Ini juga akan meningkatkan citra positif perusahaan Anda.  4. Alat Kontrol Persediaan  Tidak perlu lagi secara manual melakukan pemantauan jumlah barang, saat ini dengan sistem inventory Anda akan melakukan inventory control dengan mudah, fleksibel dan menyeluruh. Sistem akan memberikan akses yang mudah untuk melihat daftar jumlah barang yang masih tersedia, barang yang sedang dalam pemesanan ataupun order barang yang sedang menanti. Sistem ini juga memudahkan Anda untuk melihat kapanpun dan dimanapun Anda menyimpan barang.  5. Membantu Pengambilan Keputusan  Dengan fleksibilitas yang tinggi dan ketepatan dalam jumlah barang, menjadikan Anda lebih mudah untuk melakukan pengambilan keputusan terkait inventory perusahaan Anda. Cukup dengan melihat daftar laporan barang yang ada, maka Anda sudah siap menganalisanya dengan cepat.  Metode Penilaian Inventory  Sistem inventory juga mengatur tentang penggunaan metode penilaian inventory yang ada. Biasanya pebisnis memakai 2 (dua) metode saja yaitu FIFO dan Average. Mengapa demikian? Berdasarkan update terakhir terkait standarisasi metode penilaian inventory di Indonesia hanya dua itu saja yang berlaku. Namun, dalam artikel ini kami informasikan metode penilaian persediaan menurut Stice (2011:667) yaitu:  1. First In First Out (FIFO)  Metode inventory first in first out atau lebih dikenal dengan istilah FIFO adalah metode inventory penilaiannya berdasarkan data barang yang masuk pertama itu harus lebih dahulu dijual atau dikeluarkan. Dengan metode ini dapat menyesuaikan dengan kenaikan harga sesuai dengan harga terbaru sehingga metode FIFO ini dapat menghasilkan lebih besar nilai persediaan barang dibandingkan dengan HPP atau harga pokok penjualan.  2. Last In First Out (LIFO)  Metode inventory last in first out atau lebih dikenal dengan istilah LIFO adalah metode inventory penilaianya berdasarkan data barang yang masuk terakhir itu harus lebih dahulu dijual atau dikeluarkan terlebih dahulu. Dengan metode inventory LIFO bertolak-belakang dari metode inventory FIFO dimana dengan kenaikan harga sesuai dengan harga terakhir stock persediaan barangnya.  3. Average (AVG)  Metode rata-rata adalah metode tengah-tengah antara FIFO dan LIFO. Harga pokok per unit barang dihitung dengan rumus (Nilai Persediaan Awal + Nilai Pembelian) / (Jumlah Persediaan Awal + Jumlah Pembelian).  Harga pokok per unit ini akan berubah setiap kali terjadi pembelian dengan harga yang berbeda. Nilai HPP dari barang yang terjual dihitung sebesar jumlah unit terjual dikalian harga pokok rata-rata pada saat terjadi penjualan. Nilai persediaan sebesar jumlah persediaan akhir dikalikan harga pokok rata-rata yang terakhir.  Adapun pengertian metode average ini menurut PSAK NO 14 Tahun 2009, metode inventory ini menggunakan biaya rata-rata tertimbang didasarkan pada asumsi bahwa seluruh barang tercampur sehingga mustahil untuk menentukan barang mana yang terjual dan barang mana yang tertahan dipersediaan.  Reeve dan Warren (2009:346) juga menyatakan tentang metode average ini bahwa “Biaya persediaan per unit merupakan rata-rata biaya pembelian. Biaya unit rata-rata untuk setiap jenis barang dihitung setiap kali terjadi pembelian”.', 'blog(2).png'),
 (6, 3, 'Solusi IoT Untuk Dorong UMKM Bangkit di Tengah Pandemi', 'Pembatasan kontak antar manusia atau social distancing merupakan salah satu langkah yang dapat dilakukan untuk menahan laju penyebaran Covid-19. Namun, dengan adanya keterbatasan sistem dan belum terbiasanya masyarakat Indonesia dalam menerapkan pembatasan kontak turut menjadi masalah. Dengan dasar kondisi tersebut, menilai Indonesia harus menemukan solusi untuk menghadapi pandemi ini. Implementasi IoT (Internet of things) dapat membantu minimalisir kontak antar manusia dan dapat menjadi jawaban dari permasalah ini.     COVID-19 ini membuat kondisi jadi berubah, dan ada hal yang susah, namun di tengah kesusahan itu ada kesempatan. Solusi IoT saya yakin banyak manfaatnya karena didesain untuk dilakukan secara jarak jauh dan masif. Suatu teknologi yang solutif untuk membantu kita dalam konteks masalah COVID-19 dan membantu perekonomian nasional. Produk IoT yang bisa dimanfaatkan untuk menggenjot perekonomian Indonesia di tengah pandemi Covid-19.     Solusi ini khususnya dapat dimanfaatkan langsung oleh para pelaku usaha mikro, kecil, dan menengah (UMKM) yang terdampak Covid-19. saat ini mengurangi kontak dengan manusia merupakan hal yang penting untuk menahan laju pandemi, dengan mengubah banyak pekerjaan manual ke digital. Jadi, dengan merubah pekerjaan dari manual ke digital selain kita akan tetap harus menjaga jarak atau kontak dengan manuasia di saat pandemi ini, juga dapat meningkatkan efisiensi dan transparasi. Anda tidak akan mengalami kerugian dalam hal efiesiensi seperti kebocoran. Anda pun tahu darimana asal data tersebut.     Internet of Things memiliki banyak kegunaan serta dapat diadopsi di berbagai sektor industri. Saat ini Konekthing sedang mengintegrasikan solusi end to end managed service. Dimana kita memegang mulai dari hardware, desain hardware, Firmware, software, dan konektifitas serta infrastruktur dan big data. Hal tersebut memungkinkan setiap orang akan mendapat efisiensi dan juga transparasi. Hal tersebut juga memungkinkan anda memonitor dengan lebih efisien tanpa melakukan kontak dengan manusia.     Namun, penerapan IoT di Indonesia perlu di dongkrak. Pasalnya, implementasi IoT di Indonesia masih sangat rendah. Harus diakui Implementasi IoT di Indonesia masih sangat rendah, mungkin karena tak banyak orang yang bisa menggunakan dengan baik. Saya kira implementasi IoT tidak kurang dari 10%. Dalam waktu dekat, dalam rangka mendorong penerapan IoT di Indonesia, Konekthing siap mengimplementasikan sistem IoT dalam pengelolaan aset kesehatan, pertanian dan energi. Hal ini bentuk nyata Konekthing untuk penerapan end to end solution Smart Office.  Ada banyak masalah yang bisa diselesaikan oleh IoT. karena kami melihat ada banyak sekali inefisiensi dan nontransparansi di lapangan saat ini terutama di perusahaan dan industri. Dengan kemajuan teknologi hal tersebut bisa diatasi menggunakan platform IoT end to end managed service.     Potensi IoT berkembang saat ini sangat besar selama solusi yang ditawarkan bisa menjawab kebutuhan perusahaan saat ini yang terbagi dalam tiga tahapan.     Pertama, solusi yang membantu perusahaan beroperasi secara efektif dan aman, karena bisnis harus bisa berjalan lancar di tengah era adaptasi kebiasaan baru dengan meningkatkan protokol kesehatan.     Kedua, solusi yang meningkatkan efisiensi karena perusahaan harus meningkatkan proses bisnis mereka untuk mengurangi biaya produksi, meningkatkan produktivitas, dan meningkatkan layanan.     Ketiga, inovasi yang terukur dan inklusif karena semua sektor saat ini bermigrasi ke digital dan hal ini bisa dilakukan dengan menerapkan solusi IoT.  Banyak peluang menciptakan inovasi baru di tengah kebutuhan yang mendesak. Kami pun secara internal telah menerapkan berbagai solusi yang mendukung berjalannya kegiatan usaha dengan lebih efisien, aman, dan efektif.     Sementara itu, Marketing Konekthing, Andhi Setya Hermawan mengatakan ada tiga sektor IoT yang tumbuh pesat selama pandemi, yaitu kesehatan, pertanian, dan energi.  \"Pertama, digital healthcare ini dipaksa untuk tumbuh dengan demikian pesat, contohnya thermal detection yang sedang dibutuhkan oleh pasar ritel. Selanjutnya, remote monitoring di bidang pertanian juga tumbuh dengan pesat karena sulit mengirimkan orang sehingga data monitoring semuanya diambil dan dikirim dengan sensor-sensor IoT yang dibenamkan di sana,\" ujarnya.     Andhi menambahkan bahwa peran asosiasi dan pemerintah saat ini saling bahu membahu sebagai fasilitator dan akselerator untuk mendorong kompetensi bidang IoT sesuai dengan visi Konekthing untuk menciptakan ekosistem teknologi, khususnya inovasi IoT yang akan meningkatkan kualitas hidup masyarakat.', 'blog(3).jpg'),
 (7, 4, 'Aplikasi Learning Management System (LMS)', 'Kegiatan Belajar Mengajar atau KBM menjadi salah satu aktivitas yang paling terdampak oleh pandemi Covid-19. Di Indonesia saja, ada 68 juta siswa dari tingkat pra-sekolah hingga perguruan tinggi terdampak oleh upaya mengurangi penyebaran virus Covid-19. Tingginya resiko penularan yang ditimbulkan oleh pembelajaran tatap muka membuat kegiatan belajar mengajar terutama di sekolah-sekolah yang berada di zona merah dilakukan secara daring.  Seperti hanya kerja jarak jauh atau remote working, pemanfaatan teknologi juga dilakukan agar pembelajaran jarak jauh dapat tetap berlangsung meski tanpa adanya tatap muka.  Dari WhatsApp Group untuk sarana komunikasi, Zoom Cloud Meeting sebagai ruang kelas virtual, hingga Google Classroom yang dapat memfasilitasi pengumpulan dan penilaian tugas, teknologi digital telah berperan penting dalam menghubungkan siswa dan guru di tengah krisis yang disebabkan oleh pandemi.     Tantangan Belajar Daring Selama Pandemi Covid-19  Bagi sebagian orang, teknologi digital memang bukan hal baru. Meski demikian, beralih sepenuhnya ke sistem pembelajaran berbasis digital atau digital learning bukanlah hal yang mudah, apalagi jika harus dilakukan secara mendadak dana dalam waktu yang singkat.  Ada banyak tantangan pembelajaran jarak jauh yang harus dihadapi baik oleh guru maupun siswa di era pandemi Covid-19 ini, beberapa diantaranya:     1. Manajemen waktu dan proses kerja yang tidak efektif\'  Keputusan untuk menutup sekloah-sekolah dalam upaya menekan penyebaran Covid-19 dibuat dalam waktu yang cukup singkat. Banyak sekolah dan guru tidak memiliki persiapan yang cukup untuk melakukan pembelajaran jarak jauh.  Akibatnya, untuk memastikan semua kegiatan belajar mengajar tetap terlaksana, tak jarang guru dan pengajar harus menggunakan beberapa aplikasi sekaligus. Tidak hanya menyampaikan materi di kelas, pengajar pun harus memberikan dan memeriksa tugas-tugas dan ulangan, serta menjaga komunikasi dengan siswa dan orang tua murid di beberapa kelas.     2. Tidak meratanya koneksi dan kepemilikan gadget  Tidak haya di Indonesia, ketidakmerataan koneksi dan gadget menjadi tantangan yang harus dihadapi negara lain saat harus menerapkan virtual learning. Tidak semua orang, baik guru maupun siswa, memiliki gadget yang mumpuni dan koneksi yang stabil untuk melakukan pembelajaran jarak jauh.  Traffic yang tinggi juga seringkali membuat platform penyedia layanan ovrload yang membuat kualitas video dan audio yang dihasilkan buruk.     3. Privasi data dan keamanan sistem  Di zaman serba digital seperti sekarang ini, aplikasi untuk mendukung pembelajaran virtual atau virtual learning sudah banyak tersedia. Faktanya, teknologi informasi dan komuniasi untuk menyediakan layanan pendidikan atau EdTech sudah hadir di Indonesia sejak sebelum pandemi dimulai. Menurut World Bank Blogs, penutupan sekolah sebagai upaya mengurangi penyebaran virus Covid-19 menjadikan kebutuhan terhadap EdTech seperti G-Suite for Education, Miscrosoft for Education, Zoom, dan lain sebagainya yang efektif semakin mendesak.  Sayangnya, kebutuhan mendesak tersebut membuat banyak orang mengabaikan keamanan sistem dan privasi data pengguna, terutama saat pihak penyedia software e-learning memberikan layanan secara gratis.  Aplikasi Zoom misalnya. Perusahaan penyedia layanan video conference yang mengalami lonjakan pengguna selama pandemi Covid-19 ini, baru saja terkena isu keamanan dan privasi dimana mereka dinilai memiliki tingkat perlindungan keamanan yang rendah dan memberi klaim mengenai tingkat keamanan yang tidak benar untuk pengguna.     Learning Management System (LMS)  Salah satu solusi untuk meminimalisir hambatan selama pelaksanaan pembelajaran jarak jauh adalah dengan mengembangkan sistem yang dapat mengelola semua kebutuhan pembelajaran dalam satu aplikasi. Pasar Tutor misalnya. Aplikasi yang dapat disediakan oleh PT. Konekthing Benda Pintar ini membantu mengelola pembelajaran online dan aktivitas pembelajaran agar lebih efektif dan efisien.  Fitur-fitur yang terdapat dalam Pasar Tutor diantaranya:  1. Master Data  Dengan fitur modul master data, Anda bisa dengan mudah mengelola seluruh data yang dibutuhkan dalam proses pembelajaran dengan mudah. Dari mulai data mata pelajaran, ruang kelas, pengajar, hingga data siswa ditiap kelas. Selain kemudahan untuk mengelola data, data yang tersimpan juga akan lebih aman karena disimpan di databse yang hanya dipakai oleh aplikasi Pasar Tutor Learning Management System.  2. Video Conference  Dengan aplikasi Pasar Tutor, guru dan murid dapat difasilitasi untuk melakukan kegiatan pembelajaran secara daring yang difasilitasi oleh moderator. Seperti halnyalayanan yang disediakan oleh perusahaan-perusahaan ternama seperti Google Meet, Zoom, Lark, dan lain sebagainya, modul Video Conference pada aplikasi Pasar Tutor juga memiliki fitur-fitur seperti Raise Hand yang bisa digunakan jika siswa ingin bertanya pada pengajar, Screenshare, Mute Microphone, Save Record, maupun Chat serta Moderator Report dimana moderator dapat membuat laporan hasil dari video conference yang telah berlangsung.  3. Private Session  Pada aplikasi Pasar Tutor tersemat fitur sesi privat antara guru dan murid untuk keperluan tugas bagian BP maupun pihak guru akan memberikan kelas khusus kepada muridnya secara mandiri. Modul ini juga memiliki fitur Chat, Save Record, Mute Microphone dan Screenshare untuk saling menampilkan bahan ajar untuk saling didiskusikan bersama.  4. Live Streaming Broadcasting  Fitur unggulan berikutnya dengan adanya fitur live streaming yang difasilitasi untuk pengajar agar dapat menjelaskan berbagai pelajaran seperti sedang di dalam ruang kelas saat mengajar. Nantinya murid-murid dapat menyaksikan gurunya dalam memberikan penjelasan dan ditambah lagi ada fitur Chat untuk bertanya kepada guru dan Save Record untuk disimpan dan dapat diulangi rekamannya.  5. Course Online  Modul ini difasilitasi oleh pengajar bagi siswa yang ingin belajar ekstrakulikuler sekolah. Dapat menambahkan video pembelajaran dan file materi berbagai macam ekstensi yang dapat mudah dibaca dan dipelajari saat sesi kursus.  6. Assignment  Proses memberikan, mengumpulkan dan menilai tugas-tugas harian memnag bisa dilakukan menggunakan aplikasi Pasar Tutor. Pihak sekolah dapat menambah, mengubah, melihat, serta menghapus data tugas yang harus dikerjakan siswa.  Nantinya, setelah mengerjakan tugas, siswa dapat mengunggah file tugas maupun mengerjakan ujian online yang dibuat oleh guru yang telah mereka kerjakan, dan pengajar bisa melihat, mengunduh serta memberi nilai untuk tugas-tugas yang telah dikumpulkan langsung melalui aplikasi.  7. Attendance  Tidak hadir secara langsung ke sekolah bukan berarti mengabaikan presensi atau kehadiran. Dengan aplikasi Pasar Tutor, proses absensi bisa dilakukan dengan mudah dalam dua opsi alternatif: pengajar melakukan absensi secara manual melalui fitur Manual Attendance Input atau siswa melakukan foto selfie untuk melakukan absensi.  8. E-Library  Untuk mendukung kegiatan pembelajaran, aplikasi Pasar Tutor juga dilengkapi dengan fitur E-Library. Melalui modul fitur ini, pihak sekolah dapat menambah, mengubah, melihat, mengunduh, dan menghapus data pembelajaran yang dibutuhkan oleh siswa.  9. E-Shop  Untuk mendukung para siswa saat sesi istirahat, aplikasi Pasar Tutor juga dilengkapi dengan fitur E-Shop. Melalui fitur ini, para penjual kantin sekolah dapat berpartisipasi dalam menjajakan makanan dan minuman, bahkan pihak sekolah juga dapat ikut andil dalam memajukan koperasi sekolahnya yang dapat menambah, mengubah, melihat, memesan dan mengantarkan kebutuhan siswa dengan berbagai macam pilihan layanan pembayarannya, seperti tunai, virtual account, QRIS, Link Aja, GoPay, OVO, DANA, dan lain sebagainya.  10. Authentication  Keamanan dan privasi adalah salah satu faktor penting yang harus dipertimbangkan saat menggunakan aplikasi untuk memfasilitasi pembelajaran jarak jauh. Melalui fitur Authentication, keamanan dan privasi pihak sekolah, pengajar, serta siswa terjamin keamanannya karena hanya pengguna yang terdaftarlah yang dapat mengakses aplikasi. Fitur Log Out juga tersedia agar tetap aman saat pengguna sedang tidak menggunakan aplikasi.     Kompatibilitas Seluler  Saat seluruh anggota keluarga harus beraktivitas dari rumah, ayah ibu wok from home, dan anak-anak melakukan pembelajaran jarak jauh, jumlah device yang tersedia mungkin tidak cukup untuk mengakomodir semua anggota keluarga. Tidak semua orang, terutama pelajar di tingkat pendidikan rendah dan menengah, mungkin memiliki laptop atau komputer. Karena itulah kompatibilitas seluler penting dimiliki oleh Pasar Tutor.  Dengan aplikasi Pasar Tutor yang dibuat dengan sepenuh hati oleh PT. Konekthing Benda Pintar, para siswa dapat tetap mengikuti pembelajaran jarak jauh meskipun hanya menggunakan telepon genggam atau smartphone.     Digital Learning: Masa Depan Sistem Pendidikan?  Meskipun kondisi sistem pendidikan saat ini dinilai sebagai disrupsi yang disebabkan oleh pandemi Covid-19, namun transformasi digital, termasuk di institusi pendidikan, bukanlah hal yang baru. Bukan tidak mungkin, bahwa meskipun pandemi Covid-19 berakhir nantinya, tren pembelajaran secara daring akan tetap berlanjut.  Menurut Syaiku Usman, peneliti dari SMERU Research Institute, di masa depan, dengan perkembangan teknologi yang ada, anak dapat belajar dimana saja dan guru pun dapat menjadi fasilitator dan moderator pembelajaran tanpa terikat ruang fisik. Selain fleksibilitas yang ditawarkan sistem pembelajaran model ini, biaya yang lebih rendah daripada pendidikan tradisional, serta jangkauan lebih luas, sistem pembelajaran daring juga menawarkan pilihan program yang lebih luas yang dapat mencetak sumber daya manusia berkualitas yang mampu bersaing di era industri ini.', 'blog(4).jpeg');
@@ -101,8 +101,40 @@ INSERT INTO `blog_fitur` (`id_blog`, `id`, `nama_fitur`, `deskripsi_fitur`, `gam
 --
 
 CREATE TABLE `kategori_portofolio` (
-  `id` int(25) NOT NULL,
-  `kategori portofolio` varchar(250) NOT NULL
+  `id` int(100) NOT NULL,
+  `id_portofolio` int(100) NOT NULL,
+  `id_kategori` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `kategori_portofolio`
+--
+
+INSERT INTO `kategori_portofolio` (`id`, `id_portofolio`, `id_kategori`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 2, 3),
+(4, 3, 2),
+(5, 3, 3),
+(6, 4, 1),
+(7, 4, 2),
+(8, 4, 3),
+(9, 5, 1),
+(10, 5, 2),
+(11, 5, 3),
+(12, 6, 2),
+(13, 6, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori_produk`
+--
+
+CREATE TABLE `kategori_produk` (
+  `id` int(100) NOT NULL,
+  `id_produk` int(100) NOT NULL,
+  `id_kategori` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -145,10 +177,10 @@ CREATE TABLE `layanan` (
 --
 
 INSERT INTO `layanan` (`id`, `nama`, `judul`, `deskripsi`, `sub_deskripsi`) VALUES
-(1, 'Mobile Development', 'Mobile Apps Development', 'Jasa pembuatan aplikasi mobile Android, IOS, Windows dan blackberry Mobile', 'Konekthing memiliki keahlian yang kuat dalam membuat aplikasi Android menggunakan C ++ dan Javascript. Kami juga berpengalaman dalam Cross-platform dan migrasi aplikasi berbasis Java ke platform Android.'),
+(1, 'Mobile Development', 'Mobile Apps Development', 'Jasa pembuatan aplikasi mobile Android, IOS, Windows dan blackberry Mobile', 'Jasa pembuatan aplikasi mobile Android, IOS, Windows dan blackberry Mobile'),
 (2, 'Web Development', 'Web Development Services', 'Konekting spesialisasi membuat Aplikasi Web dan Cross platform yang memberikan hasil optimal kepada setiap customer baik dari sisi waktu, konsep, desain, biaya dan teknologi.', ''),
 (3, 'Manage Services', 'Web Development Services', 'Konekting spesialisasi membuat Aplikasi Web dan Cross platform yang memberikan hasil optimal kepada setiap customer baik dari sisi waktu, konsep, desain, biaya dan teknologi.', ''),
-(4, 'Academy Training Center', '', '', '');
+(4, '	Academy Training Center', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -169,7 +201,7 @@ CREATE TABLE `layanan_fitur` (
 --
 
 INSERT INTO `layanan_fitur` (`id_layanan`, `id`, `nama_fitur`, `deskripsi_fitur`, `gambar_fitur`) VALUES
-(1, 1, 'Android Developer', 'Konekthing mempunyai kemampuan luar biasa untuk mengembangkan aplikasi android yang kaya fitur dan interaktif.', 'android.png'),
+(1, 1, 'Android Developer1212', 'Konekthing mempunyai kemampuan luar biasa untuk mengembangkan aplikasi android yang kaya fitur dan interaktif.', 'android.png'),
 (1, 2, 'IOS Developer', 'Kami tahu pengembangan iOS dan dalam hal pengalaman iOS berkinerja tinggi, penuh fitur, dan ramah pengguna, tidak ada perusahaan yang lebih baik untuk terlibat selain kami.', 'apple.png');
 
 -- --------------------------------------------------------
@@ -206,9 +238,40 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `nama`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(7, 'mark', 'mark@gmail.com', 'default.jpg', '$2y$10$vjHtQ2E3i9SyidArM4Xs4OkdK4WZHDfWMgiJXfL0gsEaKlQ7MNV6W', 2, 1, 1666942236),
+(7, 'mark', 'mark@gmail.com', 'default1.jpg', '$2y$10$vjHtQ2E3i9SyidArM4Xs4OkdK4WZHDfWMgiJXfL0gsEaKlQ7MNV6W', 2, 1, 1666942236),
 (14, 'siska', 'siska@gmail.com', 'default(2).jpg', '$2y$10$zDaBPdKQ7YltjdUyy8Nac.Izct5GSE2IgeKRllP3FSIFZyt9sLdvi', 2, 1, 1667207429),
 (17, 'lakeswara', 'lakeswara@gmail.com', 'default.jpg', '$2y$10$mMyk/SNrpKOxuVYqLFYbgeQKGN5ITs825qxrd6rkWOexQMVU5yuK.', 2, 1, 1667359663);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_kategori_portofolio`
+--
+
+CREATE TABLE `master_kategori_portofolio` (
+  `id` int(25) NOT NULL,
+  `kategori_portofolio` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `master_kategori_portofolio`
+--
+
+INSERT INTO `master_kategori_portofolio` (`id`, `kategori_portofolio`) VALUES
+(1, 'Web'),
+(2, 'Android'),
+(3, 'IOS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_kategori_produk`
+--
+
+CREATE TABLE `master_kategori_produk` (
+  `id` int(25) NOT NULL,
+  `kategori_produk` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -388,7 +451,7 @@ INSERT INTO `produk_subfitur` (`id_fitur`, `id`, `nama_subfitur`) VALUES
 (11, 60, 'Handle Our Stock'),
 (12, 61, 'Data Verified'),
 (12, 62, 'Credible Resource Report'),
-(12, 63, 'Prevant Loss Data'),
+(12, 63, 'Prevant Loss Dat'),
 (12, 64, 'Know Your Resource'),
 (13, 65, 'Scan with Camera'),
 (13, 66, 'Barcode Scan'),
@@ -466,7 +529,7 @@ CREATE TABLE `visitor` (
 --
 
 INSERT INTO `visitor` (`id`, `pengunjung`) VALUES
-(1, 18);
+(1, 48);
 
 --
 -- Indexes for dumped tables
@@ -497,6 +560,12 @@ ALTER TABLE `kategori_portofolio`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `kategori_produk`
+--
+ALTER TABLE `kategori_produk`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `kontak`
 --
 ALTER TABLE `kontak`
@@ -524,6 +593,18 @@ ALTER TABLE `layanan_subfitur`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_kategori_portofolio`
+--
+ALTER TABLE `master_kategori_portofolio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `master_kategori_produk`
+--
+ALTER TABLE `master_kategori_produk`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -582,7 +663,13 @@ ALTER TABLE `blog_fitur`
 -- AUTO_INCREMENT for table `kategori_portofolio`
 --
 ALTER TABLE `kategori_portofolio`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `kategori_produk`
+--
+ALTER TABLE `kategori_produk`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kontak`
@@ -615,10 +702,22 @@ ALTER TABLE `login`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT for table `master_kategori_portofolio`
+--
+ALTER TABLE `master_kategori_portofolio`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `master_kategori_produk`
+--
+ALTER TABLE `master_kategori_produk`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `portofolio`
 --
 ALTER TABLE `portofolio`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `produk`

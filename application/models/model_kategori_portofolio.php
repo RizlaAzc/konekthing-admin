@@ -16,9 +16,9 @@ class model_kategori_portofolio extends CI_Model
 
     function getDatakategori_PortofolioDetail($id)
     {
-        $this->db->where('id', $id);
+        $this->db->where('id_portofolio', $id);
         $query = $this->db->get('kategori_portofolio');
-        return $query->row();
+        return $query->result();
     }
 
     function updateDatakategori_Portofolio($id, $data)
@@ -29,7 +29,8 @@ class model_kategori_portofolio extends CI_Model
 
     function hapusDatakategori_Portofolio($id)
     {
-        $this->db->where('id', $id);
-        $this->db->delete('kategori_portofolio');
+        $this->db->where('id_portofolio', $id);
+        $query = $this->db->delete('kategori_portofolio');
+        return $query;
     }
 }

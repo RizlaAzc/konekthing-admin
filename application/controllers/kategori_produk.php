@@ -5,14 +5,14 @@ class kategori_produk extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('model_kategori_produk');
+        $this->load->model('model_master_kategori_produk');
     }
 
     public function index()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $p = $this->model_kategori_produk->getDataKategori();
-        $DATA = array('queryAllKategori' => $p);
+        $p = $this->model_master_kategori_produk->getDatakategori_Produk();
+        $DATA = array('queryAllPrdk' => $p);
         $title['title'] = 'Kategori Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/master/kategori_produk/produk', $DATA);
@@ -22,8 +22,8 @@ class kategori_produk extends CI_Controller
     public function edit_produk($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $p = $this->model_kategori_produk->getDataKategoriDetail($id);
-        $DATA = array('queryKategoriDetail' => $p);
+        $produkDetail = $this->model_master_kategori_produk->getDatakategori_ProdukDetail($id);
+        $DATA = array('queryPrdkDetail' => $produkDetail);
         $title['title'] = 'Edit Kategori Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/master/kategori_produk/edit_produk', $DATA);
@@ -33,8 +33,8 @@ class kategori_produk extends CI_Controller
     public function detail_produk($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryKategoriDetail = $this->model_kategori_produk->getDataKategoriDetail($id);
-        $DATA = array('queryKategoriDetail' => $queryKategoriDetail);
+        $produkDetail = $this->model_master_kategori_produk->getDatakategori_ProdukDetail($id);
+        $DATA = array('queryPrdkDetail' => $produkDetail);
         $title['title'] = 'Detail Kategori Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/master/kategori_produk/detail_produk', $DATA);
@@ -47,12 +47,12 @@ class kategori_produk extends CI_Controller
         $kategori_produk = $this->input->post('kategori_produk');
 
         $ArrInsert = array(
-            'kategori_produk' => $kategori_produk
+            'kategori_produk' => $kategori_produk,
         );
 
-        $this->model_kategori_produk->insertDataKategori($ArrInsert);
+        $this->model_master_kategori_produk->insertDatakategori_Produk($ArrInsert);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('kategori_produk'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function fungsi_edit()
@@ -61,13 +61,11 @@ class kategori_produk extends CI_Controller
         $id = $this->input->post('id');
         $kategori_produk = $this->input->post('kategori_produk');
 
-
         $ArrUpdate = array(
             'kategori_produk' => $kategori_produk,
-
         );
 
-        $this->model_kategori_produk->updateDataKategori($id, $ArrUpdate);
+        $this->model_master_kategori_produk->updateDatakategori_Produk($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
         redirect(base_url('kategori_produk'));
     }
@@ -75,8 +73,8 @@ class kategori_produk extends CI_Controller
     public function fungsi_hapus($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $this->model_kategori_produk->hapusDataKategori($id);
+        $this->model_master_kategori_produk->hapusDatakategori_Produk($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('kategori_produk'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

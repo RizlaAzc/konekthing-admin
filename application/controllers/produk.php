@@ -8,13 +8,19 @@ class produk extends CI_Controller
         $this->load->model('model_produk');
         $this->load->model('model_produkfitur');
         $this->load->model('model_produksubfitur');
+        $this->load->model('model_kategori_produk');
+        $this->load->model('model_master_kategori_produk');
     }
 
     public function index()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
+        $kategori = $this->model_kategori_produk->getDatakategori_Produk();
+        $kategori = $this->model_master_kategori_produk->getDatakategori_Produk();
         $queryAllProduk = $this->model_produk->getDataProduk();
-        $DATA = array('queryAllPrdk' => $queryAllProduk);
+        $DATA['queryAllKategori'] = $kategori;
+        $DATA['queryAllMasterKategori'] = $kategori;
+        $DATA['queryAllPrdk'] = $queryAllProduk;
         $title['title'] = 'Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/produk', $DATA);
@@ -34,7 +40,11 @@ class produk extends CI_Controller
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryProdukDetail = $this->model_produk->getDataProdukDetail($id);
-        $DATA = array('queryPrdkDetail' => $queryProdukDetail);
+        $querymasterprodukDetail = $this->model_master_kategori_produk->getDatakategori_Produk($id);
+        $querykategoriprodukDetail = $this->model_kategori_produk->getDatakategori_ProdukDetail($id);
+        $DATA['querymasterprodukDetail'] = $querymasterprodukDetail;
+        $DATA['querykategoriprodukDetail'] = $querykategoriprodukDetail;
+        $DATA['queryPrdkDetail'] = $queryProdukDetail;
         $title['title'] = 'Edit Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/edit-produk', $DATA);
@@ -45,7 +55,11 @@ class produk extends CI_Controller
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryProdukDetail = $this->model_produk->getDataProdukDetail($id);
-        $DATA = array('queryPrdkDetail' => $queryProdukDetail);
+        $querymasterprodukDetail = $this->model_master_kategori_produk->getDatakategori_Produk($id);
+        $querykategoriprodukDetail = $this->model_kategori_produk->getDatakategori_ProdukDetail($id);
+        $DATA['querymasterprodukDetail'] = $querymasterprodukDetail;
+        $DATA['querykategoriprodukDetail'] = $querykategoriprodukDetail;
+        $DATA['queryPrdkDetail'] = $queryProdukDetail;
         $title['title'] = 'Detail Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/detail-produk', $DATA);
@@ -55,7 +69,6 @@ class produk extends CI_Controller
     public function fungsi_tambah()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $id = $this->input->post('id');
         $nama = $this->input->post('nama');
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
@@ -76,7 +89,6 @@ class produk extends CI_Controller
             }
         }
         $ArrInsert = array(
-            'id' => $id,
             'nama' => $nama,
             'judul' => $judul,
             'deskripsi' => $deskripsi,
@@ -85,8 +97,19 @@ class produk extends CI_Controller
         );
 
         $this->model_produk->insertDataProduk($ArrInsert);
+        $id_produk = $this->db->insert_id();
+        $id_kategori = $this->input->post('id_kategori');
+        for ($i = 0; $i < count($id_kategori); $i++) {
+            $kategori_id = $id_kategori[$i];
+            $ArrInsertKategori = array(
+                'id_produk' => $id_produk,
+                'id_kategori' => $kategori_id
+            );
+            $this->model_kategori_produk->insertDatakategori_Produk($ArrInsertKategori);
+        }
+
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('produk'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function fungsi_edit()
@@ -100,6 +123,13 @@ class produk extends CI_Controller
         $gambar = $_FILES['gambar'];
 
         if ($gambar = '') {
+            $ArrUpdate = array(
+                'id' => $id,
+                'nama' => $nama,
+                'judul' => $judul,
+                'deskripsi' => $deskripsi,
+                'url' => $url
+            );
         } else {
             $config['upload_path'] = 'assets/gambar/produk';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
@@ -107,20 +137,41 @@ class produk extends CI_Controller
             $this->load->library('upload');
             $this->upload->initialize($config);
             if (!$this->upload->do_upload('gambar')) {
-                echo "Upload Gagal";
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'nama' => $nama,
+                    'judul' => $judul,
+                    'deskripsi' => $deskripsi,
+                    'url' => $url
+                );
             } else {
                 $gambar = $this->upload->data('file_name');
+                $ArrUpdate = array(
+                    'nama' => $nama,
+                    'judul' => $judul,
+                    'deskripsi' => $deskripsi,
+                    'url' => $url,
+                    'gambar' => $gambar
+                );
             }
         }
-        $ArrUpdate = array(
-            'nama' => $nama,
-            'judul' => $judul,
-            'deskripsi' => $deskripsi,
-            'url' => $url,
-            'gambar' => $gambar
-        );
 
         $this->model_produk->updateDataProduk($id, $ArrUpdate);
+        $hapus_kategori = $this->model_kategori_produk->hapusDatakategori_Produk($id);
+        $id_kategori = $this->input->post('id_kategori');
+        if ($hapus_kategori) {
+            for ($i = 0; $i < count($id_kategori); $i++) {
+                $kategori_id = $id_kategori[$i];
+                $ArrUpdateKategori = array(
+                    'id_produk' => $id,
+                    'id_kategori' => $kategori_id
+                );
+                $this->model_kategori_produk->insertDatakategori_Produk($ArrUpdateKategori);
+            }
+        } else {
+            echo "Gagal Hapus";
+        }
+
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
         redirect(base_url('produk'));
     }
@@ -129,8 +180,9 @@ class produk extends CI_Controller
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_produk->hapusDataProduk($id);
+        $this->model_kategori_produk->hapusDatakategori_Produk($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('produk'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     /*
@@ -205,7 +257,7 @@ class produk extends CI_Controller
 
         $this->model_produkfitur->insertDataFitur($ArrInsert);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('produk/fitur/' . $id_produk));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function fungsi_editfitur()
@@ -218,25 +270,36 @@ class produk extends CI_Controller
         $gambar_fitur = $_FILES['gambar_fitur'];
 
         if ($gambar_fitur = '') {
+            $ArrUpdate = array(
+                'id' => $id,
+                'id_produk' => $id_produk,
+                'nama_fitur' => $nama_fitur,
+                'deskripsi_fitur' => $deskripsi_fitur
+            );
         } else {
             $config['upload_path'] = 'assets/gambar/produk/fitur';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
 
             $this->load->library('upload');
             $this->upload->initialize($config);
-            if (!$this->upload->do_upload('gambar_fitur')) {
-                echo "Upload Gagal";
+            if (!$this->upload->do_upload('gambar')) {
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'id_produk' => $id_produk,
+                    'nama_fitur' => $nama_fitur,
+                    'deskripsi_fitur' => $deskripsi_fitur
+                );
             } else {
                 $gambar_fitur = $this->upload->data('file_name');
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'id_produk' => $id_produk,
+                    'nama_fitur' => $nama_fitur,
+                    'deskripsi_fitur' => $deskripsi_fitur,
+                    'gambar_fitur' => $gambar_fitur
+                );
             }
         }
-        $ArrUpdate = array(
-            'id' => $id,
-            'id_produk' => $id_produk,
-            'nama_fitur' => $nama_fitur,
-            'deskripsi_fitur' => $deskripsi_fitur,
-            'gambar_fitur' => $gambar_fitur
-        );
 
         $this->model_produkfitur->updateDataFitur($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
@@ -249,7 +312,7 @@ class produk extends CI_Controller
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_produkfitur->hapusDataFitur($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('produk/fitur/' . $id_produk));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     /*
@@ -326,17 +389,16 @@ class produk extends CI_Controller
             'nama_subfitur' => $nama_subfitur
         );
 
-        $this->model_produkfitur->updateDataFitur($id, $ArrUpdate);
+        $this->model_produksubfitur->updateDataSubFitur($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
         redirect(base_url('produk/subfitur/' . $id_fitur));
     }
 
     public function fungsi_hapussubfitur($id)
     {
-        $id_fitur = $this->input->post('id_fitur');
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_produksubfitur->hapusDataSubFitur($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('produk/subfitur/' . $id_fitur));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

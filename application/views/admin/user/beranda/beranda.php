@@ -75,6 +75,10 @@
                         <input type="text" class="form-control" id="inputCity" name="url" required>
                     </div>
                     <div class="form-group">
+                        <label for="inputCity" class="form-label">Button</label>
+                        <input type="text" class="form-control" id="inputCity" name="button" required>
+                    </div>
+                    <div class="form-group">
                         <label for="inputCity" class="form-label">Gambar</label>
                         <input type="file" class="form-control" id="inputCity" name="gambar" required>
                     </div>

@@ -68,7 +68,7 @@ class kontak extends CI_Controller
 
         $this->model_kontak->insertDatakontak($ArrInsert);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('kontak'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function fungsi_edit()
@@ -97,6 +97,6 @@ class kontak extends CI_Controller
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_kontak->hapusDatakontak($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('kontak'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

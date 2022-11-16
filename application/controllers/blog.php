@@ -84,7 +84,7 @@ class blog extends CI_Controller
 
         $this->model_blog->insertDataBlog($ArrInsert);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('blog'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function fungsi_edit()
@@ -97,6 +97,12 @@ class blog extends CI_Controller
         $gambar = $_FILES['gambar'];
 
         if ($gambar = '') {
+            $ArrUpdate = array(
+                'id' => $id,
+                'judul' => $judul,
+                'deskripsi' => $deskripsi,
+                'url' => $url
+            );
         } else {
             $config['upload_path'] = 'assets/gambar/blog';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
@@ -104,18 +110,23 @@ class blog extends CI_Controller
             $this->load->library('upload');
             $this->upload->initialize($config);
             if (!$this->upload->do_upload('gambar')) {
-                echo "Upload Gagal";
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'judul' => $judul,
+                    'deskripsi' => $deskripsi,
+                    'url' => $url
+                );
             } else {
                 $gambar = $this->upload->data('file_name');
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'judul' => $judul,
+                    'deskripsi' => $deskripsi,
+                    'url' => $url,
+                    'gambar' => $gambar
+                );
             }
         }
-
-        $ArrUpdate = array(
-            'gambar' => $gambar,
-            'judul' => $judul,
-            'deskripsi' => $deskripsi,
-            'url' => $url
-        );
 
         $this->model_blog->updateDataBlog($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
@@ -127,7 +138,7 @@ class blog extends CI_Controller
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_blog->hapusDataBlog($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('blog'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     /*
@@ -148,25 +159,27 @@ class blog extends CI_Controller
         $this->load->view('footer');
     }
 
-    public function edit_fitur($id)
+    public function edit_fitur($id, $id_blog)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
+        $queryFiturDetail = $this->model_blogfitur->getDataFiturDetail($id);
+        $DATA['id_blog'] = $id_blog;
         $DATA['queryFiturDetail'] = $queryFiturDetail;
         $title['title'] = 'Edit Fitur - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/produk/fitur/edit-fitur', $DATA);
+        $this->load->view('admin/user/blog/fitur/edit-fitur', $DATA);
         $this->load->view('footer');
     }
 
-    public function detail_fitur($id)
+    public function detail_fitur($id, $id_blog)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
-        $DATA = array('queryFiturDetail' => $queryFiturDetail);
+        $queryFiturDetail = $this->model_blogfitur->getDataFiturDetail($id);
+        $DATA['id_blog'] = $id_blog;
+        $DATA['queryFiturDetail'] = $queryFiturDetail;
         $title['title'] = 'Detail Fitur - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/produk/fitur/detail-fitur', $DATA);
+        $this->load->view('admin/user/blog/fitur/detail-fitur', $DATA);
         $this->load->view('footer');
     }
 
@@ -200,50 +213,61 @@ class blog extends CI_Controller
 
         $this->model_blogfitur->insertDataFitur($ArrInsert);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('blog/fitur/' . $id_blog));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function fungsi_editfitur()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
-        $id_produk = $this->input->post('id_produk');
+        $id_blog = $this->input->post('id_blog');
         $nama_fitur = $this->input->post('nama_fitur');
         $deskripsi_fitur = $this->input->post('deskripsi_fitur');
         $gambar_fitur = $_FILES['gambar_fitur'];
 
         if ($gambar_fitur = '') {
+            $ArrUpdate = array(
+                'id' => $id,
+                'id_blog' => $id_blog,
+                'nama_fitur' => $nama_fitur,
+                'deskripsi_fitur' => $deskripsi_fitur,
+            );
         } else {
-            $config['upload_path'] = 'assets/gambar/produk/fitur';
+            $config['upload_path'] = 'assets/gambar/blog/fitur';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
 
             $this->load->library('upload');
             $this->upload->initialize($config);
-            if (!$this->upload->do_upload('gambar_fitur')) {
-                echo "Upload Gagal";
+            if (!$this->upload->do_upload('gambar')) {
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'id_blog' => $id_blog,
+                    'nama_fitur' => $nama_fitur,
+                    'deskripsi_fitur' => $deskripsi_fitur,
+                );
             } else {
                 $gambar_fitur = $this->upload->data('file_name');
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'id_blog' => $id_blog,
+                    'nama_fitur' => $nama_fitur,
+                    'deskripsi_fitur' => $deskripsi_fitur,
+                    'gambar_fitur' => $gambar_fitur
+                );
             }
         }
-        $ArrUpdate = array(
-            'id' => $id,
-            'id_produk' => $id_produk,
-            'nama_fitur' => $nama_fitur,
-            'deskripsi_fitur' => $deskripsi_fitur,
-            'gambar_fitur' => $gambar_fitur
-        );
 
-        $this->model_produkfitur->updateDataFitur($id, $ArrUpdate);
+        $this->model_blogfitur->updateDataFitur($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
-        redirect(base_url('produk/fitur/' . $id_produk));
+        redirect(base_url('blog/fitur/' . $id_blog));
     }
 
     public function fungsi_hapusfitur($id)
     {
-        $id_produk = $this->input->post('id_produk');
+        $id_blog = $this->input->post('id_blog');
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $this->model_produkfitur->hapusDataFitur($id);
+        $this->model_blogfitur->hapusDataFitur($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('produk/fitur/' . $id_produk));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

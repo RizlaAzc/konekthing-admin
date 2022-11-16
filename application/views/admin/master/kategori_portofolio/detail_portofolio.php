@@ -11,7 +11,6 @@
                 <hr>
                 <form action="<?= base_url('kategori_portofolio') ?>" method="post">
                     <table border="1">
-                        <br>
                         <tr>
                             <form class="row g-3">
                                 <div class="col-md-6">
@@ -19,7 +18,7 @@
                                     <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryPrdkDetail->id ?>" readonly>
                                 </div>
                                 <div class="col-6">
-                                    <label for="inputAddress" class="form-label">kategori portofolio</label>
+                                    <label for="inputAddress" class="form-label">Kategori Portofolio</label>
                                     <input type="text" class="form-control" id="inputAddress" name="kategori_portofolio" value="<?php echo $queryPrdkDetail->kategori_portofolio ?>" readonly>
                                 </div>
 

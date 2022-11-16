@@ -82,6 +82,20 @@
                         <label for="inputCity" class="form-label">Gambar</label>
                         <input type="file" class="form-control" id="inputCity" name="gambar" required>
                     </div>
+                    <div class="form-group text-center mt-2">
+                        <label for="inputAddress2" class="form-label">Kategori</label>
+                        <div class="input-group justify-content-center mb-3">
+                            <?php
+                            foreach ($queryAllMasterKategori as $kategori) {
+                            ?>
+                                <div class="input-group-text" style="margin-right: 15px;">
+                                    <input class="form-check-input mt-0" type="checkbox" name="id_kategori[]" value="<?= $kategori->id ?>"> &nbsp; <?= $kategori->kategori_produk ?>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary">Reset</button>

@@ -1,4 +1,5 @@
--<!DOCTYPE html>
+-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,20 +17,19 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="<?= base_url('dashboard') ?>">Konekthing Admin</a>
+        <a class="navbar-brand ps-3" href="<?= base_url('dashboard') ?>"><img style="width: 35px; margin-bottom: 10px;" src="<?= base_url('assets/gambar/logo.png') ?>"><i style="font-size: 18px; margin-left: 5px;">Konekthing Admin</i></a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-        </div>
+            </div>
         </form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $login['nama'];?><img src="<?= base_url('assets/img/profile/') . $login['image']; ?>" class="img-profile rounded-circle" style="width: 50px; margin-left: 10px;"></a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $login['nama']; ?><img src="<?= base_url('assets/img/profile/') . $login['image']; ?>" class="img-profile rounded-circle" style="width: 50px; margin-left: 10px;"></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="fa-sharp fa-solid fa-user-tie"></i> Profile</a></li>
                     <li><a class="dropdown-item" href="<?= base_url('visitor') ?>"><i class="fa-solid fa-chart-line"></i> Activity Log</a></li>
                     <li><a class="dropdown-item" href="<?= base_url('settings') ?>"><i class="fa-solid fa-gear"></i> Settings</a></li>
                     <li>
@@ -46,11 +46,11 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Profile</div>
-                        <a <?= $this->uri->segment(1) == 'profile' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('profile') ?>">
+                        <a <?= $this->uri->segment(2) == 'my_profile' || $this->uri->segment(2) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('profile/my_profile') ?>">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-user-tie"></i></i></div>
-                            My Profile 
+                            My Profile
                         </a>
-                        <a <?= $this->uri->segment(1) == 'edit_profile' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('profile/edit_profile') ?>">
+                        <a <?= $this->uri->segment(2) == 'edit_profile' || $this->uri->segment(2) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('profile/edit_profile') ?>">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-pen-to-square"></i></i></div>
                             Edit Profile
                         </a>

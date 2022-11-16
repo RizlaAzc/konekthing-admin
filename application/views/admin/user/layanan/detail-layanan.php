@@ -11,29 +11,27 @@
                 <hr>
                 <form action="<?= base_url('layanan') ?>" method="post">
                     <table border="1">
-                        <br>
                         <tr>
                             <form class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label">ID</label>
-                                    <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryLynDetail->id ?>" readonly>
+                                <div class="col-6">
+                                    <label for="inputAddress" class="form-label">ID</label>
+                                    <input type="text" class="form-control" id="inputAddress" name="id" value="<?= $queryLynDetail->id ?>" readonly>
                                 </div>
                                 <div class="col-6">
-                                    <label for="inputAddress" class="form-label">Judul</label>
-                                    <input type="text" class="form-control" id="inputAddress" name="judul" value="<?php echo $queryLynDetail->judul ?>" readonly>
+                                    <label for="inputAddress" class="form-label">Nama</label>
+                                    <input type="text" class="form-control" id="inputAddress" name="nama" value="<?= $queryLynDetail->nama ?>" readonly>
+                                </div>
+                                <div class="col-6">
+                                    <label for="inputAddress2" class="form-label">Judul</label>
+                                    <input type="text" class="form-control" id="inputAddress2" name="judul" value="<?= $queryLynDetail->judul ?>" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputCity" class="form-label">Deskripsi</label>
-                                    <input type="text" class="form-control" id="inputCity" name="deskripsi" value="<?php echo $queryLynDetail->deskripsi ?>" readonly>
+                                    <input type="text" class="form-control" id="inputCity" name="deskripsi" value="<?= $queryLynDetail->deskripsi ?>" readonly>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputCity" class="form-label">Url</label>
-                                    <input type="text" class="form-control" id="inputCity" name="url" value="<?php echo $queryLynDetail->url ?>" readonly>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="inputCity" class="form-label">Gambar</label>
-                                    <input type="text" class="form-control" id="inputCity" name="gambar" value="<?php echo $queryLynDetail->gambar ?>" readonly>
-                                    <img class="mt-2" src="<?= base_url('assets/gambar/layanan/') ?><?= $queryLynDetail->gambar; ?>" width="100">
+                                    <label for="inputCity" class="form-label">Sub Deskripsi</label>
+                                    <input type="text" class="form-control" id="inputCity" name="sub_deskripsi" value="<?= $queryLynDetail->deskripsi ?>" readonly>
                                 </div>
                                 <br>
                                 <div class="col-12">

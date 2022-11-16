@@ -1,13 +1,13 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Edit SubFitur</h1>
+            <h1 class="mt-4">Edit SubFitur Produk</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">User</li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk') ?>">Produk</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk/fitur/') . $id_produk ?>">Fitur Produk</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk/subfitur/') . $querySubFiturDetail->id_fitur . '/' . $id_fitur ?>">SubFitur Produk</a></li>
-                <li class="breadcrumb-item active">Edit SubFitur</li>
+                <li class="breadcrumb-item active">Edit SubFitur Produk</li>
             </ol>
             <div>
                 <hr>

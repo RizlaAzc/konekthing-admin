@@ -6,13 +6,19 @@ class portofolio extends CI_Controller
     {
         parent::__construct();
         $this->load->model('model_portofolio');
+        $this->load->model('model_kategori_portofolio');
+        $this->load->model('model_master_kategori_portofolio');
     }
 
     public function index()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
+        $kategori = $this->model_kategori_portofolio->getDatakategori_portofolio();
+        $kategori = $this->model_master_kategori_portofolio->getDatakategori_portofolio();
         $p = $this->model_portofolio->getDataportofolio();
-        $DATA = array('queryAllPrdk' => $p);
+        $DATA['queryAllPrdk'] = $p;
+        $DATA['queryAllKategori'] = $kategori;
+        $DATA['queryAllMasterKategori'] = $kategori;
         $title['title'] = 'Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/portofolio/portofolio', $DATA);
@@ -32,7 +38,11 @@ class portofolio extends CI_Controller
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryportofolioDetail = $this->model_portofolio->getDataPortofolioDetail($id);
-        $DATA = array('queryPrdkDetail' => $queryportofolioDetail);
+        $querymasterportofolioDetail = $this->model_master_kategori_portofolio->getDatakategori_Portofolio($id);
+        $querykategoriportofolioDetail = $this->model_kategori_portofolio->getDatakategori_PortofolioDetail($id);
+        $DATA['queryPrdkDetail'] = $queryportofolioDetail;
+        $DATA['querymasterportofolioDetail'] = $querymasterportofolioDetail;
+        $DATA['querykategoriportofolioDetail'] = $querykategoriportofolioDetail;
         $title['title'] = 'Edit Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/portofolio/edit_portofolio', $DATA);
@@ -43,7 +53,11 @@ class portofolio extends CI_Controller
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $queryportofolioDetail = $this->model_portofolio->getDataPortofolioDetail($id);
-        $DATA = array('queryPrdkDetail' => $queryportofolioDetail);
+        $querymasterportofolioDetail = $this->model_master_kategori_portofolio->getDatakategori_Portofolio($id);
+        $querykategoriportofolioDetail = $this->model_kategori_portofolio->getDatakategori_PortofolioDetail($id);
+        $DATA['queryPrdkDetail'] = $queryportofolioDetail;
+        $DATA['querymasterportofolioDetail'] = $querymasterportofolioDetail;
+        $DATA['querykategoriportofolioDetail'] = $querykategoriportofolioDetail;
         $title['title'] = 'Detail Portofolio - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/portofolio/detail_portofolio', $DATA);
@@ -62,7 +76,7 @@ class portofolio extends CI_Controller
         } else {
             $config['upload_path'] = 'assets/gambar/portofolio';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
-            
+
             $this->load->library('upload');
             $this->upload->initialize($config);
             if (!$this->upload->do_upload('gambar')) {
@@ -72,7 +86,6 @@ class portofolio extends CI_Controller
             }
         }
 
-
         $ArrInsert = array(
             'id' => $id,
             'judul' => $judul,
@@ -81,8 +94,19 @@ class portofolio extends CI_Controller
         );
 
         $this->model_portofolio->insertDataportofolio($ArrInsert);
+        $id_portofolio = $this->db->insert_id();
+        $id_kategori = $this->input->post('id_kategori');
+        for ($i = 0; $i < count($id_kategori); $i++) {
+            $kategori_id = $id_kategori[$i];
+            $ArrInsertKategori = array(
+                'id_portofolio' => $id_portofolio,
+                'id_kategori' => $kategori_id
+            );
+            $this->model_kategori_portofolio->insertDatakategori_portofolio($ArrInsertKategori);
+        }
+
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('portofolio'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function fungsi_edit()
@@ -94,26 +118,50 @@ class portofolio extends CI_Controller
         $gambar = $_FILES['gambar'];
 
         if ($gambar = '') {
+            $ArrUpdate = array(
+                'id' => $id,
+                'judul' => $judul,
+                'deskripsi' => $deskripsi
+            );
         } else {
             $config['upload_path'] = 'assets/gambar/portofolio';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
-           
+
             $this->load->library('upload');
             $this->upload->initialize($config);
             if (!$this->upload->do_upload('gambar')) {
-                echo "Upload Gagal";
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'judul' => $judul,
+                    'deskripsi' => $deskripsi
+                );
             } else {
                 $gambar = $this->upload->data('file_name');
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'judul' => $judul,
+                    'deskripsi' => $deskripsi,
+                    'gambar' => $gambar
+                );
             }
         }
 
-        $ArrUpdate = array(
-            'judul' => $judul,
-            'deskripsi' => $deskripsi,
-            'gambar' => $gambar
-        );
+        $this->model_portofolio->updateDataPortofolio($id, $ArrUpdate);
+        $hapus_kategori = $this->model_kategori_portofolio->hapusDatakategori_Portofolio($id);
+        $id_kategori = $this->input->post('id_kategori');
+        if ($hapus_kategori) {
+            for ($i = 0; $i < count($id_kategori); $i++) {
+                $kategori_id = $id_kategori[$i];
+                $ArrUpdateKategori = array(
+                    'id_portofolio' => $id,
+                    'id_kategori' => $kategori_id
+                );
+                $this->model_kategori_portofolio->insertDatakategori_portofolio($ArrUpdateKategori);
+            }
+        } else {
+            echo "Gagal Hapus";
+        }
 
-        $this->model_portofolio->updateDataportofolio($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
         redirect(base_url('portofolio'));
     }
@@ -122,7 +170,8 @@ class portofolio extends CI_Controller
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_portofolio->hapusDataPortofolio($id);
+        $this->model_kategori_portofolio->hapusDatakategori_Portofolio($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('portofolio'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

@@ -90,7 +90,7 @@ class beranda extends CI_Controller
 
         $this->model_beranda->insertDataBeranda($ArrInsert);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Ditambahkan!</div>');
-        redirect(base_url('beranda'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function fungsi_edit()
@@ -100,10 +100,17 @@ class beranda extends CI_Controller
         $judul = $this->input->post('judul');
         $deskripsi = $this->input->post('deskripsi');
         $url = $this->input->post('url');
-        $gambar = $_FILES['gambar'];
         $button = $this->input->post('button');
+        $gambar = $_FILES['gambar'];
 
         if ($gambar = '') {
+            $ArrUpdate = array(
+                'id' => $id,
+                'judul' => $judul,
+                'deskripsi' => $deskripsi,
+                'url' => $url,
+                'button' => $button,
+            );
         } else {
             $config['upload_path'] = 'assets/gambar/beranda';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
@@ -111,19 +118,25 @@ class beranda extends CI_Controller
             $this->load->library('upload');
             $this->upload->initialize($config);
             if (!$this->upload->do_upload('gambar')) {
-                echo "Upload Gagal";
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'judul' => $judul,
+                    'deskripsi' => $deskripsi,
+                    'url' => $url,
+                    'button' => $button,
+                );
             } else {
                 $gambar = $this->upload->data('file_name');
+                $ArrUpdate = array(
+                    'id' => $id,
+                    'judul' => $judul,
+                    'deskripsi' => $deskripsi,
+                    'url' => $url,
+                    'button' => $button,
+                    'gambar' => $gambar
+                );
             }
         }
-
-        $ArrUpdate = array(
-            'gambar' => $gambar,
-            'judul' => $judul,
-            'deskripsi' => $deskripsi,
-            'url' => $url,
-            'button' => $button
-        );
 
         $this->model_beranda->updateDataBeranda($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
@@ -135,6 +148,6 @@ class beranda extends CI_Controller
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_beranda->hapusDataBeranda($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
-        redirect(base_url('beranda'));
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

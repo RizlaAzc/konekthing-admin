@@ -21,13 +21,12 @@
                                 <th class="text-center" width="1">ID</th>
                                 <th class="text-center" width="800">Kategori Produk</th>
                                 <th class="text-center" width="100">Aksi</th>
-
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $count = 0;
-                            foreach ($queryAllKategori as $row) {
+                            foreach ($queryAllPrdk as $row) {
                                 $count = $count + 1;
                             ?>
                                 <tr>
@@ -50,13 +49,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Kategori</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Kategori Produk</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <?= form_open_multipart('kategori_produk/fungsi_tambah'); ?>
+
                     <div class="form-group">
-                        <label for="inputCity" class="form-label">Kategori Produk</label>
+                        <label for="inputCity" class="form-label">Nama Kategori</label>
                         <input type="text" class="form-control" id="inputCity" name="kategori_produk" required>
                     </div>
                 </div>

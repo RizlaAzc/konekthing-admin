@@ -11,7 +11,6 @@
                 <hr>
                 <form action="<?= base_url('kontak') ?>" method="post">
                     <table border="1">
-                        <br>
                         <tr>
                             <form class="row g-3">
                                 <div class="col-md-6">

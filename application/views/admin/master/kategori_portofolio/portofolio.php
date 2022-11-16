@@ -21,7 +21,6 @@
                                 <th class="text-center" width="1">ID</th>
                                 <th class="text-center" width="800">Kategori Portofolio</th>
                                 <th class="text-center" width="100">Aksi</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -34,7 +33,6 @@
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
                                     <td style="vertical-align: middle;"><?php echo $row->kategori_portofolio; ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('kategori_portofolio/edit_portofolio/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('kategori_portofolio/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('kategori_portofolio/detail_portofolio/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
-
                                 </tr>
                             <?php
                             }
@@ -51,14 +49,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah kategori Portofolio</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Kategori Portofolio</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <?= form_open_multipart('kategori_portofolio/fungsi_tambah'); ?>
 
                     <div class="form-group">
-                        <label for="inputCity" class="form-label">kategori portofolio</label>
+                        <label for="inputCity" class="form-label">Nama Kategori</label>
                         <input type="text" class="form-control" id="inputCity" name="kategori_portofolio" required>
                     </div>
                 </div>

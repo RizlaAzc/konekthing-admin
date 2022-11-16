@@ -1,19 +1,18 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Detail SubFitur</h1>
+            <h1 class="mt-4">Detail SubFitur Produk</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">User</li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk') ?>">Produk</a></li>
                 <li class="breadcrumb-item"><a href="<?= base_url('produk/fitur/') . $id_produk ?>">Fitur Produk</a></li>
-                <li class="breadcrumb-item"><a href="<?= base_url('produk/subfitur/') . $id_produk . '/' . $id_fitur ?>">SubFitur Produk</a></li>
-                <li class="breadcrumb-item active">Detail SubFitur</li>
+                <li class="breadcrumb-item"><a href="<?= base_url('produk/subfitur/') . $querySubFiturDetail->id_fitur . '/' . $id_fitur ?>">SubFitur Produk</a></li>
+                <li class="breadcrumb-item active">Detail SubFitur Produk</li>
             </ol>
             <div>
                 <hr>
-                <form action="<?= base_url('produk/subfitur/') . '/' . $id_produk . '/' . $id_fitur ?>" method="post">
+                <form action="<?= base_url('produk/subfitur/') . $querySubFiturDetail->id_fitur . '/' . $id_fitur ?>" method="post">
                     <table border="1">
-                        <br>
                         <tr>
                             <form class="row g-3">
                                 <div class="col-md-6">

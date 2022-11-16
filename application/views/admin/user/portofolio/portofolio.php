@@ -9,7 +9,8 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Portofolio Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                    Portofolio Tables
+                    <button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Portofolio
                     </button>
                 </div>
@@ -69,6 +70,20 @@
                     <div class="form-group">
                         <label for="inputAddress2" class="form-label">Gambar</label>
                         <input type="file" class="form-control" id="inputAddress2" name="gambar" required>
+                    </div>
+                    <div class="form-group text-center mt-2">
+                        <label for="inputAddress2" class="form-label">Kategori</label>
+                        <div class="input-group justify-content-center mb-3">
+                            <?php
+                            foreach ($queryAllMasterKategori as $kategori) {
+                            ?>
+                                <div class="input-group-text" style="margin-right: 15px;">
+                                    <input class="form-check-input mt-0" type="checkbox" name="id_kategori[]" value="<?= $kategori->id ?>"> &nbsp; <?= $kategori->kategori_portofolio ?>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

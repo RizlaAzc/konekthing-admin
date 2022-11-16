@@ -1,19 +1,17 @@
         <div id="layoutSidenav_content">
           <main>
             <div class="container-fluid px-4">
-              <ol>
               <h1 class="mt-4">My Profile</h1>
               <ol class="breadcrumb mb-4">
-
+                <li class="breadcrumb-item active">Profile</li>
+                <li class="breadcrumb-item active">My Profile</li>
               </ol>
-            
-
+              <hr>
               <div class="row">
                 <div class="col-lg-6">
                   <?= $this->session->flashdata('message'); ?>
                 </div>
               </div>
-
               <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                   <div class="col-md-4">
