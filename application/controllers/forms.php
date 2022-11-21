@@ -19,11 +19,10 @@ class forms extends CI_Controller
 
 
 
-    // agar user tidak bisa masuk ke halaman login sebelum logout
+		// agar user tidak bisa masuk ke halaman login sebelum logout
 		if ($this->session->userdata('email')) {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please logout!</div>');
 			redirect('dashboard');
-			
 		}
 
 		$this->goToDefaultPage();
@@ -31,7 +30,6 @@ class forms extends CI_Controller
 		$this->load->view('header-forms', $title);
 		$this->load->view('admin/forms/login');
 		$this->load->view('footer-forms');
-		
 	}
 
 	public function goToDefaultPage()
@@ -111,7 +109,7 @@ class forms extends CI_Controller
 			$data = [
 				'nama' => htmlspecialchars($this->input->post('nama', true)),
 				'email' => htmlspecialchars($this->input->post('email', true)),
-				'image' => 'default.jpg',
+				'image' => 'default.png',
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				'role_id' => 2,
 				'is_active' => 1,
@@ -132,7 +130,6 @@ class forms extends CI_Controller
 		$this->session->sess_destroy();
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">congratulation! your account has been logout.</div>');
 		redirect('forms');
-		
 	}
 
 
