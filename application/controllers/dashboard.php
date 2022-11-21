@@ -6,12 +6,13 @@ class dashboard extends CI_Controller
     {
         parent::__construct();
 
-         is_logged_in();
-
-        // if (!$this->session->userdata('email')) {
-        //     redirect('forms');
-        // }
-       
+        // agar user tidak sembarangan mengakses web tanpa login
+        if(!$this->session->userdata('email')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
+            redirect('forms');
+                   
+            }
+    
     }
 
     public function index()

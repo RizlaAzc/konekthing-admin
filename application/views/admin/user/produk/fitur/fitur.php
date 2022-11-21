@@ -79,6 +79,8 @@
                 </div>
                 <div class="modal-body">
                     <?= form_open_multipart('produk/fungsi_tambahfitur'); ?>
+                    
+                    <!-- untuk mengambil id pada our team harus di input dulu -->
                     <input type="hidden" name="id_produk" value="<?= $queryPrdkDetail->id ?>">
                     <div class="form-group">
                         <label for="inputAddress" class="form-label">Nama Fitur</label>

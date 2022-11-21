@@ -8,6 +8,13 @@ class profile extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+
+		if(!$this->session->userdata('email')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
+            redirect('forms');
+                   
+            }
+
 	}
 
 	public function my_profile()

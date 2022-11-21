@@ -21,10 +21,18 @@
                         <thead>
                             <tr style="background-color:#B0C4DE;">
                                 <th class="text-center" width="1">ID</th>
-                                <th class="text-center" width="200">nama</th>
-                                <th class="text-center" width="290">Deskripsi</th>
-                                <th class="text-center" width="100">Gambar</th>
-                                <th class="text-center" width="110">Aksi</th>
+                                <th class="text-center" width="1">nama</th>
+                                <th class="text-center" width="1">Deskripsi</th>
+                                <th class="text-center" width="1">email</th>
+                                <th class="text-center" width="1">gender</th>
+                                <th class="text-center" width="1">TTL</th>
+                                <th class="text-center" width="1">kebangsaan</th>
+                                <th class="text-center" width="1">status</th>
+                                <th class="text-center" width="1">agama</th>
+                                <th class="text-center" width="1">alamat</th>
+                                <th class="text-center" width="1">telepon</th>
+                                <th class="text-center" width="1">gambar</th>
+                                <th class="text-center" width="170">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,8 +45,19 @@
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
                                     <td style="vertical-align: middle;"><?= substr($row->nama, 0, 67) ?><a></a></td>
                                     <td style="vertical-align: middle;"><?= substr($row->deskripsi, 0, 114) ?><a></a></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->email ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->jenis_kelamin ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->tempat_tanggal_lahir ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->kebangsaan ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->status ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->agama ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->alamat ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?= $row->telpon ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/our_team/') ?><?= $row->gambar; ?>" width="75"></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('our_team/edit_our_team/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('our_team/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('our_team/detail_our_team/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a><a href="<?= base_url('our_team/fitur/') . $row->id ?>" class="btn btn-primary mt-2">Fitur our team</a></td>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('our_team/edit_our_team/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('our_team/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('our_team/detail_our_team/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
+                                    <a href="<?= base_url('our_team/riwayat_pendidikan_ourteam/') . $row->id ?>" class="btn btn-primary mt-2">riwayat pendidikan </a>
+                                    <a href="<?= base_url('our_team/pengalaman_kerja_ourteam/') . $row->id ?>" class="btn btn-primary mt-2">pengalaman kerja </a>
+                                    <a href="<?= base_url('our_team/handle_pekerjaan_ourteam/') . $row->id ?>" class="btn btn-primary mt-2">handle pekerjaan </a></td>
                                 </tr>
                             <?php
                             }
@@ -69,9 +88,42 @@
                         <input type="text" class="form-control" id="inputAddress2" name="deskripsi" required>
                     </div>
                     <div class="form-group">
+                        <label for="inputAddress2" class="form-label">jenis kelmin</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="jenis_kelamin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity" class="form-label">tempat tanggal lahir</label>
+                        <input type="text" class="form-control" id="inputCity" name="tempat_tanggal_lahir">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">kebangsaan</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="kebangsaan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">status</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="status" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">agama</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="agama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">alamat</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="alamat" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">telepon</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="telpon" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2" class="form-label">email</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="email" required>
+                    </div>
+                    <div class="form-group">
                         <label for="inputCity" class="form-label">Gambar</label>
                         <input type="file" class="form-control" id="inputCity" name="gambar" required>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary">Reset</button>

@@ -12,23 +12,33 @@ class forms extends CI_Controller
 
 	public function index()
 	{
+
 		// $this->form_validation->set_rules('email', 'email',' trim|required|valid_email');
 		// $this->form_validation->set_rules('password', 'password',' trim|required|');
-
-
 		// if ($this->form_validation->run() == false) {
 
+
+
+    // agar user tidak bisa masuk ke halaman login sebelum logout
+		if ($this->session->userdata('email')) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please logout!</div>');
+			redirect('dashboard');
+			
+		}
+
+		$this->goToDefaultPage();
 		$title['title'] = 'Konekthing Admin';
 		$this->load->view('header-forms', $title);
 		$this->load->view('admin/forms/login');
 		$this->load->view('footer-forms');
+		
+	}
 
-		// } else {
-		// 	echo "a";
-		// 	die;
-		// 	// jika validasi nya sukses
-		// 	$this->_login();
-		// }
+	public function goToDefaultPage()
+	{
+		if ($this->session->userdata('user_id') == 1) {
+			redirect('admin');
+		}
 	}
 
 	public function login()
@@ -119,9 +129,12 @@ class forms extends CI_Controller
 		// $this->session->unset_unserdata('email');
 		// $this->session->unset_unserdata('role_id');
 
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">you have been logged out</div>');
-		redirect('');
+		$this->session->sess_destroy();
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">congratulation! your account has been logout.</div>');
+		redirect('forms');
+		
 	}
+
 
 	//      public function forgotpassword ()
 	//      {
@@ -133,6 +146,14 @@ class forms extends CI_Controller
 	//       $this->load->view('header-forms', $title);
 	//       $this->load->view('admin/forms/forgotpassword');
 	// $this->load->view('footer-forms');
+
+
+	// } else if($type == 'forgot') {
+
+	// $this->email->subject('reset password');
+	// $this->email->message('click this link to reset your password : <a href="' . base_url() . 'forms/reset password?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">reset password</a>');
+	// }
+
 
 	//  } else {
 
@@ -222,11 +243,3 @@ class forms extends CI_Controller
 		}
 	}
 }
-
-
-
-        // } else if($type == 'forgot') {
-
-        // $this->email->subject('reset password');
-        // $this->email->message('click this link to reset your password : <a href="' . base_url() . 'forms/reset password?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">reset password</a>');
-        // }

@@ -7,6 +7,13 @@ class layanan extends CI_Controller
         parent::__construct();
         $this->load->model('model_layanan');
         $this->load->model('model_layananfitur');
+
+            if(!$this->session->userdata('email')) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
+            redirect('forms');
+                   
+            }
+
     }
 
     public function index()
