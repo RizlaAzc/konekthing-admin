@@ -13,8 +13,8 @@
                 <table border="1">
                     <tr>
                         <form class="row g-3">
-                            <div class="col-md-12">
-                                <div class="col-md-6 text-center" style="float: right;">
+                            <div class="col-md-6" style="float: right;">
+                                <div class="col-md-12 text-center">
                                     <label for="inputAddress2" class="form-label">Kategori</label>
                                     <div class="input-group justify-content-center mb-3">
                                         <?php
@@ -34,27 +34,29 @@
                                         ?>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-12">
                                     <label for="inputAddress" class="form-label">ID</label>
                                     <input type="text" class="form-control" id="inputAddress" name="id" value="<?= $queryPrdkDetail->id ?>" readonly>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12">
                                     <label for="inputAddress" class="form-label">Nama</label>
                                     <input type="text" class="form-control" id="inputAddress" name="nama" value="<?= $queryPrdkDetail->nama ?>" required>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12">
                                     <label for="inputAddress" class="form-label">Judul</label>
                                     <input type="text" class="form-control" id="inputAddress" name="judul" value="<?= $queryPrdkDetail->judul ?>" required>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12">
                                     <label for="inputAddress2" class="form-label">Deskripsi</label>
                                     <input type="text" class="form-control" id="inputAddress2" name="deskripsi" value="<?= $queryPrdkDetail->deskripsi ?>" required>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="inputCity" class="form-label">Url</label>
                                     <input type="text" class="form-control" id="inputCity" name="url" value="<?= $queryPrdkDetail->url ?>" required>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="inputCity" class="form-label">Gambar</label>
                                     <input type="file" class="form-control" id="inputCity" name="gambar">
                                     <img class="mt-2" src="<?= base_url('assets/gambar/produk/') ?><?= $queryPrdkDetail->gambar; ?>" width="100">

@@ -19,7 +19,8 @@
                         <thead>
                             <tr style="background-color:#B0C4DE;">
                                 <th class="text-center" width="1">ID</th>
-                                <th class="text-center" width="800">Kategori Portofolio</th>
+                                <th class="text-center" width="150">Nama Kategori</th>
+                                <th class="text-center" width="650">Deskripsi Kategori</th>
                                 <th class="text-center" width="100">Aksi</th>
                             </tr>
                         </thead>
@@ -31,7 +32,8 @@
                             ?>
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
-                                    <td style="vertical-align: middle;"><?php echo $row->kategori_portofolio; ?></td>
+                                    <td class="text-center" style="vertical-align: middle;"><?php echo $row->kategori_portofolio ?></td>
+                                    <td style="vertical-align: middle;"><?php echo  substr($row->deskripsi, 0, 86) ?><a>...</a></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('kategori_portofolio/edit_portofolio/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('kategori_portofolio/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('kategori_portofolio/detail_portofolio/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php
@@ -54,10 +56,13 @@
                 </div>
                 <div class="modal-body">
                     <?= form_open_multipart('kategori_portofolio/fungsi_tambah'); ?>
-
                     <div class="form-group">
                         <label for="inputCity" class="form-label">Nama Kategori</label>
                         <input type="text" class="form-control" id="inputCity" name="kategori_portofolio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity" class="form-label">Deskripsi Kategori</label>
+                        <input type="text" class="form-control" id="inputCity" name="deskripsi" required>
                     </div>
                 </div>
                 <div class="modal-footer">

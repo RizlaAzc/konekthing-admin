@@ -11,7 +11,7 @@
             </ol>
             <div>
                 <hr>
-                <?= form_open_multipart('produk/fungsi_editsubfitur'); ?>
+                <?= form_open_multipart('produk/fungsi_editsubfitur/' . $id_produk); ?>
                 <table border="1">
                     <tr>
                         <form class="row g-3">

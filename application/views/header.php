@@ -68,12 +68,12 @@
                                 <a <?= $this->uri->segment(1) == 'kategori_produk' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kategori_produk') ?>">Kategori Produk</a>
                             </nav>
                         </div>
-                        <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' ? 'class="nav-link active"' : '' ?> class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsepages" aria-expanded="false" aria-controls="collapsepages">
+                        <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == 'our_partners' ? 'class="nav-link active"' : '' ?> class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsepages" aria-expanded="false" aria-controls="collapsepages">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             User
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' ? 'class="collapse-show"' : '' ?> class="collapse" id="collapsepages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == 'our_partners' ? 'class="collapse-show"' : '' ?> class="collapse" id="collapsepages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('beranda') ?>">Beranda</a>
                                 <a <?= $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('portofolio') ?>">Portofolio</a>
@@ -81,7 +81,8 @@
                                 <a <?= $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('layanan') ?>">Layanan</a>
                                 <a <?= $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('blog') ?>">Blog</a>
                                 <a <?= $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kontak') ?>">Kontak</a>
-                                 <a <?= $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('our_team') ?>">our team</a>
+                                <a <?= $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('our_team') ?>">Our Team</a>
+                                <a <?= $this->uri->segment(1) == 'our_partners' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('our_partners') ?>">Our Partners</a>
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Other</div>

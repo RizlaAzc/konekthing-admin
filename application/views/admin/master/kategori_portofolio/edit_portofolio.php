@@ -5,7 +5,7 @@
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Master</li>
         <li class="breadcrumb-item"><a href="<?= base_url('kategori_portofolio') ?>">Kategori Portofolio</a></li>
-        <li class="breadcrumb-item active">Edit kategori Portofolio</li>
+        <li class="breadcrumb-item active">Edit Kategori Portofolio</li>
       </ol>
       <div>
         <hr>
@@ -18,8 +18,12 @@
                 <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryPrdkDetail->id ?>" readonly>
               </div>
               <div class="col-6">
-                <label for="inputAddress" class="form-label">Kategori Portofolio</label>
+                <label for="inputAddress" class="form-label">Nama Kategori</label>
                 <input type="text" class="form-control" id="inputAddress" name="kategori_portofolio" value="<?php echo $queryPrdkDetail->kategori_portofolio ?>" required>
+              </div>
+              <div class="col-6">
+                <label for="inputAddress" class="form-label">Deskripsi Kategori</label>
+                <input type="text" class="form-control" id="inputAddress" name="deskripsi" value="<?php echo $queryPrdkDetail->deskripsi ?>" required>
               </div>
               <br>
               <div class="col-12">

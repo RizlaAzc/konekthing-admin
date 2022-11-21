@@ -147,6 +147,7 @@ class produk extends CI_Controller
             } else {
                 $gambar = $this->upload->data('file_name');
                 $ArrUpdate = array(
+                    'id' => $id,
                     'nama' => $nama,
                     'judul' => $judul,
                     'deskripsi' => $deskripsi,
@@ -325,7 +326,7 @@ class produk extends CI_Controller
         $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
         $queryAllSubFitur = $this->model_produksubfitur->getDataSubFitur($id);
         $DATA['id_produk'] = $id_produk;
-        $DATA['id_fitur'] = $id_produk;
+        $DATA['id_fitur'] = $id;
         $DATA['queryFiturDetail'] = $queryFiturDetail;
         $DATA['queryAllSubFitur'] = $queryAllSubFitur;
         $title['title'] = 'SubFitur Produk - Konekthing Admin';
@@ -376,7 +377,7 @@ class produk extends CI_Controller
         redirect($_SERVER['HTTP_REFERER']);
     }
 
-    public function fungsi_editsubfitur()
+    public function fungsi_editsubfitur($id_produk)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
@@ -391,7 +392,7 @@ class produk extends CI_Controller
 
         $this->model_produksubfitur->updateDataSubFitur($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
-        redirect(base_url('produk/subfitur/' . $id_fitur));
+        redirect(base_url('produk/subfitur/' . $id_fitur . '/' . $id_produk));
     }
 
     public function fungsi_hapussubfitur($id)

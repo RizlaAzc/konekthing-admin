@@ -45,9 +45,11 @@ class kategori_portofolio extends CI_Controller
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $kategori_portofolio = $this->input->post('kategori_portofolio');
+        $deskripsi = $this->input->post('deskripsi');
 
         $ArrInsert = array(
             'kategori_portofolio' => $kategori_portofolio,
+            'deskripsi' => $deskripsi
         );
 
         $this->model_master_kategori_portofolio->insertDatakategori_portofolio($ArrInsert);
@@ -60,9 +62,11 @@ class kategori_portofolio extends CI_Controller
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
         $kategori_portofolio = $this->input->post('kategori_portofolio');
+        $deskripsi = $this->input->post('deskripsi');
 
         $ArrUpdate = array(
             'kategori_portofolio' => $kategori_portofolio,
+            'deskripsi' => $deskripsi,
         );
 
         $this->model_master_kategori_portofolio->updateDatakategori_Portofolio($id, $ArrUpdate);

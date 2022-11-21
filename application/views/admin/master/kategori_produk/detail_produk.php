@@ -18,7 +18,7 @@
                                     <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryPrdkDetail->id ?>" readonly>
                                 </div>
                                 <div class="col-6">
-                                    <label for="inputAddress" class="form-label">Kategori Produk</label>
+                                    <label for="inputAddress" class="form-label">Nama Kategori</label>
                                     <input type="text" class="form-control" id="inputAddress" name="kategori_produk" value="<?php echo $queryPrdkDetail->kategori_produk ?>" readonly>
                                 </div>
 

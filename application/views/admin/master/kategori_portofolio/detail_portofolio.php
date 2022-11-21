@@ -18,10 +18,13 @@
                                     <input type="text" class="form-control" id="inputEmail4" name="id" value="<?php echo $queryPrdkDetail->id ?>" readonly>
                                 </div>
                                 <div class="col-6">
-                                    <label for="inputAddress" class="form-label">Kategori Portofolio</label>
+                                    <label for="inputAddress" class="form-label">Nama Kategori</label>
                                     <input type="text" class="form-control" id="inputAddress" name="kategori_portofolio" value="<?php echo $queryPrdkDetail->kategori_portofolio ?>" readonly>
                                 </div>
-
+                                <div class="col-6">
+                                    <label for="inputAddress" class="form-label">Deskripsi Kategori</label>
+                                    <input type="text" class="form-control" id="inputAddress" name="deskripsi" value="<?php echo $queryPrdkDetail->deskripsi ?>" readonly>
+                                </div>
                                 <br>
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">Tutup Detail</button>
