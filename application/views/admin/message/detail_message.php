@@ -34,7 +34,7 @@
                                     </div>
                                     <br>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Tutup Detail</button>
+                                        <button type="submit" class="btn btn-primary">Tutup Pesan</button>
                                     </div>
                                 </div><!-- End Contact Form -->
                             </div>

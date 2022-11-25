@@ -24,33 +24,25 @@ class sosial_media extends CI_Controller
         $this->load->view('footer');
     }
 
-    public function edit_portofolio($id)
+    public function edit_sosial_media($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryportofolioDetail = $this->model_portofolio->getDataPortofolioDetail($id);
-        $querymasterportofolioDetail = $this->model_master_kategori_portofolio->getDatakategori_Portofolio($id);
-        $querykategoriportofolioDetail = $this->model_kategori_portofolio->getDatakategori_PortofolioDetail($id);
-        $DATA['queryPrdkDetail'] = $queryportofolioDetail;
-        $DATA['querymasterportofolioDetail'] = $querymasterportofolioDetail;
-        $DATA['querykategoriportofolioDetail'] = $querykategoriportofolioDetail;
-        $title['title'] = 'Edit Portofolio - Konekthing Admin';
+        $querysosial_mediaDetail = $this->model_sosial_media->getDatasosial_mediaDetail($id);
+        $DATA['querySosialMediaDetail'] = $querysosial_mediaDetail;
+        $title['title'] = 'Edit Sosial Media - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/portofolio/edit_portofolio', $DATA);
+        $this->load->view('admin/user/sosial_media/edit_sosial_media', $DATA);
         $this->load->view('footer');
     }
 
-    public function detail_portofolio($id)
+    public function detail_sosial_media($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $queryportofolioDetail = $this->model_portofolio->getDataPortofolioDetail($id);
-        $querymasterportofolioDetail = $this->model_master_kategori_portofolio->getDatakategori_Portofolio($id);
-        $querykategoriportofolioDetail = $this->model_kategori_portofolio->getDatakategori_PortofolioDetail($id);
-        $DATA['queryPrdkDetail'] = $queryportofolioDetail;
-        $DATA['querymasterportofolioDetail'] = $querymasterportofolioDetail;
-        $DATA['querykategoriportofolioDetail'] = $querykategoriportofolioDetail;
-        $title['title'] = 'Detail Portofolio - Konekthing Admin';
+        $querysosial_mediaDetail = $this->model_sosial_media->getDatasosial_mediaDetail($id);
+        $DATA['querySosialMediaDetail'] = $querysosial_mediaDetail;
+        $title['title'] = 'Detail Sosial Media - Konekthing Admin';
         $this->load->view('header', $title);
-        $this->load->view('admin/user/portofolio/detail_portofolio', $DATA);
+        $this->load->view('admin/user/sosial_media/detail_sosial_media', $DATA);
         $this->load->view('footer');
     }
 
@@ -90,18 +82,18 @@ class sosial_media extends CI_Controller
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $id = $this->input->post('id');
-        $judul = $this->input->post('judul');
-        $deskripsi = $this->input->post('deskripsi');
+        $nama = $this->input->post('nama');
+        $url = $this->input->post('url');
         $gambar = $_FILES['gambar'];
 
         if ($gambar = '') {
             $ArrUpdate = array(
                 'id' => $id,
-                'judul' => $judul,
-                'deskripsi' => $deskripsi
+                'nama' => $nama,
+                'url' => $url
             );
         } else {
-            $config['upload_path'] = 'assets/gambar/portofolio';
+            $config['upload_path'] = 'assets/gambar/sosial_media';
             $config['allowed_types'] = 'jpg|png|gif|jpeg|svg';
 
             $this->load->library('upload');
@@ -109,45 +101,29 @@ class sosial_media extends CI_Controller
             if (!$this->upload->do_upload('gambar')) {
                 $ArrUpdate = array(
                     'id' => $id,
-                    'judul' => $judul,
-                    'deskripsi' => $deskripsi
+                    'nama' => $nama,
+                    'url' => $url
                 );
             } else {
                 $gambar = $this->upload->data('file_name');
                 $ArrUpdate = array(
                     'id' => $id,
-                    'judul' => $judul,
-                    'deskripsi' => $deskripsi,
+                    'nama' => $nama,
+                    'url' => $url,
                     'gambar' => $gambar
                 );
             }
         }
 
-        $this->model_portofolio->updateDataPortofolio($id, $ArrUpdate);
-        $hapus_kategori = $this->model_kategori_portofolio->hapusDatakategori_Portofolio($id);
-        $id_kategori = $this->input->post('id_kategori');
-        if ($hapus_kategori) {
-            for ($i = 0; $i < count($id_kategori); $i++) {
-                $kategori_id = $id_kategori[$i];
-                $ArrUpdateKategori = array(
-                    'id_portofolio' => $id,
-                    'id_kategori' => $kategori_id
-                );
-                $this->model_kategori_portofolio->insertDatakategori_portofolio($ArrUpdateKategori);
-            }
-        } else {
-            echo "Gagal Hapus";
-        }
-
+        $this->model_sosial_media->updateDatasosial_media($id, $ArrUpdate);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
-        redirect(base_url('portofolio'));
+        redirect(base_url('sosial_media'));
     }
 
     public function fungsi_hapus($id)
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $this->model_portofolio->hapusDataPortofolio($id);
-        $this->model_kategori_portofolio->hapusDatakategori_Portofolio($id);
+        $this->model_sosial_media->hapusDatasosial_media($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect($_SERVER['HTTP_REFERER']);
     }
