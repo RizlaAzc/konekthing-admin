@@ -209,34 +209,34 @@ class forms extends CI_Controller
 	}
 
 
-	public function changepassword()
-	{
+	// public function changepassword()
+	// {
 
-		if (!$this->session->userdata('reset_email')) {
-			redirect('forms');
-		}
+	// 	if (!$this->session->userdata('reset_email')) {
+	// 		redirect('forms');
+	// 	}
 
-		$this->form_validation->set_rules('password1', 'password', 'trim|required|min_length[3]matches[password2]');
-		$this->form_validation->set_rules('password2', 'repeat password', 'trim|required|min_length[3]matches[password1]');
+	// 	$this->form_validation->set_rules('password1', 'password', 'trim|required|min_length[3]matches[password2]');
+	// 	$this->form_validation->set_rules('password2', 'repeat password', 'trim|required|min_length[3]matches[password1]');
 
-		if ($this->form_validation->run() == false) {
-			$title['title'] = 'changepassword - Konekthing Admin';
-			$this->load->view('header-forms', $title);
-			$this->load->view('admin/forms/changepassword');
-			$this->load->view('footer-forms');
-		} else {
-			$password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
-			$email = $this->session->userdata('reset_email');
+	// 	if ($this->form_validation->run() == false) {
+	// 		$title['title'] = 'changepassword - Konekthing Admin';
+	// 		$this->load->view('header-forms', $title);
+	// 		$this->load->view('admin/forms/changepassword');
+	// 		$this->load->view('footer-forms');
+	// 	} else {
+	// 		$password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+	// 		$email = $this->session->userdata('reset_email');
 
-			$this->db->set('password', $password);
-			$this->db->where('email', $email);
-			$this->db->update('user');
+	// 		$this->db->set('password', $password);
+	// 		$this->db->where('email', $email);
+	// 		$this->db->update('user');
 
-			$this->session->unset_unserdata('reset_email');
+	// 		$this->session->unset_unserdata('reset_email');
 
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">password has been changed 
-		! please login.</div>');
-			redirect('forms/login');
-		}
-	}
+	// 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">password has been changed 
+	// 	! please login.</div>');
+	// 		redirect('forms/login');
+	// 	}
+	// }
 }

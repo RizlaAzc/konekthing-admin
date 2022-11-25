@@ -8,7 +8,7 @@ class dashboard extends CI_Controller
 
         // agar user tidak sembarangan mengakses web tanpa login
         if(!$this->session->userdata('email')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">masuk elit, login sulit</div>');
             redirect('forms');
                    
             }

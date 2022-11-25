@@ -15,34 +15,34 @@
                     <tr>
                         <form class="row g-3">
                             <div class="col-md-6" style="float: right; padding-left: 5px;">
-                                <div class="col-md-12">
+                                <div class="col-md-10">
                                     <label for="inputEmail4" class="form-label">ID Our Team</label>
                                     <input type="text" class="form-control" id="inputEmail4" name="id_our_team" value="<?= $querypengalaman_kerja_ourteamDetail->id_our_team ?>" readonly>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-10">
                                     <label for="inputAddress2" class="form-label">Tahun Dari</label>
                                     <input type="text" class="form-control" id="inputAddress2" name="tahun_dari" value="<?= $querypengalaman_kerja_ourteamDetail->tahun_dari ?>" required>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-10">
                                     <label for="inputAddress2" class="form-label">Tahun Sampai</label>
                                     <input type="text" class="form-control" id="inputAddress2" name="tahun_sampai" value="<?= $querypengalaman_kerja_ourteamDetail->tahun_sampai ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6" style="padding-right: 5px;">
-                                <div class="col-12">
+                                <div class="col-10">
                                     <label for="inputAddress" class="form-label">ID</label>
                                     <input type="text" class="form-control" id="inputAddress" name="id" value="<?= $querypengalaman_kerja_ourteamDetail->id ?>" readonly>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-10">
                                     <label for="inputAddress" class="form-label">Nama Pengalaman</label>
                                     <input type="text" class="form-control" id="inputAddress" name="nama_pengalaman" value="<?= $querypengalaman_kerja_ourteamDetail->nama_pengalaman ?>" required>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-10">
                                     <label for="inputAddress2" class="form-label">Deskripsi</label>
                                     <input type="text" class="form-control" id="inputAddress2" name="peskripsi" value="<?= $querypengalaman_kerja_ourteamDetail->peskripsi ?>" required>
                                 </div>
                                 <br>
-                                <div class="col-12">
+                                <div class="col-10">
                                     <button type="submit" class="btn btn-primary">Edit Pengalaman Kerja</button>
                                     <button type="reset" class="btn btn-secondary">Reset</button>
                                 </div>

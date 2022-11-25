@@ -11,7 +11,7 @@ class our_team extends CI_Controller
         $this->load->model('model_our_team_handle_pekerjaan');
 
         if (!$this->session->userdata('email')) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">lu belum login oon!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">minimal login!</div>');
             redirect('forms');
         }
     }
