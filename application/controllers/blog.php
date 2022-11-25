@@ -8,12 +8,10 @@ class blog extends CI_Controller
         $this->load->model('model_blog');
         $this->load->model('model_blogfitur');
 
-        if(!$this->session->userdata('email')) {
+        if (!$this->session->userdata('email')) {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
             redirect('forms');
-                   
-            }
-
+        }
     }
 
     public function index()
@@ -172,7 +170,7 @@ class blog extends CI_Controller
         $queryFiturDetail = $this->model_blogfitur->getDataFiturDetail($id);
         $DATA['id_blog'] = $id_blog;
         $DATA['queryFiturDetail'] = $queryFiturDetail;
-        $title['title'] = 'Edit Fitur - Konekthing Admin';
+        $title['title'] = 'Edit Fitur Blog - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/blog/fitur/edit-fitur', $DATA);
         $this->load->view('footer');
@@ -184,7 +182,7 @@ class blog extends CI_Controller
         $queryFiturDetail = $this->model_blogfitur->getDataFiturDetail($id);
         $DATA['id_blog'] = $id_blog;
         $DATA['queryFiturDetail'] = $queryFiturDetail;
-        $title['title'] = 'Detail Fitur - Konekthing Admin';
+        $title['title'] = 'Detail Fitur Blog - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/blog/fitur/detail-fitur', $DATA);
         $this->load->view('footer');

@@ -8,12 +8,10 @@ class layanan extends CI_Controller
         $this->load->model('model_layanan');
         $this->load->model('model_layananfitur');
 
-            if(!$this->session->userdata('email')) {
+        if (!$this->session->userdata('email')) {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
             redirect('forms');
-                   
-            }
-
+        }
     }
 
     public function index()
@@ -132,7 +130,7 @@ class layanan extends CI_Controller
         $queryFiturDetail = $this->model_layananfitur->getDataFiturDetail($id);
         $DATA['id_layanan'] = $id_layanan;
         $DATA['queryFiturDetail'] = $queryFiturDetail;
-        $title['title'] = 'Edit Fitur - Konekthing Admin';
+        $title['title'] = 'Edit Fitur Layanan - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/layanan/fitur/edit-fitur', $DATA);
         $this->load->view('footer');
@@ -144,7 +142,7 @@ class layanan extends CI_Controller
         $queryFiturDetail = $this->model_layananfitur->getDataFiturDetail($id);
         $DATA['id_layanan'] = $id_layanan;
         $DATA['queryFiturDetail'] = $queryFiturDetail;
-        $title['title'] = 'Detail Fitur - Konekthing Admin';
+        $title['title'] = 'Detail Fitur Layanan - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/layanan/fitur/detail-fitur', $DATA);
         $this->load->view('footer');

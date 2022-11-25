@@ -57,7 +57,7 @@
                         <div class="sb-sidenav-menu-heading">Other</div>
                         <a class="nav-link" href="<?= base_url('dashboard') ?>">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-backward"></i></div>
-                            Return
+                            Main Navigation
                         </a>
                     </div>
                 </div>

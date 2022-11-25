@@ -215,7 +215,7 @@ class produk extends CI_Controller
         $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
         $DATA['queryFiturDetail'] = $queryFiturDetail;
         $DATA['id_produk'] = $id_produk;
-        $title['title'] = 'Edit Fitur - Konekthing Admin';
+        $title['title'] = 'Edit Fitur Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/fitur/edit-fitur', $DATA);
         $this->load->view('footer');
@@ -227,7 +227,7 @@ class produk extends CI_Controller
         $queryFiturDetail = $this->model_produkfitur->getDataFiturDetail($id);
         $DATA = array('queryFiturDetail' => $queryFiturDetail);
         $DATA['id_produk'] = $id_produk;
-        $title['title'] = 'Detail Fitur - Konekthing Admin';
+        $title['title'] = 'Detail Fitur Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/fitur/detail-fitur', $DATA);
         $this->load->view('footer');
@@ -347,7 +347,7 @@ class produk extends CI_Controller
         $DATA['querySubFiturDetail'] = $querySubFiturDetail;
         $DATA['id_produk'] = $id_produk;
         $DATA['id_fitur'] = $id_fitur;
-        $title['title'] = 'Edit SubFitur - Konekthing Admin';
+        $title['title'] = 'Edit SubFitur Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/fitur/subfitur/edit-subfitur', $DATA);
         $this->load->view('footer');
@@ -360,7 +360,7 @@ class produk extends CI_Controller
         $DATA = array('querySubFiturDetail' => $querySubFiturDetail);
         $DATA['id_produk'] = $id_produk;
         $DATA['id_fitur'] = $id_produk;
-        $title['title'] = 'Detail SubFitur - Konekthing Admin';
+        $title['title'] = 'Detail SubFitur Produk - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/produk/fitur/subfitur/detail-subfitur', $DATA);
         $this->load->view('footer');

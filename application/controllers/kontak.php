@@ -6,15 +6,11 @@ class kontak extends CI_Controller
     {
         parent::__construct();
         $this->load->model('model_kontak');
-        
-        if(!$this->session->userdata('email')) {
+
+        if (!$this->session->userdata('email')) {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
             redirect('forms');
-                   
-            }
-
-
-       
+        }
     }
 
     public function index()
@@ -31,7 +27,7 @@ class kontak extends CI_Controller
     public function tambah_kontak()
     {
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
-        $title['title'] = 'Tambah kontak - Konekthing Admin';
+        $title['title'] = 'Tambah Kontak - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/kontak/tambah_kontak');
         $this->load->view('footer');
@@ -42,7 +38,7 @@ class kontak extends CI_Controller
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $querykontakDetail = $this->model_kontak->getDatakontakDetail($id);
         $DATA = array('queryPrdkDetail' => $querykontakDetail);
-        $title['title'] = 'Edit kontak - Konekthing Admin';
+        $title['title'] = 'Edit Kontak - Konekthing Admin';
         $this->load->view('header', $title);
         $this->load->view('admin/user/kontak/edit_kontak', $DATA);
         $this->load->view('footer');

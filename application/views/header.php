@@ -68,12 +68,12 @@
                                 <a <?= $this->uri->segment(1) == 'kategori_produk' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kategori_produk') ?>">Kategori Produk</a>
                             </nav>
                         </div>
-                        <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == 'our_partners' ? 'class="nav-link active"' : '' ?> class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsepages" aria-expanded="false" aria-controls="collapsepages">
+                        <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == 'our_partners' || $this->uri->segment(1) == 'sosial_media' ? 'class="nav-link active"' : '' ?> class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsepages" aria-expanded="false" aria-controls="collapsepages">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             User
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == 'our_partners' ? 'class="collapse-show"' : '' ?> class="collapse" id="collapsepages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <div <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == 'produk' || $this->uri->segment(1) == 'layanan' || $this->uri->segment(1) == 'blog' || $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == 'our_partners' || $this->uri->segment(1) == 'sosial_media' ? 'class="collapse-show"' : '' ?> class="collapse" id="collapsepages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a <?= $this->uri->segment(1) == 'beranda' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('beranda') ?>">Beranda</a>
                                 <a <?= $this->uri->segment(1) == 'portofolio' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('portofolio') ?>">Portofolio</a>
@@ -83,12 +83,18 @@
                                 <a <?= $this->uri->segment(1) == 'kontak' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('kontak') ?>">Kontak</a>
                                 <a <?= $this->uri->segment(1) == 'our_team' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('our_team') ?>">Our Team</a>
                                 <a <?= $this->uri->segment(1) == 'our_partners' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('our_partners') ?>">Our Partners</a>
+                                <a <?= $this->uri->segment(1) == 'sosial_media' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('sosial_media') ?>">Sosial Media</a>
                             </nav>
                         </div>
-                        <div class="sb-sidenav-menu-heading">Other</div>
+                        <div class="sb-sidenav-menu-heading">Forms</div>
                         <a <?= $this->uri->segment(1) == 'register' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('forms/register') ?>">
                             <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-key"></i></div>
                             Register
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Other</div>
+                        <a <?= $this->uri->segment(1) == 'message' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('message') ?>">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-message"></i></div>
+                            Message
                         </a>
                         <a <?= $this->uri->segment(1) == 'settings' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('settings') ?>">
                             <div class="sb-nav-link-icon"><i class="fas fa-gear"></i></div>
