@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2022 at 04:17 AM
+-- Generation Time: Dec 19, 2022 at 04:59 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.14
 
@@ -34,7 +34,7 @@ CREATE TABLE `message` (
   `email` varchar(100) NOT NULL,
   `subjek` varchar(100) NOT NULL,
   `pesan` text NOT NULL,
-  `date_created` int(100) NOT NULL
+  `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -42,7 +42,9 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id`, `nama`, `email`, `subjek`, `pesan`, `date_created`) VALUES
-(1, 'abcde', 'abcde@gmail.com', 'Test Message', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque perspiciatis dolor recusandae nam quaerat inventore!', 0);
+(9, 'asda', 'asdasd@gmail.comasd', 'asda', 'asdasd', '2022-11-28 10:12:36'),
+(10, 'asd', 'asdasd@gmail.com', 'aa', 'asd', '2022-11-28 10:22:04'),
+(11, 'testing', 'asdasd@gmail.com', 'A', 'A', '2022-12-02 04:06:03');
 
 --
 -- Indexes for dumped tables
@@ -62,7 +64,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
