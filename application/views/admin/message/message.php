@@ -11,7 +11,7 @@
                 <?php
                 foreach ($queryAllmessage as $row) {
                 ?>
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-4">
                         <div class="card">
                             <div class="card-header">
                                 <a href="<?= base_url('message/fungsi_hapus/') . $row->id ?>"><button type="button" class="btn-close" data-bs-dismiss="card" aria-label="Close" style="float: right;"></button></a>
@@ -22,7 +22,7 @@
                                 <h5 class="card-title" style="font-size: 16px;">Email &nbsp;: <?= $row->email ?></h5>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted" style="float: left;"><?= date('d-m-y', $row->date_created); ?></small>
+                                <small class="text-muted" style="float: left;"><?= date($row->date_created); ?></small>
                                 <a href="<?= base_url('message/message_detail/') . $row->id ?>" class="btn btn-primary" style="float: right;">Lihat Pesan</a>
                             </div>
                         </div>

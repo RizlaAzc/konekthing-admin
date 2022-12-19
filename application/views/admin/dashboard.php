@@ -43,25 +43,119 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label" style="margin-left: 5px;"><i class="fa-solid fa-calendar-days"></i> &nbsp;Choose Date :</label><input type="text" name="daterange" class="form-control mb-2" style="width: 205px; cursor: pointer;" readonly />
+                    </div>
                     <div class="row">
-                        <div class="col-xl-6">
+                        <div class="col-xl-8">
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-area me-1"></i>
-                                    Area Chart Example
+                                    Visitor Chart
                                 </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                <div class="card-body" id="dataChart" data="<?php $chart_value ?>"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                             </div>
                         </div>
-                        <div class="col-xl-6">
-                            <div class="card mb-4">
+                        <div class="col-xl-4">
+                            <div class="card mb-2">
                                 <div class="card-header">
-                                    <i class="fas fa-chart-bar me-1"></i>
-                                    Bar Chart Example
+                                    <i class="fas fa-table me-1"></i>
+                                    Visitor Statistic
                                 </div>
-                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                <div class="card-body">
+                                    <table>
+                                        <tr>
+                                            <td><i class="fa-regular fa-eye" style="margin-left: 1px; margin-right: 11px;"></i>Pengunjung Hari ini</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td class="text-center"><?= $pengunjunghariini ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-regular fa-eye" style="margin-left: 1px; margin-right: 11px;"></i>Pengunjung Kemarin</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td class="text-center"><?= $pengunjungkemarin ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-regular fa-eye" style="margin-left: 1px; margin-right: 11px;"></i>Pengunjung Bulan ini</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td class="text-center"><?= $pengunjungbulanini ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-regular fa-eye" style="margin-left: 1px; margin-right: 11px;"></i>Pengunjung Tahun ini</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td class="text-center"><?= $pengunjungtahunini ?></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="card-footer">
+                                    <table>
+                                        <tr>
+                                            <td><i class="fa-solid fa-users" style="margin-left: 1px; margin-right: 10px;"></i>Total Pengunjung</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td class="text-center"><?= $totalpengunjung ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa-solid fa-eye" style="margin-left: 1px; margin-right: 10px;"></i>Pengunjung Online</td>
+                                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            <td class="text-center"><?= $pengunjungonline ?></td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
+
+            <script type="text/javascript">
+                $(function() {
+                    $('input[name="daterange"]').daterangepicker({
+                        opens: 'right'
+                    }, function(start, end, label) {
+                        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                        GFG_Fun(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'))
+                    });
+                });
+            </script>
+
+            <script type="text/javascript">
+                // $(document).ready(function() {
+                // });
+                let idelement = document.getElementById('dataChart');
+                const getvalue = JSON.parse('<?= $chart_value ?>');
+                const getDate = JSON.parse('<?= $chart_date ?>');
+
+                const ctx = document.getElementById('myAreaChart');
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: getDate,
+                        datasets: [{
+                            label: 'number of visitors',
+                            data: getvalue,
+                            borderWidth: 2,
+                            borderColor: '#36A2EB',
+                            backgroundColor: '#9BD0F5',
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+
+            <script>
+                function GFG_Fun(start, end) {
+                    var url = new URL("http://localhost/konekthing-admin/dashboard");
+                    let params = new URLSearchParams(url.search);
+                    params.delete('dateStart');
+                    url.searchParams.append('dateStart', start);
+                    url.searchParams.append('dateEnd', end);
+                    history.pushState({}, '', url);
+                    location.reload();
+                }
+            </script>
