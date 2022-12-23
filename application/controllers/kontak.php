@@ -143,6 +143,15 @@ class kontak extends CI_Controller
                 ->setAutoSize(true);
         }
 
+        $styleArrayFirstRow = [
+            'font' => [
+                'bold' => true,
+            ]
+        ];
+
+        $highestColumn = $object->getActiveSheet()->getHighestColumn();
+        $object->getActiveSheet()->getStyle('A1:' . $highestColumn . '1')->applyFromArray($styleArrayFirstRow);
+
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
         header('Content-Disposition: attachment;filename="' . $filename . '"');
         header('Cache-Control: max-age=0');

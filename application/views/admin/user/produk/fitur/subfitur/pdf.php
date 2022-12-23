@@ -8,7 +8,7 @@
 
     <h3 style="text-align: center;">DATA SUBFITUR PRODUK</h3>
 
-    <table>
+    <table border="1">
         <tr>
             <th>No</th>
             <th>Nama SubFitur</th>

@@ -146,6 +146,76 @@ class blog extends CI_Controller
         redirect($_SERVER['HTTP_REFERER']);
     }
 
+    public function excel()
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Blog" . '.xlsx';
+        $queryAllBlog = $this->model_blog->getDataBlog();
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Blog");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Judul');
+        $object->getActiveSheet()->setCellValue('C1', 'Deskripsi');
+        $object->getActiveSheet()->setTitle("Data Blog");
+
+        foreach ($queryAllBlog as $datablog) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datablog->judul);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $datablog->deskripsi);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'C'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        $styleArrayFirstRow = [
+            'font' => [
+                'bold' => true,
+            ]
+        ];
+
+        $highestColumn = $object->getActiveSheet()->getHighestColumn();
+        $object->getActiveSheet()->getStyle('A1:' . $highestColumn . '1')->applyFromArray($styleArrayFirstRow);
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf()
+    {
+        $queryAllBlog = $this->model_blog->getDataBlog();
+        $DATA['queryAllBlg'] = $queryAllBlog;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/blog/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Blog.pdf', array('Attachment' => 0));
+    }
+
     /*
     Blog_Fitur Section
     */
@@ -276,67 +346,6 @@ class blog extends CI_Controller
         redirect($_SERVER['HTTP_REFERER']);
     }
 
-    public function excel()
-    {
-        $baris = 2;
-        $no = 1;
-        $filename = "Data Blog" . '.xlsx';
-        $queryAllBlog = $this->model_blog->getDataBlog();
-
-        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
-        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
-
-        $object = new PHPExcel();
-        $object->getProperties()->setCreator("PT Konekthing");
-        $object->getProperties()->setLastModifiedBy("PT Konekthing");
-        $object->getProperties()->setTitle("Data Blog");
-        $object->setActiveSheetIndex(0);
-        $object->getActiveSheet()->setCellValue('A1', 'No');
-        $object->getActiveSheet()->setCellValue('B1', 'Judul');
-        $object->getActiveSheet()->setCellValue('C1', 'Deskripsi');
-        $object->getActiveSheet()->setTitle("Data Blog");
-
-        foreach ($queryAllBlog as $datablog) {
-            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
-            $object->getActiveSheet()->setCellValue('B' . $baris, $datablog->judul);
-            $object->getActiveSheet()->setCellValue('C' . $baris, $datablog->deskripsi);
-
-            $baris++;
-        }
-
-        for ($col = 'A'; $col !== 'C'; $col++) {
-            $object->getActiveSheet()
-                ->getColumnDimension($col)
-                ->setAutoSize(true);
-        }
-
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
-        header('Content-Disposition: attachment;filename="' . $filename . '"');
-        header('Cache-Control: max-age=0');
-
-        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
-        $writer->save('php://output');
-
-        exit;
-    }
-
-    public function pdf()
-    {
-        $queryAllBlog = $this->model_blog->getDataBlog();
-        $DATA['queryAllBlg'] = $queryAllBlog;
-        $this->load->library('dompdf_gen');
-        $this->load->view('admin/user/blog/pdf', $DATA);
-
-        $paper_size = 'A4';
-        $orientation = 'landscape';
-        $html = $this->output->get_output();
-
-        $this->dompdf->set_paper($paper_size, $orientation);
-        $this->dompdf->load_html($html);
-        $this->dompdf->render();
-        $this->dompdf->stream('Data Blog.pdf', array('Attachment' => 0));
-    }
-
     public function excel_fitur($id)
     {
         $baris = 2;
@@ -370,6 +379,15 @@ class blog extends CI_Controller
                 ->getColumnDimension($col)
                 ->setAutoSize(true);
         }
+
+        $styleArrayFirstRow = [
+            'font' => [
+                'bold' => true,
+            ]
+        ];
+
+        $highestColumn = $object->getActiveSheet()->getHighestColumn();
+        $object->getActiveSheet()->getStyle('A1:' . $highestColumn . '1')->applyFromArray($styleArrayFirstRow);
 
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
         header('Content-Disposition: attachment;filename="' . $filename . '"');
