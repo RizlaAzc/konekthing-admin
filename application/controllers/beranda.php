@@ -150,4 +150,65 @@ class beranda extends CI_Controller
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect($_SERVER['HTTP_REFERER']);
     }
+
+    public function excel()
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Beranda" . '.xlsx';
+        $queryAllBeranda = $this->model_beranda->getDataBeranda();
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Beranda");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Judul');
+        $object->getActiveSheet()->setCellValue('C1', 'Deskripsi');
+        $object->getActiveSheet()->setTitle("Data Beranda");
+
+        foreach ($queryAllBeranda as $databeranda) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $databeranda->judul);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $databeranda->deskripsi);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'C'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf()
+    {
+        $queryAllBeranda = $this->model_beranda->getDataBeranda();
+        $DATA['queryAllBrnd'] = $queryAllBeranda;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/beranda/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Beranda.pdf', array('Attachment' => 0));
+    }
 }

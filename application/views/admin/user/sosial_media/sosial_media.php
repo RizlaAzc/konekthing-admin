@@ -13,6 +13,13 @@
                     <button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Sosial Media
                     </button>
+                    <div class="btn-group" style="float: right; margin-right: 5px;">
+                        <button type="button" class="btn btn-warning text-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Export</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?= base_url('sosial_media/excel') ?>">Excel</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('sosial_media/pdf') ?>">Pdf</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="card-body">
                     <?= $this->session->flashdata('pesan'); ?>

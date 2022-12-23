@@ -7,12 +7,10 @@ class kategori_produk extends CI_Controller
         parent::__construct();
         $this->load->model('model_master_kategori_produk');
 
-        if(!$this->session->userdata('email')) {
+        if (!$this->session->userdata('email')) {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
             redirect('forms');
-                   
-            }
-
+        }
     }
 
     public function index()
@@ -83,5 +81,64 @@ class kategori_produk extends CI_Controller
         $this->model_master_kategori_produk->hapusDatakategori_Produk($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function excel()
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Kategori Produk" . '.xlsx';
+        $queryAllKategori = $this->model_master_kategori_produk->getDatakategori_produk();
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Kategori Produk");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama Kategori');
+        $object->getActiveSheet()->setTitle("Data Kategori Produk");
+
+        foreach ($queryAllKategori as $datakategori) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datakategori->kategori_produk);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'B'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf()
+    {
+        $queryAllKategori = $this->model_master_kategori_produk->getDatakategori_produk();
+        $DATA['queryAllPrdk'] = $queryAllKategori;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/master/kategori_produk/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Kategori Produk.pdf', array('Attachment' => 0));
     }
 }

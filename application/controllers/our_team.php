@@ -506,4 +506,274 @@ class our_team extends CI_Controller
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect($_SERVER['HTTP_REFERER']);
     }
+
+    public function excel()
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Our Team" . '.xlsx';
+        $queryAllour_team = $this->model_our_team->getData_our_team();
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Our Team");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama');
+        $object->getActiveSheet()->setCellValue('C1', 'Deskripsi');
+        $object->getActiveSheet()->setCellValue('D1', 'Email');
+        $object->getActiveSheet()->setCellValue('E1', 'Gender');
+        $object->getActiveSheet()->setCellValue('F1', 'Tempat Tanggal Lahir');
+        $object->getActiveSheet()->setCellValue('G1', 'Kebangsaan');
+        $object->getActiveSheet()->setCellValue('H1', 'Status');
+        $object->getActiveSheet()->setCellValue('I1', 'Agama');
+        $object->getActiveSheet()->setCellValue('J1', 'Alamat');
+        $object->getActiveSheet()->setCellValue('K1', 'Nomor Telepon');
+        $object->getActiveSheet()->setTitle("Data Our Team");
+
+        foreach ($queryAllour_team as $dataourteam) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $dataourteam->nama);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $dataourteam->deskripsi);
+            $object->getActiveSheet()->setCellValue('D' . $baris, $dataourteam->email);
+            $object->getActiveSheet()->setCellValue('E' . $baris, $dataourteam->jenis_kelamin);
+            $object->getActiveSheet()->setCellValue('F' . $baris, $dataourteam->tempat_tanggal_lahir);
+            $object->getActiveSheet()->setCellValue('G' . $baris, $dataourteam->kebangsaan);
+            $object->getActiveSheet()->setCellValue('H' . $baris, $dataourteam->status);
+            $object->getActiveSheet()->setCellValue('I' . $baris, $dataourteam->agama);
+            $object->getActiveSheet()->setCellValue('J' . $baris, $dataourteam->alamat);
+            $object->getActiveSheet()->setCellValue('K' . $baris, $dataourteam->telpon);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'K'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf()
+    {
+        $queryAllour_team = $this->model_our_team->getData_our_team();
+        $DATA['queryAllPrdk'] = $queryAllour_team;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/our_team/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Our Team.pdf', array('Attachment' => 0));
+    }
+
+    public function excel_riwayat($id)
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Riwayat Pendidikan Our Team" . '.xlsx';
+        $queryAllRiwayat = $this->model_our_team_riwayat_pendidikan->getDatariwayat_pendidikan_ourteam($id);
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Riwayat Our Team");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama Sekolah');
+        $object->getActiveSheet()->setCellValue('C1', 'Type Sekolah');
+        $object->getActiveSheet()->setCellValue('D1', 'Deskripsi');
+        $object->getActiveSheet()->setTitle("Data Riwayat Our Team");
+
+        foreach ($queryAllRiwayat as $datariwayat) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datariwayat->nama_sekolah);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $datariwayat->type_sekolah);
+            $object->getActiveSheet()->setCellValue('D' . $baris, $datariwayat->deskripsi);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'D'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf_riwayat($id)
+    {
+        $queryAllRiwayat = $this->model_our_team_riwayat_pendidikan->getDatariwayat_pendidikan_ourteam($id);
+        $DATA['queryAllPrdk'] = $queryAllRiwayat;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/our_team/riwayat_pendidikan_ourteam/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Riwayat Pendidikan Our Team.pdf', array('Attachment' => 0));
+    }
+
+    public function excel_pengalaman($id)
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Pengalaman Kerja Our Team" . '.xlsx';
+        $queryAllPengalaman = $this->model_our_team_pengalaman_kerja->getDatapengalaman_kerja_ourteam($id);
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Kerja Our Team");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama Pengalaman');
+        $object->getActiveSheet()->setCellValue('C1', 'Tahun Dari');
+        $object->getActiveSheet()->setCellValue('D1', 'Tahun Sampai');
+        $object->getActiveSheet()->setCellValue('E1', 'Deskripsi');
+        $object->getActiveSheet()->setTitle("Data Kerja Our Team");
+
+        foreach ($queryAllPengalaman as $datapengalaman) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datapengalaman->nama_pengalaman);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $datapengalaman->tahun_dari);
+            $object->getActiveSheet()->setCellValue('D' . $baris, $datapengalaman->tahun_sampai);
+            $object->getActiveSheet()->setCellValue('E' . $baris, $datapengalaman->peskripsi);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'E'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf_pengalaman($id)
+    {
+        $queryAllPengalaman = $this->model_our_team_pengalaman_kerja->getDatapengalaman_kerja_ourteam($id);
+        $DATA['queryAllPrdk'] = $queryAllPengalaman;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/our_team/pengalaman_kerja_ourteam/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Pengalaman Kerja Our Team.pdf', array('Attachment' => 0));
+    }
+
+    public function excel_handle($id)
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Handle Pekerjaan Our Team" . '.xlsx';
+        $queryAllHandle = $this->model_our_team_handle_pekerjaan->getData_handle_pekerjaan($id);
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Handle Our Team");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama Project');
+        $object->getActiveSheet()->setCellValue('C1', 'Tahun Dari');
+        $object->getActiveSheet()->setCellValue('D1', 'Tahun Sampai');
+        $object->getActiveSheet()->setCellValue('E1', 'Deskripsi');
+        $object->getActiveSheet()->setTitle("Data Handle Our Team");
+
+        foreach ($queryAllHandle as $datahandle) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datahandle->nama_project);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $datahandle->tahun_dari);
+            $object->getActiveSheet()->setCellValue('D' . $baris, $datahandle->tahun_sampai);
+            $object->getActiveSheet()->setCellValue('E' . $baris, $datahandle->deskripsi);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'E'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf_handle($id)
+    {
+        $queryAllHandle = $this->model_our_team_handle_pekerjaan->getData_handle_pekerjaan($id);
+        $DATA['queryAllPrdk'] = $queryAllHandle;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/our_team/handle_pekerjaan_ourteam/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Handle Pekerjaan Our Team.pdf', array('Attachment' => 0));
+    }
 }

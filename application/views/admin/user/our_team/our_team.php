@@ -1,4 +1,3 @@
-
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
@@ -13,6 +12,13 @@
                     Our Team Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Team
                     </button>
+                    <div class="btn-group" style="float: right; margin-right: 5px;">
+                        <button type="button" class="btn btn-warning text-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Export</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?= base_url('our_team/excel') ?>">Excel</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('our_team/pdf') ?>">Pdf</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="card-body">
                     <?= $this->session->flashdata('pesan'); ?>
@@ -22,7 +28,7 @@
                                 <th class="text-center" width="1">ID</th>
                                 <th class="text-center" width="1">Nama</th>
                                 <th class="text-center" width="1">Deskripsi</th>
-                                <th class="text-center" width="1">Email</th>    
+                                <th class="text-center" width="1">Email</th>
                                 <th class="text-center" width="1">Gender</th>
                                 <th class="text-center" width="1">TTL</th>
                                 <th class="text-center" width="1">Kebangsaan</th>
@@ -39,7 +45,7 @@
                             <?php
                             $count = 0;
                             foreach ($queryAllBlg as $row) {
-                            $count = $count + 1;
+                                $count = $count + 1;
                             ?>
                                 <tr>
                                     <td class="text-center" style="vertical-align: middle;"><?= $count ?></td>
@@ -54,8 +60,10 @@
                                     <td class="text-center" style="vertical-align: middle;"><?= $row->alamat ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><?= $row->telpon ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/our_team/') ?><?= $row->gambar; ?>" width="75"></td>
-                                    <td
-                                     class="text-center" style="vertical-align: middle;"><a href="<?= base_url('our_team/edit_our_team/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a><hr><a href="<?= base_url('our_team/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a><hr><a href="<?= base_url('our_team/detail_our_team/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('our_team/edit_our_team/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>
+                                        <hr><a href="<?= base_url('our_team/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>
+                                        <hr><a href="<?= base_url('our_team/detail_our_team/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
+                                    </td>
                                     <td>
                                         <a href="<?= base_url('our_team/riwayat_pendidikan_ourteam/') . $row->id ?>" class="btn btn-primary mt-2">Riwayat Pendidikan </a>
                                         <a href="<?= base_url('our_team/pengalaman_kerja_ourteam/') . $row->id ?>" class="btn btn-primary mt-2">Pengalaman Kerja </a>

@@ -314,7 +314,6 @@ class produk extends CI_Controller
 
     public function fungsi_hapusfitur($id)
     {
-        $id_produk = $this->input->post('id_produk');
         $title['login'] = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
         $this->model_produkfitur->hapusDataFitur($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
@@ -406,5 +405,187 @@ class produk extends CI_Controller
         $this->model_produksubfitur->hapusDataSubFitur($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function excel()
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Produk" . '.xlsx';
+        $queryAllProduk = $this->model_produk->getDataProduk();
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Produk");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama Produk');
+        $object->getActiveSheet()->setCellValue('C1', 'Judul');
+        $object->getActiveSheet()->setCellValue('D1', 'Deskripsi');
+        $object->getActiveSheet()->setTitle("Data Produk");
+
+        foreach ($queryAllProduk as $dataproduk) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $dataproduk->nama);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $dataproduk->judul);
+            $object->getActiveSheet()->setCellValue('D' . $baris, $dataproduk->deskripsi);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'D'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf()
+    {
+        $queryAllProduk = $this->model_produk->getDataProduk();
+        $DATA['queryAllPrdk'] = $queryAllProduk;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/produk/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Produk.pdf', array('Attachment' => 0));
+    }
+
+    public function excel_fitur($id)
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Fitur Produk" . '.xlsx';
+        $queryAllFitur = $this->model_produkfitur->getDataFitur($id);
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Fitur Produk");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama Fitur');
+        $object->getActiveSheet()->setCellValue('C1', 'Deskripsi Fitur');
+        $object->getActiveSheet()->setTitle("Data Fitur Produk");
+
+        foreach ($queryAllFitur as $datafitur) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datafitur->nama_fitur);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $datafitur->deskripsi_fitur);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'C'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf_fitur($id)
+    {
+        $queryAllFitur = $this->model_produkfitur->getDataFitur($id);
+        $DATA['queryAllPrdk'] = $queryAllFitur;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/produk/fitur/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Fitur Produk.pdf', array('Attachment' => 0));
+    }
+
+    public function excel_subfitur($id)
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data SubFitur Produk" . '.xlsx';
+        $queryAllSubFitur = $this->model_produksubfitur->getDataSubFitur($id);
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data SubFitur Produk");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama SubFitur');
+        $object->getActiveSheet()->setTitle("Data SubFitur Produk");
+
+        foreach ($queryAllSubFitur as $datasubfitur) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datasubfitur->nama_subfitur);
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'B'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf_subfitur($id)
+    {
+        $queryAllSubFitur = $this->model_produksubfitur->getDataSubFitur($id);
+        $DATA['queryAllPrdk'] = $queryAllSubFitur;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/produk/fitur/subfitur/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data SubFitur Produk.pdf', array('Attachment' => 0));
     }
 }

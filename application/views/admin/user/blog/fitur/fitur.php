@@ -26,6 +26,13 @@
                     Fitur Blog Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Fitur
                     </button>
+                    <div class="btn-group" style="float: right; margin-right: 5px;">
+                        <button type="button" class="btn btn-warning text-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Export</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?= base_url('blog/excel_fitur/' . $id_blog) ?>">Excel</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('blog/pdf_fitur/' . $id_blog) ?>">Pdf</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="card-body">
                     <?= $this->session->flashdata('pesan'); ?>

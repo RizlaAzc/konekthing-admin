@@ -37,9 +37,7 @@ class dashboard extends CI_Controller
         $date_yesterday = date('Y-m-d', strtotime('-1 day', strtotime($date_today)));
         $current_month = date('m');
         $current_year = date('Y');
-        $bataswaktu = date('s', strtotime('-300 second'));
-        // var_dump($bataswaktu);
-        // die;
+        $bataswaktu = date('Y-m-d H:i:s', strtotime('-5 minute'));
 
         $pengunjunghariini = $this->db->query("SELECT * FROM visitor WHERE date='$date_today'")->num_rows();
         $pengunjungkemarin = $this->db->query("SELECT * FROM visitor WHERE date='$date_yesterday'")->num_rows();

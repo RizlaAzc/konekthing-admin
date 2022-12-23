@@ -24,6 +24,13 @@
                     Fitur Layanan Tables<button type="button" class="btn btn-primary" style="float: right;" data-bs-toggle="modal" data-bs-target="#tambahModal">
                         Tambah Fitur
                     </button>
+                    <div class="btn-group" style="float: right; margin-right: 5px;">
+                        <button type="button" class="btn btn-warning text-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-print"></i> Export</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?= base_url('layanan/excel_fitur/' . $id_layanan) ?>">Excel</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('layanan/pdf_fitur/' . $id_layanan) ?>">Pdf</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="card-body">
                     <?= $this->session->flashdata('pesan'); ?>

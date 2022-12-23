@@ -9,12 +9,11 @@ class portofolio extends CI_Controller
         $this->load->model('model_kategori_portofolio');
         $this->load->model('model_master_kategori_portofolio');
 
-        if(!$this->session->userdata('email')) {
+        if (!$this->session->userdata('email')) {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">please login!</div>');
             redirect('forms');
-                   
-            }
-   }
+        }
+    }
 
     public function index()
     {
@@ -179,5 +178,66 @@ class portofolio extends CI_Controller
         $this->model_kategori_portofolio->hapusDatakategori_Portofolio($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function excel()
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Portofolio" . '.xlsx';
+        $queryAllPortofolio = $this->model_portofolio->getDataportofolio();
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Portofolio");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Judul');
+        $object->getActiveSheet()->setCellValue('C1', 'Deskripsi');
+        $object->getActiveSheet()->setTitle("Data Portofolio");
+
+        foreach ($queryAllPortofolio as $dataportofolio) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $dataportofolio->judul);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $dataportofolio->deskripsi);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'C'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf()
+    {
+        $queryAllPortofolio = $this->model_portofolio->getDataPortofolio();
+        $DATA['queryAllPrdk'] = $queryAllPortofolio;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/portofolio/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Portofolio.pdf', array('Attachment' => 0));
     }
 }

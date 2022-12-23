@@ -147,7 +147,7 @@ class blog extends CI_Controller
     }
 
     /*
-    Produk_Fitur Section
+    Blog_Fitur Section
     */
 
     public function fitur($id)
@@ -274,5 +274,127 @@ class blog extends CI_Controller
         $this->model_blogfitur->hapusDataFitur($id);
         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Dihapus!</div>');
         redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function excel()
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Blog" . '.xlsx';
+        $queryAllBlog = $this->model_blog->getDataBlog();
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Blog");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Judul');
+        $object->getActiveSheet()->setCellValue('C1', 'Deskripsi');
+        $object->getActiveSheet()->setTitle("Data Blog");
+
+        foreach ($queryAllBlog as $datablog) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datablog->judul);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $datablog->deskripsi);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'C'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf()
+    {
+        $queryAllBlog = $this->model_blog->getDataBlog();
+        $DATA['queryAllBlg'] = $queryAllBlog;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/blog/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Blog.pdf', array('Attachment' => 0));
+    }
+
+    public function excel_fitur($id)
+    {
+        $baris = 2;
+        $no = 1;
+        $filename = "Data Fitur Blog" . '.xlsx';
+        $queryAllFiturBlog = $this->model_blogfitur->getDataFitur($id);
+
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("PT Konekthing");
+        $object->getProperties()->setLastModifiedBy("PT Konekthing");
+        $object->getProperties()->setTitle("Data Fitur Blog");
+        $object->setActiveSheetIndex(0);
+        $object->getActiveSheet()->setCellValue('A1', 'No');
+        $object->getActiveSheet()->setCellValue('B1', 'Nama Fitur');
+        $object->getActiveSheet()->setCellValue('C1', 'Deskripsi Fitur');
+        $object->getActiveSheet()->setTitle("Data Fitur Blog");
+
+        foreach ($queryAllFiturBlog as $datafitur) {
+            $object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+            $object->getActiveSheet()->setCellValue('B' . $baris, $datafitur->nama_fitur);
+            $object->getActiveSheet()->setCellValue('C' . $baris, $datafitur->deskripsi_fitur);
+
+            $baris++;
+        }
+
+        for ($col = 'A'; $col !== 'C'; $col++) {
+            $object->getActiveSheet()
+                ->getColumnDimension($col)
+                ->setAutoSize(true);
+        }
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        $writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
+
+    public function pdf_fitur($id)
+    {
+        $queryAllFiturBlog = $this->model_blogfitur->getDataFitur($id);
+        $DATA['queryAllBlg'] = $queryAllFiturBlog;
+        $this->load->library('dompdf_gen');
+        $this->load->view('admin/user/blog/fitur/pdf', $DATA);
+
+        $paper_size = 'A4';
+        $orientation = 'landscape';
+        $html = $this->output->get_output();
+
+        $this->dompdf->set_paper($paper_size, $orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Data Fitur Blog.pdf', array('Attachment' => 0));
     }
 }
