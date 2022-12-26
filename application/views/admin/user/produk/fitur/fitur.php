@@ -62,7 +62,7 @@
                                     <td class="text-center" style="vertical-align: middle;"><?= $row->nama_fitur ?></td>
                                     <td style="vertical-align: middle;" align="justify"><?= substr($row->deskripsi_fitur, 0, 199) ?><a>...</a></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/produk/fitur/') ?><?= $row->gambar_fitur; ?>" width="75"></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('produk/edit_fitur/') . $row->id . '/' . $id_produk ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('produk/detail_fitur/') . $row->id . '/' . $id_produk ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('produk/edit_fitur/') . $row->id . '/' . $id_produk ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<?php if ($this->session->userdata('role_id') == 2) { ?><a href="<?= base_url('produk/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<?php } ?><a href="<?= base_url('produk/detail_fitur/') . $row->id . '/' . $id_produk ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
                                         <a href="<?= base_url('produk/subfitur/') . $row->id . '/' . $id_produk ?>" class="btn btn-primary mt-2">Sub Fitur</a>
                                     </td>
                                 </tr>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="modal-body">
                     <?= form_open_multipart('produk/fungsi_tambahfitur'); ?>
-                    
+
                     <!-- untuk mengambil id pada our team harus di input dulu -->
                     <input type="hidden" name="id_produk" value="<?= $queryPrdkDetail->id ?>">
                     <div class="form-group">

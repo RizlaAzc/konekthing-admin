@@ -93,11 +93,17 @@
                                 <a <?= $this->uri->segment(1) == 'sosial_media' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('sosial_media') ?>">Sosial Media</a>
                             </nav>
                         </div>
-                        <div class="sb-sidenav-menu-heading">Forms</div>
-                        <a <?= $this->uri->segment(1) == 'register' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('forms/register') ?>">
-                            <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-key"></i></div>
-                            Register
-                        </a>
+                        <?php
+                        if ($this->session->userdata('role_id') == 2) {
+                        ?>
+                            <div class="sb-sidenav-menu-heading">Forms</div>
+                            <a <?= $this->uri->segment(1) == 'register' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('forms/register') ?>">
+                                <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-key"></i></div>
+                                Register
+                            </a>
+                        <?php
+                        }
+                        ?>
                         <div class="sb-sidenav-menu-heading">Other</div>
                         <a <?= $this->uri->segment(1) == 'message' || $this->uri->segment(1) == '' ? 'class="nav-link active"' : '' ?> class="nav-link" href="<?= base_url('message') ?>">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-message"></i></div>

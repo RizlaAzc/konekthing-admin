@@ -45,7 +45,7 @@
                                     <td style="vertical-align: middle;"><?= substr($row->deskripsi, 0, 114) ?><a>...</a></td>
                                     <td style="vertical-align: middle;"><?= $row->url ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/blog/') ?><?= $row->gambar; ?>" width="75"></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('blog/edit_blog/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('blog/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('blog/detail_blog/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a><a href="<?= base_url('blog/fitur/') . $row->id ?>" class="btn btn-primary mt-2">Fitur Blog</a></td>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('blog/edit_blog/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<?php if ($this->session->userdata('role_id') == 2) { ?><a href="<?= base_url('blog/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<?php } ?><a href="<?= base_url('blog/detail_blog/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a><a href="<?= base_url('blog/fitur/') . $row->id ?>" class="btn btn-primary mt-2">Fitur Blog</a></td>
                                 </tr>
                             <?php
                             }

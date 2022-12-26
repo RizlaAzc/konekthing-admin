@@ -57,7 +57,7 @@
                                     <td class="text-center" style="vertical-align: middle;"><?= $row->nama_fitur ?></td>
                                     <td style="vertical-align: middle;" align="justify"><?= substr($row->deskripsi_fitur, 0, 109) ?><a>...</a></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/blog/fitur/') ?><?= $row->gambar_fitur; ?>" width="75"></td>
-                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('blog/edit_fitur/') . $row->id . '/' . $id_blog ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<a href="<?= base_url('blog/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<a href="<?= base_url('blog/detail_fitur/') . $row->id . '/' . $id_blog ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
+                                    <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('blog/edit_fitur/') . $row->id . '/' . $id_blog ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>|<?php if ($this->session->userdata('role_id') == 2) { ?><a href="<?= base_url('blog/fungsi_hapusfitur/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>|<?php } ?><a href="<?= base_url('blog/detail_fitur/') . $row->id . '/' . $id_blog ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a></td>
                                 </tr>
                             <?php
                             }

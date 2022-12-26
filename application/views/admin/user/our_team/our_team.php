@@ -61,8 +61,8 @@
                                     <td class="text-center" style="vertical-align: middle;"><?= $row->telpon ?></td>
                                     <td class="text-center" style="vertical-align: middle;"><img src="<?= base_url('assets/gambar/our_team/') ?><?= $row->gambar; ?>" width="75"></td>
                                     <td class="text-center" style="vertical-align: middle;"><a href="<?= base_url('our_team/edit_our_team/') . $row->id ?>"><i class="fa-solid fa-pen-to-square" style="margin-right: 7px;"></i></a>
-                                        <hr><a href="<?= base_url('our_team/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>
-                                        <hr><a href="<?= base_url('our_team/detail_our_team/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
+                                        <hr><?php if ($this->session->userdata('role_id') == 2) { ?><a href="<?= base_url('our_team/fungsi_hapus/') . $row->id ?>"><i class="fa-solid fa-trash-can" style="margin-left: 7px; margin-right: 7px;"></i></a>
+                                            <hr><?php } ?><a href="<?= base_url('our_team/detail_our_team/') . $row->id ?>"><i class="fa-solid fa-circle-info" style="margin-left: 7px;"></i></a>
                                     </td>
                                     <td>
                                         <a href="<?= base_url('our_team/riwayat_pendidikan_ourteam/') . $row->id ?>" class="btn btn-primary mt-2">Riwayat Pendidikan </a>
