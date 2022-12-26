@@ -14,7 +14,7 @@
                                 <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" value="<?= set_value('email'); ?>">
+                                <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" value="<?= set_value('email'); ?>">
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="form-group row">
@@ -24,6 +24,16 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
+                                </div>
+                            </div>
+                            <div class="form-group text-center mt-2">
+                                <div class="input-group justify-content-center mb-3">
+                                    <div class="input-group-text" style="margin-right: 15px;">
+                                        <input class="form-check-input mt-0" type="radio" name="role_id" value="2"> &nbsp;Admin
+                                    </div>
+                                    <div class="input-group-text" style="margin-right: 15px;">
+                                        <input class="form-check-input mt-0" type="radio" name="role_id" value="1"> &nbsp;Operator
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">

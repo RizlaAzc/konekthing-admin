@@ -8,6 +8,7 @@ class forms extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('form_validation');
+		date_default_timezone_set('Asia/Jakarta');
 	}
 
 	public function index()
@@ -105,15 +106,16 @@ class forms extends CI_Controller
 			$this->load->view('admin/forms/register');
 			$this->load->view('footer-forms');
 		} else {
+			$role_id = $this->input->post('role_id');
 
 			$data = [
 				'nama' => htmlspecialchars($this->input->post('nama', true)),
 				'email' => htmlspecialchars($this->input->post('email', true)),
 				'image' => 'default.png',
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-				'role_id' => 2,
+				'role_id' => $role_id,
 				'is_active' => 1,
-				'date_created' => time()
+				'date_created' => date('Y-m-d H:i:s')
 			];
 
 			$this->db->insert('login', $data);

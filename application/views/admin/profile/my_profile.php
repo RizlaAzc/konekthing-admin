@@ -21,7 +21,7 @@
                     <div class="card-body">
                       <h5 class="card-title"><?= $login['nama']; ?></h5>
                       <p class="card-text"><?= $login['email']; ?></p>
-                      <p class="card-text"><small class="text-muted">memeber since <?= date('d m y -t', $login['date_created']); ?></small></p>
+                      <p class="card-text"><small class="text-muted">member since :<br><?= date($login['date_created']); ?></small></p>
                     </div>
                   </div>
                 </div>
